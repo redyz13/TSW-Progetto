@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="it">
   <head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
   </head>
   <body>
-    <form action="Init" method="get">
-      <label for="writing">Text: </label>
-      <input type="text" name="write" id="writing" />
-      <input type="submit" value="Send" />
+    <form action="SaveMaglietta" method="post" enctype="multipart/form-data">
+      <!-- <label>Nome: <input type="text" name = "nome"></label>
+      <label>Prezzo: <input type="text" name = "prezzo"></label>
+      <label>IVA: <input type="text" name = "IVA"></label>
+      <label>Colore: <input type="text" name = "colore"></label>
+      <label>Tipo: <input type="text" name = "tipo"></label> -->
+      <label>Grafica: <input type="file" name="grafica" accept="image/*"></label>
+      <input type="submit" value="Carica">
     </form>
   </body>
 </html>
