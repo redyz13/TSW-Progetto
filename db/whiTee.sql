@@ -10,5 +10,69 @@ CREATE TABLE Maglietta (
     prezzo FLOAT DEFAULT 0 NOT NULL,
     IVA INT DEFAULT 0 NOT NULL,
     colore VARCHAR(30) NOT NULL,
-    tipo VARCHAR(30) NOT NULL
+    tipo VARCHAR(50) NOT NULL,
+    grafica VARCHAR(400) NOT NULL
 );
+
+DROP TABLE IF EXISTS Taglia;
+
+CREATE TABLE Taglia (
+	TG INT PRIMARY KEY AUTO_INCREMENT
+);
+
+DROP TABLE IF EXISTS Misura;
+
+CREATE TABLE Misura (
+	ID INT NOT NULL REFERENCES Maglietta(ID),
+    TG INT NOT NULL REFERENCES Taglia(TG),
+    quantita INT DEFAULT 0 NOT NULL
+);
+
+DROP TABLE IF EXISTS Utente;
+
+CREATE TABLE Utente (
+	username VARCHAR(30) PRIMARY KEY NOT NULL,
+    pwd VARCHAR(64) NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    cognome VARCHAR(30) NOT NULL,
+    email VARCHAR(40) NOT NULL,
+    dataNascita DATE NOT NULL,
+    numCarta CHAR(16) NOT NULL,
+    dataScadenza DATE NOT NULL,
+    cap CHAR(5) NOT NULL,
+    via VARCHAR(70) NOT NULL,
+    citta VARCHAR (30) NOT NULL
+);
+
+DROP TABLE IF EXISTS Recensione;
+
+CREATE TABLE Recensione (
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+    IDMaglietta INT NOT NULL REFERENCES Maglietta(ID),
+    username VARCHAR(30) NOT NULL REFERENCES Utente(ID),
+    contenuto VARCHAR(2000) NOT NULL
+);
+
+DROP TABLE IF EXISTS Ordine;
+
+CREATE TABLE Ordine (
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL REFERENCES Utente(ID),
+    prezzoTotale FLOAT DEFAULT 0 NOT NULL,
+    dataConsegna DATE NOT NULL,
+    dataOrdine DATE NOT NULL,
+    cap CHAR(5) NOT NULL,
+    via VARCHAR(70) NOT NULL,
+    citta VARCHAR (30) NOT NULL
+);
+
+DROP TABLE IF EXISTS Acquisto;
+
+CREATE TABLE Acquisto (
+	IDOrdine INT NOT NULL REFERENCES Ordine(ID),
+    IDMaglietta INT NOT NULL REFERENCES Maglietta(ID),
+    quantita INT DEFAULT 1 NOT NULL,
+    immagine VARCHAR(400),
+    prezzoAq FLOAT DEFAULT 0 NOT NULL,
+    ivaAq INT DEFAULT 0 NOT NULL
+)
