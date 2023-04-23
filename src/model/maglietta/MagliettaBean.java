@@ -2,7 +2,7 @@ package model.maglietta;
 
 public class MagliettaBean {
     private int ID, IVA;
-    private String nome, colore, tipo, url;
+    private String nome, colore, tipo, grafica;
     private float prezzo;
 
     public int getID() {
@@ -41,16 +41,14 @@ public class MagliettaBean {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo(String tipo) { this.tipo = tipo; }
+
+    public String getGrafica() {
+        return grafica;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
+    public void setGrafica(String grafica) {
+        this.grafica = grafica;
     }
 
     public float getPrezzo() {
@@ -69,7 +67,7 @@ public class MagliettaBean {
                 ", nome='" + nome + '\'' +
                 ", colore='" + colore + '\'' +
                 ", tipo='" + tipo + '\'' +
-                ", url='" + url + '\'' +
+                ", grafica='" + grafica + '\'' +
                 ", prezzo=" + prezzo +
                 '}';
     }

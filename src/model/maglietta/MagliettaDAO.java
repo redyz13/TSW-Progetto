@@ -98,19 +98,26 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     // Salva i dati dell'oggetto maglietta nel database (SQL Insert)
     @Override
     public void doSave(MagliettaBean maglietta) throws SQLException {
+        Connection connection;
+        PreparedStatement preparedStatement;
 
-        String query = "INSERT INTO " + TABLE_NAME + " (nome, prezzo, IVA, colore, tipo) " + "VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (nome, prezzo, IVA, colore, tipo, grafica)" + " VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, maglietta.getNome());
             preparedStatement.setFloat(2, maglietta.getPrezzo());
             preparedStatement.setInt(3, maglietta.getIVA());
             preparedStatement.setString(4, maglietta.getColore());
             preparedStatement.setString(5, maglietta.getTipo());
+            preparedStatement.setString(6, maglietta.getGrafica());
 
             preparedStatement.executeUpdate();
-            connection.commit();
+            //connection.commit();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
