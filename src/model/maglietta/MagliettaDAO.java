@@ -152,6 +152,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
         magliettaBean.setIVA(resultSet.getInt("IVA"));
         magliettaBean.setColore(resultSet.getString("colore"));
         magliettaBean.setTipo(resultSet.getString("tipo"));
+        magliettaBean.setGrafica(resultSet.getString("grafica"));
     }
 
     public int getMaxID() throws SQLException {
