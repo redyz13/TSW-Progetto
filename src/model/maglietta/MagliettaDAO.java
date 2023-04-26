@@ -153,4 +153,31 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
         magliettaBean.setColore(resultSet.getString("colore"));
         magliettaBean.setTipo(resultSet.getString("tipo"));
     }
+<<<<<<< Updated upstream
+=======
+
+    public int getMaxID() throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String query = "SELECT MAX(ID) AS MAX FROM " + TABLE_NAME;
+        int ID;
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            ID = resultSet.getInt("MAX");
+
+        } finally {
+            if (preparedStatement != null)
+                preparedStatement.close();
+            if (connection != null)
+                connection.close();
+        }
+
+        return ID;
+    }
+>>>>>>> Stashed changes
 }
