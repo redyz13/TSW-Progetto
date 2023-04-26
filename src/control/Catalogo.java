@@ -18,8 +18,7 @@ public class Catalogo extends HttpServlet {
         MagliettaDAO magliettaDAO = new MagliettaDAO();
 
         try {
-            req.removeAttribute("magliette");
-            req.setAttribute("magliette", magliettaDAO.doRetriveAll(""));
+            req.setAttribute("magliette", magliettaDAO.doRetriveAll(req.getParameter("ordine")));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
