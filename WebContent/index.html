@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogo</title>
+    <title>Insert</title>
   </head>
   <body>
     <form action="SaveMaglietta" method="post" enctype="multipart/form-data">
-      <label>Nome: <input type="text" name = "nome"></label> <br/>
-      <label>Prezzo: <input type="text" name = "prezzo"></label><br/>
-      <label>IVA: <input type="text" name = "IVA"></label><br/>
+      <label>Nome: <input type="text" name="nome" required autocomplete="off" ></label> <br/>
+      <label>Prezzo: <input type="text" name="prezzo" required autocomplete="off" ></label><br/>
+      <label>IVA: <input type="text" name="IVA" required autocomplete="off" ></label><br/>
       <label for="colore">Colore: </label>
       <select name="colore" id="colore">
         <option value="BLU">Blu</option>
         <option value="ROSSO">Rosso</option>
         <option value="GIALLO">Giallo</option>
-        <option value="VERD">Verde</option>
+        <option value="VERDE">Verde</option>
         <option value="VIOLA">Viola</option>
         <option value="ROSA">Rosa</option>
         <option value="AZZURRO">Azzurro</option>
@@ -24,14 +24,14 @@
         <option value="BIANCO">Bianco</option>
 
       </select><br/>
-      <label for="tipo">Tipo:</label>
+      <label for="tipo" >Tipo:</label>
       <select name="tipo" id="tipo">
         <option value="ANIMEMANGA">Anime e Manga</option>
         <option value="FILMSERETV">Film e Serie TV</option>
         <option value="GRLPWR">GRLPWR: Girl Power</option>
         <option value="FUMETTI">Fumetti</option>
       </select><br/>
-      <label>Grafica: <input type="file" name="grafica" accept="image/*"></label>
+      <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label>
       <input type="submit" value="Carica">
     </form>
   </body>
