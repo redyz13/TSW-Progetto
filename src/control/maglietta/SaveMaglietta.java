@@ -3,6 +3,7 @@ package control.maglietta;
 import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -41,22 +42,10 @@ public class SaveMaglietta extends HttpServlet {
 
         String relativePath = "grafiche" + File.separator + nomeFile;
 
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
-        PrintWriter printWriter = resp.getWriter();
-
-        try {
-            outputStream = new FileOutputStream(PATH + nomeFile);
-            inputStream = grafica.getInputStream();
+        try (OutputStream outputStream = new FileOutputStream(PATH + nomeFile); InputStream inputStream = grafica.getInputStream()) {
             inputStream.transferTo(outputStream);
         } catch (IOException e) {
-            // TODO cose di debug
-            printWriter.println("Non è stato trovato il file " + nomeFile + " " + PATH);
-        } finally {
-            if (inputStream != null)
-                inputStream.close();
-            if (outputStream != null)
-                outputStream.close();
+            throw new RuntimeException();
         }
 
         MagliettaBean maglietta = new MagliettaBean();
@@ -69,10 +58,11 @@ public class SaveMaglietta extends HttpServlet {
 
         try {
             magliettaDAO.doSave(maglietta);
-            printWriter.println(nome + " " + colore + " " + tipo + " " + prezzo + " " + IVA + " " + relativePath + " " + nomeFile);
-            printWriter.println("maglietta aggiunta al database");
         } catch (SQLException e) {
-            printWriter.println("maglietta non aggiunta al database");
+            throw new RuntimeException();
         }
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Catalogo");
+        requestDispatcher.forward(req, resp);
     }
 }

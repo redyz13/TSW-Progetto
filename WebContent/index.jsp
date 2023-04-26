@@ -80,9 +80,9 @@
         <option value="GRLPWR">GRLPWR: Girl Power</option>
         <option value="FUMETTI">Fumetti</option>
       </select> <br>
-      <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label>
+      <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label> <br>
       <input type="submit" value="Carica">
-    </fieldset>
+    </fieldset> 
   </form>
 </body>
 
