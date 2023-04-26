@@ -27,8 +27,17 @@ public class SaveMaglietta extends HttpServlet {
         int IVA = Integer.parseInt(req.getParameter("IVA"));
         float prezzo = Float.parseFloat(req.getParameter("prezzo"));
         Part grafica = req.getPart("grafica");
-        String nomeFile = grafica.getSubmittedFileName();
-        String relativePath = "db" + File.separator + "grafiche" + File.separator + nomeFile;
+
+        MagliettaDAO magliettaDAO = new MagliettaDAO();
+        String nomeFile;
+
+        try {
+            nomeFile = magliettaDAO.getMaxID() + 1 + tipo;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        String relativePath = "grafiche" + File.separator + nomeFile;
 
         InputStream inputStream = null;
         OutputStream outputStream = null;
@@ -56,11 +65,9 @@ public class SaveMaglietta extends HttpServlet {
         maglietta.setIVA(IVA);
         maglietta.setGrafica(relativePath);
 
-        MagliettaDAO magliettaDAO = new MagliettaDAO();
-
         try {
             magliettaDAO.doSave(maglietta);
-            printWriter.println(nome + colore+ tipo + prezzo + IVA + relativePath);
+            printWriter.println(nome + " " + colore + " " + tipo + " " + prezzo + " " + IVA + " " + relativePath + " " + nomeFile);
             printWriter.println("maglietta aggiunta al database");
         } catch (SQLException e) {
             printWriter.println("maglietta non aggiunta al database");
