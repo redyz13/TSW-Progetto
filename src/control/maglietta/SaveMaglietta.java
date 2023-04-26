@@ -30,9 +30,11 @@ public class SaveMaglietta extends HttpServlet {
 
         MagliettaDAO magliettaDAO = new MagliettaDAO();
         String nomeFile;
+        int extensionIndex = grafica.getSubmittedFileName().indexOf(".");
 
         try {
-            nomeFile = magliettaDAO.getMaxID() + 1 + tipo;
+            nomeFile = magliettaDAO.getMaxID() + 1 + tipo +
+                    grafica.getSubmittedFileName().substring(extensionIndex);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
