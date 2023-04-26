@@ -3,7 +3,6 @@ package control.maglietta;
 import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -62,7 +61,6 @@ public class SaveMaglietta extends HttpServlet {
             throw new RuntimeException();
         }
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Catalogo");
-        requestDispatcher.forward(req, resp);
+        resp.sendRedirect("./Catalogo");
     }
 }
