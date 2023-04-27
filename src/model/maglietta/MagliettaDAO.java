@@ -178,27 +178,4 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
         return ID;
     }
-
-    public int getMaxID() throws SQLException {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        String query = "SELECT MAX(ID) AS MAX FROM " + TABLE_NAME;
-        int ID = -1;
-
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(query);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            ID = resultSet.getInt("MAX");
-
-        } finally {
-            if (preparedStatement != null)
-                preparedStatement.close();
-            if (connection != null)
-                connection.close();
-        }
-
-        return ID;
-    }
 }
