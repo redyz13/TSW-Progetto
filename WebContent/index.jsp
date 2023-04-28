@@ -59,7 +59,7 @@
       <td><%= maglietta.getIVA() %></td>
       <td><%= maglietta.getColore() %></td>
       <td><%= maglietta.getTipo() %></td>
-      <td><img src="/images/<%= maglietta.getGrafica() %>"></td>
+      <td><img src="<%= maglietta.getGrafica() %>"></td>
     </tr>
     <%
       // Parentesi del for e dell'if
