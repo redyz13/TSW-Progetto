@@ -1,16 +1,98 @@
 table,
 th,
 td {
-  border: 1px solid black;
+  border: none;
   border-collapse: collapse;
 }
 
 th,
 td {
   padding: 5px;
+  margin-bottom: 10px;
 }
-
+#prodotti{
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
 input,
 select {
   margin-bottom: 1%;
+}
+
+td img{
+  height: 150px;
+  width: auto;
+  filter: grayscale(30%);
+  transition: filter 0.5s linear;
+}
+
+td img:hover{
+  filter: grayscale(0%);
+}
+
+.dropbtn {
+    position: relative;
+    float: right;
+    background-color: #FFFFFF;
+    color: #252525;
+    padding: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+.dropdown:hover .dropbtn {
+  background-color: #8f8f8f;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#prodotti tr th,
+#prodotti tr td {
+  table-layout: fixed;
+}
+#prodotti tr td{
+  padding-left: 2%
+}
+
+#inserisci{
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#inserisci .input.text {
+  background-color: #dddddd;
+  border-radius: 2%;
+}
+
+#inserisci .input.text label:hover{
+  top:-16px;
 }

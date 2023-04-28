@@ -22,14 +22,32 @@
   <h1>Magliette</h1>
 
   <table>
-    <tr>
-      <th><a href="Catalogo?ordine=nome">Nome</a></th>
-      <th><a href="Catalogo?ordine=prezzo">Prezzo</a></th>
-      <th><a href="Catalogo?ordine=IVA">IVA</a></th>
-      <th><a href="Catalogo?ordine=colore">Colore</a></th>
-      <th><a href="Catalogo?ordine=tipo">Tipo</a></th>
-      <th><a href="Catalogo?ordine=grafica">Grafica</a></th>
-    </tr>
+    <table id="prodotti">
+      <tr>
+          <td colspan="6" align="right">
+              <div class="dropdown">
+                  <button class="dropbtn">Ordina per &dtrif;</button>
+                  <div class="dropdown-content">
+                      <a href="Catalogo?ordine=nome">Nome</a>
+                      <a href="Catalogo?ordine=prezzo">Prezzo</a>
+                      <a href="Catalogo?ordine=IVA">IVA</a>
+                      <a href="Catalogo?ordine=colore">Colore</a>
+                      <a href="Catalogo?ordine=tipo">Tipo</a>
+                      <a href="Catalogo?ordine=grafica">Grafica</a>
+                  </div>
+              </div>
+              <br>
+              <br>
+          </td>
+      </tr>
+      <tr>
+        <th>Nome</th>
+        <th>Prezzo</th>
+        <th>IVA</th>
+        <th>Colore</th>
+        <th>Tipo</th>
+        <th>Grafica</th>
+      </tr>
     <%
       if (magliette != null && magliette.size() != 0) {
         for (Object o : magliette) {
@@ -41,7 +59,7 @@
       <td><%= maglietta.getIVA() %></td>
       <td><%= maglietta.getColore() %></td>
       <td><%= maglietta.getTipo() %></td>
-      <td><%= maglietta.getGrafica() %></td>
+      <td><img src="/images/<%= maglietta.getGrafica() %>"></td>
     </tr>
     <%
       // Parentesi del for e dell'if
@@ -52,7 +70,24 @@
     </tr>
     <% } %>
   </table>
-
+  <form action="SaveMaglietta" method="post" enctype="multipart/form-data" id="inserisci">
+  <fieldset>
+    <legend>Compilare i seguenti campi</legend>
+    <div class="input text">
+      <input type="text" name="nome" required autocomplete="off" placeholder=" ">
+      <label>Nome</label>
+    </div>
+    <div class="input text">
+      <input type="text" name="prezzo" required autocomplete="off" placeholder=" ">
+      <label>Prezzo</label>
+    </div>
+    <div class="input text">
+      <input type="text" name="IVA" required autocomplete="off" placeholder=" ">
+      <label>IVA</label>
+    </div>
+    <input type="submit" value="Carica">
+  </fieldset>
+  </form>
   <h1>Inserimento magliette</h1>
 
   <form action="SaveMaglietta" method="post" enctype="multipart/form-data">
