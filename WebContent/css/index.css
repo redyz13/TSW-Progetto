@@ -1,3 +1,12 @@
+*{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
 table,
 th,
 td {
@@ -10,6 +19,20 @@ td {
   padding: 5px;
   margin-bottom: 10px;
 }
+
+tr#element th,
+tr#element td{
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
+tr#drop td{
+  text-align: right;
+  align-content: right;
+  align-items: right;
+}
+
 #prodotti{
   margin-left: auto;
   margin-right: auto;
@@ -19,7 +42,6 @@ input,
 select {
   margin-bottom: 1%;
 }
-
 td img{
   height: 150px;
   width: auto;
@@ -63,7 +85,6 @@ td img:hover{
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .dropdown-content a:hover {
@@ -79,7 +100,7 @@ td img:hover{
   table-layout: fixed;
 }
 #prodotti tr td{
-  padding-left: 2%
+  padding-left: 2%;
 }
 
 #inserisci{
@@ -91,8 +112,4 @@ td img:hover{
 #inserisci .input.text {
   background-color: #dddddd;
   border-radius: 2%;
-}
-
-#inserisci .input.text label:hover{
-  top:-16px;
 }

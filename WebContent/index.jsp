@@ -1,4 +1,6 @@
 <%@ page import="java.util.Collection" %>
+<%@ page import="java.math.RoundingMode" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ page import="model.maglietta.MagliettaBean" %>
 
 <% Collection<?> magliette = (Collection<?>) request.getAttribute("magliette");
@@ -19,12 +21,11 @@
 
 <body>
   <%@ include file="pages/header.html" %>
-  <h1>Magliette</h1>
+  <h1><a href="Catalogo">Magliette</a></h1>
 
-  <table>
     <table id="prodotti">
-      <tr>
-          <td colspan="6" align="right">
+      <tr id="drop">
+          <td colspan="6" >
               <div class="dropdown">
                   <button class="dropbtn">Ordina per &dtrif;</button>
                   <div class="dropdown-content">
@@ -40,7 +41,7 @@
               <br>
           </td>
       </tr>
-      <tr>
+      <tr id="element">
         <th>Nome</th>
         <th>Prezzo</th>
         <th>IVA</th>
@@ -50,16 +51,37 @@
       </tr>
     <%
       if (magliette != null && magliette.size() != 0) {
+    	DecimalFormat df = new DecimalFormat("#.##");
+    	df.setRoundingMode(RoundingMode.FLOOR);
         for (Object o : magliette) {
           MagliettaBean maglietta = (MagliettaBean) o;
+          String prezzo = df.format(maglietta.getPrezzo());
+          if(prezzo.matches("[0-9]+")){
+        	  prezzo=prezzo+".00";
+          }
+          String tipo="";
+          switch(maglietta.getTipo()){
+          case "ANIMEMANGA": 
+        	  tipo=tipo+"Anime e Manga";
+          	  break;
+          case "FILMSERIETV":
+        	  tipo=tipo+"Film e Serie TV";
+        	  break;
+          case "GRLPWR":
+        	  tipo=tipo+"Girl Power";
+        	  break;
+          case "FUMETTI":
+        	  tipo=tipo+"Fumetti";
+        	  break;
+          }
     %>
-    <tr>
+    <tr id="element">
       <td><%= maglietta.getNome() %></td>
-      <td><%= maglietta.getPrezzo() %></td>
+      <td>&euro; &nbsp;<%= prezzo %></td>
       <td><%= maglietta.getIVA() %></td>
       <td><%= maglietta.getColore() %></td>
-      <td><%= maglietta.getTipo() %></td>
-      <td><img src="<%= maglietta.getGrafica() %>"></td>
+      <td><%= tipo %></td>
+      <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
     </tr>
     <%
       // Parentesi del for e dell'if
@@ -70,24 +92,7 @@
     </tr>
     <% } %>
   </table>
-  <form action="SaveMaglietta" method="post" enctype="multipart/form-data" id="inserisci">
-  <fieldset>
-    <legend>Compilare i seguenti campi</legend>
-    <div class="input text">
-      <input type="text" name="nome" required autocomplete="off" placeholder=" ">
-      <label>Nome</label>
-    </div>
-    <div class="input text">
-      <input type="text" name="prezzo" required autocomplete="off" placeholder=" ">
-      <label>Prezzo</label>
-    </div>
-    <div class="input text">
-      <input type="text" name="IVA" required autocomplete="off" placeholder=" ">
-      <label>IVA</label>
-    </div>
-    <input type="submit" value="Carica">
-  </fieldset>
-  </form>
+  
   <h1>Inserimento magliette</h1>
 
   <form action="SaveMaglietta" method="post" enctype="multipart/form-data">
