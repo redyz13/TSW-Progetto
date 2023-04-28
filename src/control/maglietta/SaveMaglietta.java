@@ -16,7 +16,7 @@ import java.sql.SQLException;
 @WebServlet("/SaveMaglietta")
 @MultipartConfig
 public class SaveMaglietta extends HttpServlet {
-    private static final String PATH = System.getenv("WHITEE_ROOT") + File.separator + "db" +
+    private static final String PATH = System.getenv("WHITEE_ROOT") + File.separator + "images" +
             File.separator + "grafiche" + File.separator;
 
     @Override
@@ -39,7 +39,7 @@ public class SaveMaglietta extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        String relativePath = "grafiche" + File.separator + nomeFile;
+        String relativePath = "images" + File.separator + "grafiche" + File.separator + nomeFile;
 
         try (OutputStream outputStream = new FileOutputStream(PATH + nomeFile); InputStream inputStream = grafica.getInputStream()) {
             inputStream.transferTo(outputStream);

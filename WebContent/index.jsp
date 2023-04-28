@@ -21,25 +21,23 @@
 
 <body>
   <%@ include file="pages/header.html" %>
-  <h1><a href="Catalogo">Magliette</a></h1>
+  <h1> <a href="Catalogo">Magliette</a> </h1>
 
     <table id="prodotti">
       <tr id="drop">
-          <td colspan="6" >
-              <div class="dropdown">
-                  <button class="dropbtn">Ordina per &dtrif;</button>
-                  <div class="dropdown-content">
-                      <a href="Catalogo?ordine=nome">Nome</a>
-                      <a href="Catalogo?ordine=prezzo">Prezzo</a>
-                      <a href="Catalogo?ordine=IVA">IVA</a>
-                      <a href="Catalogo?ordine=colore">Colore</a>
-                      <a href="Catalogo?ordine=tipo">Tipo</a>
-                      <a href="Catalogo?ordine=grafica">Grafica</a>
-                  </div>
-              </div>
-              <br>
-              <br>
-          </td>
+        <td colspan="6" >
+          <div class="dropdown">
+            <button class="dropbtn">Ordina per &dtrif;</button>
+            <div class="dropdown-content">
+              <a href="Catalogo?ordine=nome">Nome</a>
+              <a href="Catalogo?ordine=prezzo">Prezzo</a>
+              <a href="Catalogo?ordine=colore">Colore</a>
+              <a href="Catalogo?ordine=tipo">Tipo</a>
+            </div>
+          </div>
+          <br>
+          <br>
+        </td>
       </tr>
       <tr id="element">
         <th>Nome</th>
@@ -53,34 +51,36 @@
       if (magliette != null && magliette.size() != 0) {
     	DecimalFormat df = new DecimalFormat("#.##");
     	df.setRoundingMode(RoundingMode.FLOOR);
+
         for (Object o : magliette) {
           MagliettaBean maglietta = (MagliettaBean) o;
           String prezzo = df.format(maglietta.getPrezzo());
-          if(prezzo.matches("[0-9]+")){
-        	  prezzo=prezzo+".00";
-          }
-          String tipo="";
+
+          if (prezzo.matches("[0-9]+"))
+        	  prezzo += ".00";
+
+          String tipo = "";
           switch(maglietta.getTipo()){
-          case "ANIMEMANGA": 
-        	  tipo=tipo+"Anime e Manga";
-          	  break;
-          case "FILMSERIETV":
-        	  tipo=tipo+"Film e Serie TV";
-        	  break;
-          case "GRLPWR":
-        	  tipo=tipo+"Girl Power";
-        	  break;
-          case "FUMETTI":
-        	  tipo=tipo+"Fumetti";
-        	  break;
+            case "ANIMEMANGA":
+                 tipo += "Anime e Manga";
+                 break;
+            case "FILMSERIETV":
+                 tipo += "Film e Serie TV";
+                 break;
+            case "GRLPWR":
+                 tipo +="Girl Power";
+                 break;
+            case "FUMETTI":
+                 tipo += "Fumetti";
+                 break;
           }
     %>
     <tr id="element">
-      <td><%= maglietta.getNome() %></td>
-      <td>&euro; &nbsp;<%= prezzo %></td>
-      <td><%= maglietta.getIVA() %></td>
-      <td><%= maglietta.getColore() %></td>
-      <td><%= tipo %></td>
+      <td><%= maglietta.getNome() %> </td>
+      <td>&euro;&nbsp;<%= prezzo %> </td>
+      <td><%= maglietta.getIVA() %> </td>
+      <td><%= maglietta.getColore() %> </td>
+      <td><%= tipo %> </td>
       <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
     </tr>
     <%
@@ -92,7 +92,7 @@
     </tr>
     <% } %>
   </table>
-  
+
   <h1>Inserimento magliette</h1>
 
   <form action="SaveMaglietta" method="post" enctype="multipart/form-data">
@@ -125,7 +125,7 @@
 
       <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label> <br>
       <input type="submit" value="Carica">
-    </fieldset> 
+    </fieldset>
   </form>
   <%@ include file="pages/footer.html" %>
 </body>
