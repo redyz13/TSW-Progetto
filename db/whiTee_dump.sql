@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: whiTee
 -- ------------------------------------------------------
--- Server version	8.0.32-0ubuntu0.22.04.2
+-- Server version	8.0.32-0ubuntu0.20.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -66,7 +66,7 @@ CREATE TABLE `Maglietta` (
 
 LOCK TABLES `Maglietta` WRITE;
 /*!40000 ALTER TABLE `Maglietta` DISABLE KEYS */;
-INSERT INTO `Maglietta` VALUES (1,'Mercoledi',15,3,'BIANCO','FILMSERIETV','images\\grafiche\\1FILMSERIETV.jpg'),(2,'GameofThrones',15,3,'BLU','FILMSERIETV','images\\grafiche\\2FILMSERIETV.jpg'),(3,'StrangerThings',15,3,'BIANCO','FILMSERIETV','images\\grafiche\\3FILMSERIETV.jpg'),(4,'BudSpencer',15,3,'NERO','FILMSERIETV','images\\grafiche\\4FILMSERIETV.png'),(5,'Naruto',16,3,'NERO','ANIMEMANGA','images\\grafiche\\5ANIMEMANGA.jpg'),(6,'Anime',12,3,'NERO','ANIMEMANGA','images\\grafiche\\6ANIMEMANGA.jpg'),(7,'JojoReference',18,3,'BLU','ANIMEMANGA','images\\grafiche\\7ANIMEMANGA.png'),(8,'DemonSlayer',23,3,'BLU','ANIMEMANGA','images\\grafiche\\8ANIMEMANGA.png'),(9,'Kuromi',25,3,'NERO','GRLPWR','images\\grafiche\\9GRLPWR.png'),(10,'SailorMoon',17,3,'BIANCO','GRLPWR','images\\grafiche\\10GRLPWR.png'),(11,'Evangelion',15,3,'NERO','FILMSERIETV','images\\grafiche\\11ANIMEMANGA.jpg');
+INSERT INTO `Maglietta` VALUES (1,'Mercoledi',15,3,'Bianco','Film e Serie TV','images\\grafiche\\1FILMSERIETV.jpg'),(2,'Game of Thrones',15,3,'Blu','Film e Serie TV','images\\grafiche\\2FILMSERIETV.jpg'),(3,'Stranger Things',15,3,'Bianco','Film e Serie TV','images\\grafiche\\3FILMSERIETV.jpg'),(4,'Bud Spencer',15,3,'Nero','Film e Serie TV','images\\grafiche\\4FILMSERIETV.png'),(5,'Naruto',16,3,'Nero','Anime e Manga','images\\grafiche\\5ANIMEMANGA.jpg'),(6,'Anime',12,3,'Nero','Anime e Manga','images\\grafiche\\6ANIMEMANGA.jpg'),(7,'JoJo Reference',18,3,'Blu','Anime e Manga','images\\grafiche\\7ANIMEMANGA.png'),(8,'Demon Slayer',23,3,'Blu','Anime e Manga','images\\grafiche\\8ANIMEMANGA.png'),(9,'Kuromi',25,3,'Nero','Girl Power','images\\grafiche\\9GRLPWR.png'),(10,'Sailor Moon',17,3,'Bianco','Girl Power','images\\grafiche\\10GRLPWR.png'),(11,'Evangelion',15,3,'NERO','Film e Serie TV','images\\grafiche\\11ANIMEMANGA.jpg');
 /*!40000 ALTER TABLE `Maglietta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-28 12:05:53
+-- Dump completed on 2023-04-28 12:46:50

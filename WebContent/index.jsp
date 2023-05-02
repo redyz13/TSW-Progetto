@@ -49,38 +49,22 @@
       </tr>
     <%
       if (magliette != null && magliette.size() != 0) {
-    	DecimalFormat df = new DecimalFormat("#.##");
-    	df.setRoundingMode(RoundingMode.FLOOR);
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.FLOOR);
 
         for (Object o : magliette) {
           MagliettaBean maglietta = (MagliettaBean) o;
           String prezzo = df.format(maglietta.getPrezzo());
 
           if (prezzo.matches("[0-9]+"))
-        	  prezzo += ".00";
-
-          String tipo = "";
-          switch(maglietta.getTipo()){
-            case "ANIMEMANGA":
-                 tipo += "Anime e Manga";
-                 break;
-            case "FILMSERIETV":
-                 tipo += "Film e Serie TV";
-                 break;
-            case "GRLPWR":
-                 tipo +="Girl Power";
-                 break;
-            case "FUMETTI":
-                 tipo += "Fumetti";
-                 break;
-          }
+            prezzo += ".00";
     %>
     <tr id="element">
       <td><%= maglietta.getNome() %> </td>
       <td>&euro;&nbsp;<%= prezzo %> </td>
       <td><%= maglietta.getIVA() %> </td>
       <td><%= maglietta.getColore() %> </td>
-      <td><%= tipo %> </td>
+      <td><%= maglietta.getTipo() %> </td>
       <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
     </tr>
     <%
@@ -104,23 +88,23 @@
 
       <label for="colore">Colore: </label>
       <select name="colore" id="colore">
-        <option value="BLU">Blu</option>
-        <option value="ROSSO">Rosso</option>
-        <option value="GIALLO">Giallo</option>
-        <option value="VERDE">Verde</option>
-        <option value="VIOLA">Viola</option>
-        <option value="ROSA">Rosa</option>
-        <option value="AZZURRO">Azzurro</option>
-        <option value="NERO">Nero</option>
-        <option value="BIANCO">Bianco</option>
+        <option value="Blu">Blu</option>
+        <option value="Rosso">Rosso</option>
+        <option value="Giallo">Giallo</option>
+        <option value="Verde">Verde</option>
+        <option value="Viola">Viola</option>
+        <option value="Rosa">Rosa</option>
+        <option value="Azzurro">Azzurro</option>
+        <option value="Nero">Nero</option>
+        <option value="Bianco">Bianco</option>
       </select> <br>
 
       <label for="tipo">Tipo:</label>
       <select name="tipo" id="tipo">
-        <option value="ANIMEMANGA">Anime e Manga</option>
-        <option value="FILMSERIETV">Film e Serie TV</option>
-        <option value="GRLPWR">GRLPWR: Girl Power</option>
-        <option value="FUMETTI">Fumetti</option>
+        <option value="Anime e Manga">Anime e Manga</option>
+        <option value="Film e Serie TV">Film e Serie TV</option>
+        <option value="Girl Power">GRLPWR: Girl Power</option>
+        <option value="Fumetti">Fumetti</option>
       </select> <br>
 
       <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label> <br>
