@@ -22,6 +22,7 @@ public class DeleteMaglietta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int ID = Integer.parseInt(req.getParameter("ID"));
+        String tipo = req.getParameter("tipo");
 
         MagliettaDAO magliettaDAO = new MagliettaDAO();
 
@@ -33,9 +34,11 @@ public class DeleteMaglietta extends HttpServlet {
 
         File f = new File(PATH);
         String[] matching = f.list();
-        for (String s: matching) {
-            if(s.startsWith(String.valueOf(ID)))
-                Files.delete(Path.of(PATH + s));
+        if (matching != null) {
+            for (String s : matching) {
+                if (s.startsWith(String.valueOf(ID) + tipo))
+                    Files.delete(Path.of(PATH + s));
+            }
         }
 
 

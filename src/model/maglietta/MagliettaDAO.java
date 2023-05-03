@@ -159,7 +159,9 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        String query =  "SELECT AUTO_INCREMENT " +
+
+        String query =  "SET @@SESSION.information_schema_stats_expiry = 0;" +
+                        "SELECT AUTO_INCREMENT " +
                         "FROM information_schema.tables WHERE table_name = '" + TABLE_NAME +
                         "' AND table_schema = 'whiTee'";
         int ID;

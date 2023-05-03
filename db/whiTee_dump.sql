@@ -57,7 +57,7 @@ CREATE TABLE `Maglietta` (
   `tipo` varchar(50) NOT NULL,
   `grafica` varchar(400) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `Maglietta` (
 
 LOCK TABLES `Maglietta` WRITE;
 /*!40000 ALTER TABLE `Maglietta` DISABLE KEYS */;
-INSERT INTO `Maglietta` VALUES (1,'Mercoledi',15,3,'Bianco','Film e Serie TV','images\\grafiche\\1FILMSERIETV.jpg'),(2,'Game of Thrones',15,3,'Blu','Film e Serie TV','images\\grafiche\\2FILMSERIETV.jpg'),(3,'Stranger Things',15,3,'Bianco','Film e Serie TV','images\\grafiche\\3FILMSERIETV.jpg'),(4,'Bud Spencer',15,3,'Nero','Film e Serie TV','images\\grafiche\\4FILMSERIETV.png'),(5,'Naruto',16,3,'Nero','Anime e Manga','images\\grafiche\\5ANIMEMANGA.jpg'),(6,'Anime',12,3,'Nero','Anime e Manga','images\\grafiche\\6ANIMEMANGA.jpg'),(7,'JoJo Reference',18,3,'Blu','Anime e Manga','images\\grafiche\\7ANIMEMANGA.png'),(8,'Demon Slayer',23,3,'Blu','Anime e Manga','images\\grafiche\\8ANIMEMANGA.png'),(9,'Kuromi',25,3,'Nero','Girl Power','images\\grafiche\\9GRLPWR.png'),(10,'Sailor Moon',17,3,'Bianco','Girl Power','images\\grafiche\\10GRLPWR.png'),(11,'Evangelion',15,3,'NERO','Film e Serie TV','images\\grafiche\\11ANIMEMANGA.jpg');
+INSERT INTO `Maglietta` VALUES (1,'Mercoledi',15,3,'Bianco','Film e Serie TV','images\\grafiche\\1Film e Serie TV.jpg'),(2,'Game of Thrones',15,3,'Blu','Film e Serie TV','images\\grafiche\\2Film e Serie TV.jpg'),(3,'Stranger Things',15,3,'Bianco','Film e Serie TV','images\\grafiche\\3Film e Serie TV.jpg'),(4,'Bud Spencer',15,3,'Nero','Film e Serie TV','images\\grafiche\\4Film e Serie TV.png'),(5,'Naruto',16,3,'Nero','Anime e Manga','images\\grafiche\\5Anime e Manga.jpg'),(6,'Anime',12,3,'Nero','Anime e Manga','images\\grafiche\\6Anime e Manga.jpg'),(7,'JoJo Reference',18,3,'Blu','Anime e Manga','images\\grafiche\\7Anime e Manga.png'),(8,'Demon Slayer',23,3,'Blu','Anime e Manga','images\\grafiche\\8Anime e Manga.png'),(9,'Kuromi',25,3,'Nero','Girl Power','images\\grafiche\\9Girl Power.png'),(10,'Sailor Moon',17,3,'Bianco','Girl Power','images\\grafiche\\10Girl Power.png');
 /*!40000 ALTER TABLE `Maglietta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-28 12:46:50
+-- Dump completed on 2023-05-03 12:39:06
