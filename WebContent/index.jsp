@@ -48,10 +48,12 @@
         <th>Grafica</th>
       </tr>
     <%
+      // Formatter per il prezzo
       if (magliette != null && magliette.size() != 0) {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.FLOOR);
 
+        // Stampa catalogo
         for (Object o : magliette) {
           MagliettaBean maglietta = (MagliettaBean) o;
           String prezzo = df.format(maglietta.getPrezzo());
@@ -66,6 +68,12 @@
       <td><%= maglietta.getColore() %> </td>
       <td><%= maglietta.getTipo() %> </td>
       <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
+      <td><form action="DeleteMaglietta" method="post">
+          <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
+          <input type="hidden" name="tipo" value="<%= maglietta.getTipo()%>">
+          <button type="submit">Elimina</button>
+      </form>
+      </td>
     </tr>
     <%
       // Parentesi del for e dell'if

@@ -156,9 +156,12 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     }
 
     public int getMaxID() throws SQLException {
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        String query = "SELECT MAX(ID) AS MAX FROM " + TABLE_NAME;
+        String query =  "SELECT AUTO_INCREMENT " +
+                        "FROM information_schema.tables WHERE table_name = '" + TABLE_NAME +
+                        "' AND table_schema = 'whiTee'";
         int ID;
 
         try {
@@ -167,7 +170,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
 
-            ID = resultSet.getInt("MAX");
+            ID = resultSet.getInt("AUTO_INCREMENT");
 
         } finally {
             if (preparedStatement != null)
