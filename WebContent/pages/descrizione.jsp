@@ -18,6 +18,13 @@
 <h1><%= magliettaBean.getNome() %></h1>
 <img src="<%= magliettaBean.getGrafica() %>" alt="<%= magliettaBean.getNome() %>">
 <p><%= magliettaBean.getDescrizione() %></p>
+<form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="POST">
+  <label>
+    <%-- TODO fare in modo che sia possibile inserire solo numeri nella request --%>
+    <input type="hidden" name="ID" value="<%= request.getParameter("id") %>">
+    <input type="submit" value="Aggiungi al carrello">
+  </label>
+</form>
 
 <%@ include file="footer.jsp" %>
 <style><%@ include file="../css/footer.css" %></style>
