@@ -41,9 +41,9 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
             preparedStatement.setInt(1, code);
 
             ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
 
             setMaglietta(resultSet, magliettaBean);
-            // TODO Grafica Maglietta
         } finally {
             if (preparedStatement!= null)
                 preparedStatement.close();
@@ -77,7 +77,6 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
                 MagliettaBean magliettaBean = new MagliettaBean();
 
                 setMaglietta(resultSet, magliettaBean);
-                // TODO Grafica Maglietta
 
                 magliette.add(magliettaBean);
             }
@@ -152,6 +151,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
         magliettaBean.setColore(resultSet.getString("colore"));
         magliettaBean.setTipo(resultSet.getString("tipo"));
         magliettaBean.setGrafica(resultSet.getString("grafica"));
+        magliettaBean.setDescrizione(resultSet.getString("descrizione"));
     }
 
     public int getMaxID() throws SQLException {

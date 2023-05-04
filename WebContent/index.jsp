@@ -21,6 +21,7 @@
 
 <body>
   <%@ include file="pages/header.html" %>
+  <style><%@ include file="css/header.css" %></style>
   <h1> <a href="Catalogo">Magliette</a> </h1>
 
     <table id="prodotti">
@@ -68,11 +69,15 @@
       <td><%= maglietta.getColore() %> </td>
       <td><%= maglietta.getTipo() %> </td>
       <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
-      <td><form action="DeleteMaglietta" method="POST">
+      <td>
+        <form action="DeleteMaglietta" method="POST">
           <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
           <input type="hidden" name="tipo" value="<%= maglietta.getTipo()%>">
           <button type="submit">Elimina</button>
-      </form>
+        </form>
+        <form action="DescrizioneMaglietta?id=<%= maglietta.getID() %>" method="POST">
+          <button type="submit">Mostra descrizione</button>
+        </form>
       </td>
     </tr>
     <%
@@ -121,6 +126,7 @@
     </fieldset>
   </form>
   <%@ include file="pages/footer.html" %>
+  <style><%@ include file="css/footer.css" %></style>
 </body>
 
 </html>
