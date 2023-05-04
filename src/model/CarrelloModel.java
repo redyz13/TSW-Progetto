@@ -6,10 +6,10 @@ import model.maglietta.MagliettaDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Carrello {
+public class CarrelloModel {
     private ArrayList<MagliettaOrdine> carrello;
 
-    public Carrello() {
+    public CarrelloModel() {
         carrello = new ArrayList<>();
     }
 
@@ -42,7 +42,7 @@ public class Carrello {
     public synchronized void setQuantita(int ID, int quantita) {
         for (MagliettaOrdine m : carrello) {
             if (m.getMagliettaBean().getID() == ID) {
-                if (m.getQuantita() <= 0)
+                if (m.getQuantita() <= 0 || quantita == 0)
                     carrello.remove(m);
                 else
                     m.setQuantita(quantita);

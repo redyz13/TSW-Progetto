@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/AggiungiMaglietta")
-public class AggiungiMaglietta extends HttpServlet {
+@WebServlet("/RimuoviMaglietta")
+public class RimuoviMaglietta extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
@@ -18,21 +18,11 @@ public class AggiungiMaglietta extends HttpServlet {
 
         synchronized (session) {
             carrello = (CarrelloModel) session.getAttribute("carrello");
-            if (carrello == null) {
-                carrello = new CarrelloModel();
-                session.setAttribute("carrello", carrello);
-            }
         }
 
         int ID = Integer.parseInt(req.getParameter("ID"));
-        String quantita = req.getParameter("quantita");
 
-        if (quantita == null) {
-            carrello.aggiungi(ID);
-        }
-        else {
-            carrello.setQuantita(ID, Integer.parseInt(quantita));
-        }
+        carrello.rimuovi(ID);
 
         resp.sendRedirect("pages/carrello.jsp");
     }

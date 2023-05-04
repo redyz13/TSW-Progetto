@@ -49,7 +49,6 @@
         <th>Grafica</th>
       </tr>
     <%
-      // Formatter per il prezzo
       if (magliette != null && magliette.size() != 0) {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.FLOOR);
