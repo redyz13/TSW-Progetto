@@ -6,10 +6,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -123,6 +120,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
     // Aggiorna i dati dell'ogetto maglietta nel database (SQL UPDATE)
     @Override
+    @SuppressWarnings("all")
     public void doUpdate(MagliettaBean product) throws SQLException {
         // TODO
     }
@@ -156,24 +154,24 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     }
 
     public int getMaxID() throws SQLException {
-
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String query =  "SET @@SESSION.information_schema_stats_expiry = 0;" +
-                        "SELECT AUTO_INCREMENT " +
-                        "FROM information_schema.tables WHERE table_name = '" + TABLE_NAME +
-                        "' AND table_schema = 'whiTee'";
+        String sessionCacheQuery = "SET @@SESSION.information_schema_stats_expiry = 0;";
+        String query = "SELECT AUTO_INCREMENT " +
+                       "FROM information_schema.tables WHERE table_name = '" + TABLE_NAME +
+                       "' AND table_schema = 'whiTee'";
+
         int ID;
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(query);
+            connection.createStatement().execute(sessionCacheQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
 
             ID = resultSet.getInt("AUTO_INCREMENT");
-
         } finally {
             if (preparedStatement != null)
                 preparedStatement.close();

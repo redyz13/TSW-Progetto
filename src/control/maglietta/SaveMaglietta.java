@@ -32,8 +32,6 @@ public class SaveMaglietta extends HttpServlet {
         String nomeFile;
         int extensionIndex = grafica.getSubmittedFileName().lastIndexOf(".");
 
-
-
         try {
             nomeFile = magliettaDAO.getMaxID() + tipo +
                     grafica.getSubmittedFileName().substring(extensionIndex);
