@@ -12,13 +12,13 @@
   <title>Descrizione Prodotto</title>
 </head>
 <body>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <style><%@ include file="../css/header.css" %></style>
 
 <h1><%= magliettaBean.getNome() %></h1>
 <img src="<%= magliettaBean.getGrafica() %>" alt="<%= magliettaBean.getNome() %>">
 <p><%= magliettaBean.getDescrizione() %></p>
 
-<%@ include file="footer.html" %>
+<%@ include file="footer.jsp" %>
 <style><%@ include file="../css/footer.css" %></style>
 </body>

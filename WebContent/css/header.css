@@ -1,16 +1,23 @@
 nav {
   background-color: #181818;
   overflow: hidden;
+  margin-left: -0.6%;
+  margin-right: -0.6%;
+  margin-top: -0.6%;
 }
 
 nav a {
   color: #ffffff;
   float: left;
-  padding: 14px 16px;
+  padding: 18px 20px;
   text-decoration: none;
   font-size: 17px;
 }
 
 nav a:hover {
   color: #ff9229;
+}
+
+.nav-right {
+  float: right;
 }

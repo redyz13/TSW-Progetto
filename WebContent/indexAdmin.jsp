@@ -70,12 +70,13 @@
       <td><%= maglietta.getTipo() %> </td>
       <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
       <td>
+        <form action="DeleteMaglietta" method="POST">
+          <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
+          <input type="hidden" name="tipo" value="<%= maglietta.getTipo()%>">
+          <button type="submit">Elimina</button>
+        </form>
         <form action="DescrizioneMaglietta?id=<%= maglietta.getID() %>" method="POST">
           <button type="submit">Mostra descrizione</button>
-        </form>
-        <form action="AggiungiMaglietta" method="POST">
-          <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
-          <button type="submit">Aggiungi al carrello</button>
         </form>
       </td>
     </tr>
@@ -88,6 +89,42 @@
     </tr>
     <% } %>
   </table>
+
+  <h1>Inserimento magliette</h1>
+
+  <form action="SaveMaglietta" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Compilare i seguenti campi</legend>
+      <label>Nome: <input type="text" name="nome" required autocomplete="off"></label> <br>
+      <label>Prezzo: <input type="text" name="prezzo" required autocomplete="off"></label> <br>
+      <label>IVA: <input type="text" name="IVA" required autocomplete="off"></label> <br>
+
+      <label for="colore">Colore: </label>
+      <select name="colore" id="colore">
+        <option value="Blu">Blu</option>
+        <option value="Rosso">Rosso</option>
+        <option value="Giallo">Giallo</option>
+        <option value="Verde">Verde</option>
+        <option value="Viola">Viola</option>
+        <option value="Rosa">Rosa</option>
+        <option value="Azzurro">Azzurro</option>
+        <option value="Nero">Nero</option>
+        <option value="Bianco">Bianco</option>
+      </select> <br>
+
+      <label for="tipo">Tipo:</label>
+      <select name="tipo" id="tipo">
+        <option value="Anime e Manga">Anime e Manga</option>
+        <option value="Film e Serie TV">Film e Serie TV</option>
+        <option value="Girl Power">GRLPWR: Girl Power</option>
+        <option value="Fumetti">Fumetti</option>
+      </select> <br>
+
+      <label>Descrizione: <br> <textarea name="descrizione" required autocomplete="off"></textarea></label> <br> <br>
+      <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label> <br>
+      <input type="submit" value="Carica">
+    </fieldset>
+  </form>
   <%@ include file="pages/footer.jsp" %>
   <style><%@ include file="css/footer.css" %></style>
 </body>
