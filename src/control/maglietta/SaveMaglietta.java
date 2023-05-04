@@ -26,6 +26,7 @@ public class SaveMaglietta extends HttpServlet {
         String tipo = req.getParameter("tipo");
         int IVA = Integer.parseInt(req.getParameter("IVA"));
         float prezzo = Float.parseFloat(req.getParameter("prezzo"));
+        String descrizione = req.getParameter("descrizione");
         Part grafica = req.getPart("grafica");
 
         MagliettaDAO magliettaDAO = new MagliettaDAO();
@@ -53,6 +54,7 @@ public class SaveMaglietta extends HttpServlet {
         maglietta.setTipo(tipo);
         maglietta.setPrezzo(prezzo);
         maglietta.setIVA(IVA);
+        maglietta.setDescrizione(descrizione);
         maglietta.setGrafica(relativePath);
 
         try {

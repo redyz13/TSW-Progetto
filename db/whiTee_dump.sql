@@ -58,6 +58,7 @@ CREATE TABLE `Maglietta` (
   `colore` varchar(30) NOT NULL,
   `tipo` varchar(50) NOT NULL,
   `grafica` varchar(400) NOT NULL,
+  `descrizione` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -68,7 +69,7 @@ CREATE TABLE `Maglietta` (
 
 LOCK TABLES `Maglietta` WRITE;
 /*!40000 ALTER TABLE `Maglietta` DISABLE KEYS */;
-INSERT INTO `Maglietta` VALUES (1,'Mercoledi',15,3,'Bianco','Film e Serie TV','images\\grafiche\\1Film e Serie TV.jpg'),(2,'Game of Thrones',15,3,'Blu','Film e Serie TV','images\\grafiche\\2Film e Serie TV.jpg'),(3,'Stranger Things',15,3,'Bianco','Film e Serie TV','images\\grafiche\\3Film e Serie TV.jpg'),(4,'Bud Spencer',15,3,'Nero','Film e Serie TV','images\\grafiche\\4Film e Serie TV.png'),(5,'Naruto',16,3,'Nero','Anime e Manga','images\\grafiche\\5Anime e Manga.jpg'),(6,'Anime',12,3,'Nero','Anime e Manga','images\\grafiche\\6Anime e Manga.jpg'),(7,'JoJo Reference',18,3,'Blu','Anime e Manga','images\\grafiche\\7Anime e Manga.png'),(8,'Demon Slayer',23,3,'Blu','Anime e Manga','images\\grafiche\\8Anime e Manga.png'),(9,'Kuromi',25,3,'Nero','Girl Power','images\\grafiche\\9Girl Power.png'),(10,'Sailor Moon',17,3,'Bianco','Girl Power','images\\grafiche\\10Girl Power.png');
+INSERT INTO `Maglietta` VALUES (1,'Mercoledi',15,3,'Bianco','Film e Serie TV','images\\grafiche\\1Film e Serie TV.jpg', 'Maglietta di Mercoledì'),(2,'Game of Thrones',15,3,'Blu','Film e Serie TV','images\\grafiche\\2Film e Serie TV.jpg', 'Maglietta di Game of Thrones'),(3,'Stranger Things',15,3,'Bianco','Film e Serie TV','images\\grafiche\\3Film e Serie TV.jpg', 'Maglietta di Stranger Things'),(4,'Bud Spencer',15,3,'Nero','Film e Serie TV','images\\grafiche\\4Film e Serie TV.png', 'Maglietta del GRANDE Bud Spencer (il sommo, il mio preferito)'),(5,'Naruto',16,3,'Nero','Anime e Manga','images\\grafiche\\5Anime e Manga.jpg', 'Maglietta di Naruto'),(6,'Anime',12,3,'Nero','Anime e Manga','images\\grafiche\\6Anime e Manga.jpg', 'Generica maglietta sugli anime'),(7,'JoJo Reference',18,3,'Blu','Anime e Manga','images\\grafiche\\7Anime e Manga.png', 'Maglietta di JoJo'),(8,'Demon Slayer',23,3,'Blu','Anime e Manga','images\\grafiche\\8Anime e Manga.png', 'Maglietta di Demon Slayer'),(9,'Kuromi',25,3,'Nero','Girl Power','images\\grafiche\\9Girl Power.png', 'Maglietta di Kuromi'),(10,'Sailor Moon',17,3,'Bianco','Girl Power','images\\grafiche\\10Girl Power.png', 'Maglietta di Sailor Moon');
 /*!40000 ALTER TABLE `Maglietta` ENABLE KEYS */;
 UNLOCK TABLES;
 

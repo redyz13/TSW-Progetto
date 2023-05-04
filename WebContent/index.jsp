@@ -115,6 +115,7 @@
         <option value="Fumetti">Fumetti</option>
       </select> <br>
 
+      <label>Descrizione: <br> <textarea name="descrizione" required autocomplete="off"></textarea></label> <br> <br>
       <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label> <br>
       <input type="submit" value="Carica">
     </fieldset>

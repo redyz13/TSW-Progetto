@@ -11,7 +11,8 @@ CREATE TABLE Maglietta (
     IVA INT DEFAULT 0 NOT NULL,
     colore VARCHAR(30) NOT NULL,
     tipo VARCHAR(50) NOT NULL,
-    grafica VARCHAR(400) NOT NULL
+    grafica VARCHAR(400) NOT NULL,
+    descrizione VARCHAR(150) NOT NULL
 );
 
 DROP TABLE IF EXISTS Taglia;

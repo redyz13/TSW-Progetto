@@ -2,7 +2,7 @@ package model.maglietta;
 
 public class MagliettaBean {
     private int ID, IVA;
-    private String nome, colore, tipo, grafica;
+    private String nome, colore, tipo, grafica, descrizione;
     private float prezzo;
 
     public int getID() {
@@ -59,6 +59,14 @@ public class MagliettaBean {
         this.prezzo = prezzo;
     }
 
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
     @Override
     public String toString() {
         return "MagliettaBean{" +
@@ -68,6 +76,7 @@ public class MagliettaBean {
                 ", colore='" + colore + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", grafica='" + grafica + '\'' +
+                ", descrizione='" + descrizione + '\'' +
                 ", prezzo=" + prezzo +
                 '}';
     }

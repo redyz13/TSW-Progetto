@@ -98,7 +98,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
         Connection connection;
         PreparedStatement preparedStatement;
 
-        String query = "INSERT INTO " + TABLE_NAME + " (nome, prezzo, IVA, colore, tipo, grafica)" + " VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (nome, prezzo, IVA, colore, tipo, grafica, descrizione)" + " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
@@ -110,6 +110,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
             preparedStatement.setString(4, maglietta.getColore());
             preparedStatement.setString(5, maglietta.getTipo());
             preparedStatement.setString(6, maglietta.getGrafica());
+            preparedStatement.setString(7, maglietta.getDescrizione());
 
             preparedStatement.executeUpdate();
             // TODO connection.commit();
