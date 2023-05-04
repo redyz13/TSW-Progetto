@@ -68,7 +68,7 @@
       <td><%= maglietta.getColore() %> </td>
       <td><%= maglietta.getTipo() %> </td>
       <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
-      <td><form action="DeleteMaglietta" method="post">
+      <td><form action="DeleteMaglietta" method="POST">
           <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
           <input type="hidden" name="tipo" value="<%= maglietta.getTipo()%>">
           <button type="submit">Elimina</button>

@@ -20,14 +20,15 @@ public class DeleteMaglietta extends HttpServlet {
             File.separator + "grafiche" + File.separator;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int ID = Integer.parseInt(req.getParameter("ID"));
         String tipo = req.getParameter("tipo");
 
         MagliettaDAO magliettaDAO = new MagliettaDAO();
 
         try {
-            magliettaDAO.doDelete(ID);
+            if (!magliettaDAO.doDelete(ID))
+                throw new RuntimeException();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -36,18 +37,12 @@ public class DeleteMaglietta extends HttpServlet {
         String[] matching = f.list();
         if (matching != null) {
             for (String s : matching) {
-                if (s.startsWith(String.valueOf(ID) + tipo))
+                if (s.startsWith(ID + tipo))
                     Files.delete(Path.of(PATH + s));
             }
         }
 
-
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       doGet(req,resp);
     }
 }
