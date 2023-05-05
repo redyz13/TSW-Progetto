@@ -1,4 +1,7 @@
 <%@ page import="model.maglietta.MagliettaBean" %>
+
+<% MagliettaBean magliettaBean = (MagliettaBean) request.getAttribute("maglietta"); %>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -15,8 +18,7 @@
 <%@ include file="header.jsp" %>
 <style> <%@ include file="../css/header.css" %> </style>
 <h1>Modifica maglietta</h1>
-<% MagliettaBean magliettaBean = (MagliettaBean) request.getAttribute("maglietta"); %>
-<form id="update" action="UpdateMaglietta" method="post" enctype="multipart/form-data"></form>
+<form id="update" action="UpdateMaglietta" method="POST" enctype="multipart/form-data"></form>
 <fieldset>
     <legend>Modifica dei campi</legend>
     <label>Nome: <input form="update" type="text" name="nome" value="<%=magliettaBean.getNome()%>" required
