@@ -23,7 +23,6 @@ public class StampaMaglietta extends HttpServlet {
         try {
             MagliettaBean magliettaBean = magliettaDAO.doRetrieveByKey(ID);
             req.setAttribute("maglietta", magliettaBean);
-            System.out.println("Mamma");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

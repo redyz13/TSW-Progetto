@@ -69,7 +69,8 @@
       <td><%= maglietta.getTipo() %> </td>
       <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
       <td>
-        <form action="DescrizioneMaglietta?id=<%= maglietta.getID() %>" method="POST">
+        <form action="DescrizioneMaglietta" method="GET">
+          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
           <button type="submit">Mostra descrizione</button>
         </form>
         <form action="AggiungiMaglietta" method="POST">

@@ -70,16 +70,18 @@
       <td><%= maglietta.getTipo() %> </td>
       <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
       <td>
+        <form action="DescrizioneMaglietta" method="GET">
+          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
+          <button type="submit">Mostra descrizione</button>
+        </form>
+        <form action="StampaMaglietta" method="GET">
+          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
+          <button type="submit">Modifica</button>
+        </form>
         <form action="DeleteMaglietta" method="POST">
           <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
           <input type="hidden" name="tipo" value="<%= maglietta.getTipo()%>">
           <button type="submit">Elimina</button>
-        </form>
-        <form action="DescrizioneMaglietta?id=<%= maglietta.getID() %>" method="POST">
-          <button type="submit">Mostra descrizione</button>
-        </form>
-        <form action="StampaMaglietta?id=<%= maglietta.getID() %>" method="POST">
-          <button type="submit">Modifica</button>
         </form>
       </td>
     </tr>
