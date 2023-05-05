@@ -3,6 +3,6 @@
 # This hash only ever changes when the image file is
 # modified and this change triggers the browser to reload
 # the image the next time it is requested
-<FilesMatch "\.(jpg|jpeg)$">
+<FilesMatch "\.(jpg|jpeg|png|gif)$">
 FileETag MTime Size
 </FilesMatch>
