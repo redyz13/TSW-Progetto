@@ -18,8 +18,7 @@
 <%@ include file="header.jsp" %>
 <style> <%@ include file="../css/header.css" %> </style>
 <h1>Modifica maglietta</h1>
-<%-- TODO non funziona il multipart --%>
-<form id="update" action="UpdateMaglietta" method="POST"></form>
+<form id="update" action="UpdateMaglietta" method="POST" enctype="multipart/form-data"></form>
 <fieldset>
     <legend>Modifica dei campi</legend>
     <label>Nome: <input form="update" type="text" name="nome" value="<%=magliettaBean.getNome()%>" required

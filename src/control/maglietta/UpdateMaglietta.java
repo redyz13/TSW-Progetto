@@ -4,6 +4,7 @@ import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import java.nio.file.Path;
 import java.sql.SQLException;
 
 @WebServlet("/UpdateMaglietta")
+@MultipartConfig
 public class UpdateMaglietta extends HttpServlet {
     private static final String PATH = System.getenv("WHITEE_ROOT") + File.separator + "images" +
             File.separator + "grafiche" + File.separator;
@@ -28,7 +30,7 @@ public class UpdateMaglietta extends HttpServlet {
         String colore = req.getParameter("colore");
         String descrizione = req.getParameter("descrizione");
         String pathGrafica = req.getParameter("path");
-        Part grafica;
+        Part grafica = req.getPart("grafica");
 
         if (colore == null)
             colore = req.getParameter("coloreVecchio");
@@ -38,17 +40,7 @@ public class UpdateMaglietta extends HttpServlet {
 
         MagliettaDAO magliettaDAO = new MagliettaDAO();
 
-        if (!req.getParameter("grafica").equals("")) {
-            // Eliminazione vecchia grafica
-            File f = new File(PATH);
-            String[] matching = f.list();
-            if (matching != null) {
-                for (String s : matching) {
-                    if (s.startsWith(String.valueOf(ID)))
-                        Files.delete(Path.of(PATH + s));
-                }
-            }
-
+        if (!grafica.getSubmittedFileName().equals("")) {
             // Aggiunta nuova grafica
             grafica = req.getPart("grafica");
             String nomeFile;
@@ -57,6 +49,17 @@ public class UpdateMaglietta extends HttpServlet {
             nomeFile = ID + tipo + grafica.getSubmittedFileName().substring(extensionIndex);
 
             pathGrafica = "images" + File.separator + "grafiche" + File.separator + nomeFile;
+
+            // Eliminazione vecchia grafica
+            // TODO risolvere problema eliminazione (di qua in teoria è risolto)
+            File f = new File(PATH);
+            String[] matching = f.list();
+            if (matching != null) {
+                for (String s : matching) {
+                    if (s.equals(nomeFile))
+                        Files.delete(Path.of(PATH + s));
+                }
+            }
 
             try (OutputStream outputStream = new FileOutputStream(PATH + nomeFile); InputStream inputStream = grafica.getInputStream()) {
                 inputStream.transferTo(outputStream);
