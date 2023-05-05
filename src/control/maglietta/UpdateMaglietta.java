@@ -83,6 +83,6 @@ public class UpdateMaglietta extends HttpServlet {
             throw new RuntimeException();
         }
 
-        resp.sendRedirect("./StampaMaglietta?id=" + ID);
+        resp.sendRedirect("Catalogo");
     }
 }
