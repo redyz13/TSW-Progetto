@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
     <script src="${pageContext.request.contextPath}/js/selezione.js"></script>
 </head>
-<body>
+<body onload="setRadio()">
 <%@ include file="header.jsp" %>
 <style> <%@ include file="../css/header.css" %> </style>
 <h1>Modifica maglietta</h1>
@@ -52,9 +52,8 @@
     <label>Descrizione: <br> <textarea form="update" name="descrizione" required
                                        autocomplete="off"><%=magliettaBean.getDescrizione()%></textarea></label>
     <p>Aggiornare la grafica?</p>
-    <%-- TODO provare a vedere se si può risolvere il problema dello stato del radio al refresh --%>
     <label>S&igrave<input type="radio" name="selezione" value="si" onclick="selezione()"></label>
-    <label>No<input type="radio" name="selezione" value="no" checked onclick="selezione()"></label>
+    <label>No<input type="radio" id="radioNo" name="selezione" value="no" checked onclick="selezione()"></label>
     <br id="newLine" hidden>
     <label id="labelGrafica" hidden>Grafica: <input form="update" id="fileInput" type="file" hidden name="grafica" accept="image/*" required></label> <br>
     <input form="update" type="submit" value="Modifica">
