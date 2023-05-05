@@ -33,7 +33,6 @@ public class DeleteMaglietta extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        // TODO risolvere problema eliminazione
         File f = new File(PATH);
         String[] matching = f.list();
         if (matching != null) {

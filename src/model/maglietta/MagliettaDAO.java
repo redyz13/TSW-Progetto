@@ -141,8 +141,6 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
         String query = "DELETE FROM " + TABLE_NAME + " WHERE ID = ?";
 
-        // TODO Controllo ID?
-
         try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, code);
 

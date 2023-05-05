@@ -51,12 +51,11 @@ public class UpdateMaglietta extends HttpServlet {
             pathGrafica = "images" + File.separator + "grafiche" + File.separator + nomeFile;
 
             // Eliminazione vecchia grafica
-            // TODO risolvere problema eliminazione (di qua in teoria è risolto)
             File f = new File(PATH);
             String[] matching = f.list();
             if (matching != null) {
                 for (String s : matching) {
-                    if (s.equals(nomeFile))
+                    if (s.startsWith(ID + tipo))
                         Files.delete(Path.of(PATH + s));
                 }
             }

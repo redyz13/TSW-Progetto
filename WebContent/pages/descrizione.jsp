@@ -20,7 +20,6 @@
 <p><%= magliettaBean.getDescrizione() %></p>
 <form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="POST">
   <label>
-    <%-- TODO fare in modo che sia possibile inserire solo numeri nella request --%>
     <input type="hidden" name="ID" value="<%= request.getParameter("id") %>">
     <input type="submit" value="Aggiungi al carrello">
   </label>
