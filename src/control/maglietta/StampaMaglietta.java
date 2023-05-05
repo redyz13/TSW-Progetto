@@ -1,5 +1,6 @@
-package control;
+package control.maglietta;
 
+import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -11,27 +12,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/Catalogo")
-public class Catalogo extends HttpServlet {
+@WebServlet("/StampaMaglietta")
+public class StampaMaglietta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int ID = Integer.parseInt(req.getParameter("id"));
+
         MagliettaDAO magliettaDAO = new MagliettaDAO();
 
         try {
-            req.setAttribute("magliette", magliettaDAO.doRetriveAll(req.getParameter("ordine")));
+            MagliettaBean magliettaBean = magliettaDAO.doRetrieveByKey(ID);
+            req.setAttribute("maglietta", magliettaBean);
+            System.out.println("Mamma");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        // TODO
-        // if (admin) manda su indexAdmin.jsp
-        // else manda su index.jsp
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/indexAdmin.jsp");
-        dispatcher.forward(req, resp);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("pages/modifica.jsp");
+        requestDispatcher.forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
+       doGet(req, resp);
     }
 }

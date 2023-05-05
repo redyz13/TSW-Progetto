@@ -78,6 +78,9 @@
         <form action="DescrizioneMaglietta?id=<%= maglietta.getID() %>" method="POST">
           <button type="submit">Mostra descrizione</button>
         </form>
+        <form action="StampaMaglietta?id=<%= maglietta.getID() %>" method="POST">
+          <button type="submit">Modifica</button>
+        </form>
       </td>
     </tr>
     <%
