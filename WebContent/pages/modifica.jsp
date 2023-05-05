@@ -55,7 +55,9 @@
     <label>S&igrave<input type="radio" name="selezione" value="si" onclick="selezione()"></label>
     <label>No<input type="radio" id="radioNo" name="selezione" value="no" checked onclick="selezione()"></label>
     <br id="newLine" hidden>
-    <label id="labelGrafica" hidden>Grafica: <input form="update" id="fileInput" type="file" hidden name="grafica" accept="image/*" required></label> <br>
+    <label id="labelGrafica" hidden>Grafica: <input form="update" id="fileInput" type="file" hidden name="grafica" accept="image/*"></label> <br>
+    <input form="update" type="hidden" name="path" value="<%= magliettaBean.getGrafica() %>">
+    <input form="update" type="hidden" name="id" value="<%= magliettaBean.getID() %>">
     <input form="update" type="submit" value="Modifica">
 </fieldset>
 

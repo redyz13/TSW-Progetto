@@ -103,16 +103,9 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, maglietta.getNome());
-            preparedStatement.setFloat(2, maglietta.getPrezzo());
-            preparedStatement.setInt(3, maglietta.getIVA());
-            preparedStatement.setString(4, maglietta.getColore());
-            preparedStatement.setString(5, maglietta.getTipo());
-            preparedStatement.setString(6, maglietta.getGrafica());
-            preparedStatement.setString(7, maglietta.getDescrizione());
+            setMagliettaStatement(maglietta, preparedStatement);
 
             preparedStatement.executeUpdate();
-            // TODO connection.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -120,9 +113,24 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
     // Aggiorna i dati dell'ogetto maglietta nel database (SQL UPDATE)
     @Override
-    @SuppressWarnings("all")
-    public void doUpdate(MagliettaBean product) throws SQLException {
-        // TODO
+    public void doUpdate(MagliettaBean maglietta) throws SQLException {
+        Connection connection;
+        PreparedStatement preparedStatement;
+
+        String query = "UPDATE " + TABLE_NAME +
+                       " SET nome = ?, prezzo = ?, IVA = ?, colore = ?, tipo = ?, grafica = ?, descrizione = ? " +
+                       "WHERE ID = ?";
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+
+            setMagliettaStatement(maglietta, preparedStatement);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // Cancella i dati dell'oggetto maglietta dal database (SQL DELETE)
@@ -152,6 +160,16 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
         magliettaBean.setTipo(resultSet.getString("tipo"));
         magliettaBean.setGrafica(resultSet.getString("grafica"));
         magliettaBean.setDescrizione(resultSet.getString("descrizione"));
+    }
+
+    private void setMagliettaStatement(MagliettaBean maglietta, PreparedStatement preparedStatement) throws SQLException {
+        preparedStatement.setString(1, maglietta.getNome());
+        preparedStatement.setFloat(2, maglietta.getPrezzo());
+        preparedStatement.setInt(3, maglietta.getIVA());
+        preparedStatement.setString(4, maglietta.getColore());
+        preparedStatement.setString(5, maglietta.getTipo());
+        preparedStatement.setString(6, maglietta.getGrafica());
+        preparedStatement.setString(7, maglietta.getDescrizione());
     }
 
     public int getMaxID() throws SQLException {
