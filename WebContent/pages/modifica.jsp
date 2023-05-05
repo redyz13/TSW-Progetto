@@ -18,7 +18,8 @@
 <%@ include file="header.jsp" %>
 <style> <%@ include file="../css/header.css" %> </style>
 <h1>Modifica maglietta</h1>
-<form id="update" action="UpdateMaglietta" method="POST" enctype="multipart/form-data"></form>
+<%-- TODO non funziona il multipart --%>
+<form id="update" action="UpdateMaglietta" method="POST"></form>
 <fieldset>
     <legend>Modifica dei campi</legend>
     <label>Nome: <input form="update" type="text" name="nome" value="<%=magliettaBean.getNome()%>" required
@@ -28,9 +29,10 @@
     <label>IVA: <input form="update" type="text" name="IVA" value="<%=magliettaBean.getPrezzo()%>" required
                        autocomplete="off"></label> <br>
 
+    <input form="update" type="hidden" name="coloreVecchio" value="<%= magliettaBean.getColore() %>">
     <label for="colore">Colore: </label>
     <select form="update" name="colore" id="colore">
-        <option value="none" selected disabled hidden><%= magliettaBean.getColore() %></option>
+        <option value="" selected disabled hidden><%= magliettaBean.getColore() %></option>
         <option value="Blu">Blu</option>
         <option value="Rosso">Rosso</option>
         <option value="Giallo">Giallo</option>
@@ -42,9 +44,10 @@
         <option value="Bianco">Bianco</option>
     </select> <br>
 
+    <input form="update" type="hidden" name="tipoVecchio" value="<%= magliettaBean.getTipo() %>">
     <label for="tipo">Tipo:</label>
     <select form="update" name="tipo" id="tipo">
-        <option value="none" selected disabled hidden><%= magliettaBean.getTipo() %></option>
+        <option value="" selected disabled hidden><%= magliettaBean.getTipo() %></option>
         <option value="Anime e Manga">Anime e Manga</option>
         <option value="Film e Serie TV">Film e Serie TV</option>
         <option value="Girl Power">GRLPWR: Girl Power</option>

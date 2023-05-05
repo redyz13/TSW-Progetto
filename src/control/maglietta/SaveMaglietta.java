@@ -24,7 +24,7 @@ public class SaveMaglietta extends HttpServlet {
         String nome  = req.getParameter("nome");
         String colore = req.getParameter("colore");
         String tipo = req.getParameter("tipo");
-        int IVA = Integer.parseInt(req.getParameter("IVA"));
+        int IVA = (int) Float.parseFloat(req.getParameter("IVA"));
         float prezzo = Float.parseFloat(req.getParameter("prezzo"));
         String descrizione = req.getParameter("descrizione");
         Part grafica = req.getPart("grafica");

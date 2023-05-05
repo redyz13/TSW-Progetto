@@ -24,16 +24,21 @@ public class UpdateMaglietta extends HttpServlet {
         int ID = Integer.parseInt(req.getParameter("id"));
         String nome  = req.getParameter("nome");
         float prezzo = Float.parseFloat(req.getParameter("prezzo"));
-        int IVA = Integer.parseInt(req.getParameter("IVA"));
+        int IVA = (int) Float.parseFloat(req.getParameter("IVA"));
         String colore = req.getParameter("colore");
-        String tipo = req.getParameter("tipo");
         String descrizione = req.getParameter("descrizione");
         String pathGrafica = req.getParameter("path");
         Part grafica;
 
+        if (colore == null)
+            colore = req.getParameter("coloreVecchio");
+        String tipo = req.getParameter("tipo");
+        if (tipo == null)
+            tipo = req.getParameter("tipoVecchio");
+
         MagliettaDAO magliettaDAO = new MagliettaDAO();
 
-        if (req.getParameter("grafica") != null) {
+        if (!req.getParameter("grafica").equals("")) {
             // Eliminazione vecchia grafica
             File f = new File(PATH);
             String[] matching = f.list();
@@ -61,6 +66,7 @@ public class UpdateMaglietta extends HttpServlet {
         }
 
         MagliettaBean maglietta = new MagliettaBean();
+        maglietta.setID(ID);
         maglietta.setNome(nome);
         maglietta.setPrezzo(prezzo);
         maglietta.setIVA(IVA);

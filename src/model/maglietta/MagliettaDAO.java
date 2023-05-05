@@ -126,6 +126,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
             preparedStatement = connection.prepareStatement(query);
 
             setMagliettaStatement(maglietta, preparedStatement);
+            preparedStatement.setInt(8, maglietta.getID());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
