@@ -1,4 +1,4 @@
-package model;
+package model.maglietta;
 
 import model.maglietta.MagliettaBean;
 

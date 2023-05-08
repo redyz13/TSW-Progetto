@@ -2,6 +2,7 @@ package model;
 
 import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
+import model.maglietta.MagliettaOrdine;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-<%@ page import="model.MagliettaOrdine" %>
+<%@ page import="model.maglietta.MagliettaOrdine" %>
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page import="java.math.RoundingMode" %>
 <%@ page import="java.util.Collection" %>
