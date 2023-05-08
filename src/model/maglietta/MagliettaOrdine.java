@@ -1,7 +1,5 @@
 package model.maglietta;
 
-import model.maglietta.MagliettaBean;
-
 public class MagliettaOrdine {
     private MagliettaBean magliettaBean;
     private int quantita;
