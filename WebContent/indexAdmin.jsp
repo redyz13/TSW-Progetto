@@ -115,6 +115,7 @@
         <option value="Azzurro">Azzurro</option>
         <option value="Nero">Nero</option>
         <option value="Bianco">Bianco</option>
+        <option value="Arancione">Arancione</option>
       </select> <br>
 
       <label for="tipo">Tipo:</label>

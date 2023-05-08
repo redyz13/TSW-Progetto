@@ -25,7 +25,7 @@
                         autocomplete="off"></label> <br>
     <label>Prezzo: <input form="update" type="text" name="prezzo" value="<%=magliettaBean.getPrezzo()%>" required
                           autocomplete="off"></label> <br>
-    <label>IVA: <input form="update" type="text" name="IVA" value="<%=magliettaBean.getPrezzo()%>" required
+    <label>IVA: <input form="update" type="text" name="IVA" value="<%=magliettaBean.getIVA()%>" required
                        autocomplete="off"></label> <br>
 
     <input form="update" type="hidden" name="coloreVecchio" value="<%= magliettaBean.getColore() %>">

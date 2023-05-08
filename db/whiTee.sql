@@ -38,11 +38,12 @@ CREATE TABLE Utente (
     cognome VARCHAR(30) NOT NULL,
     email VARCHAR(40) NOT NULL,
     dataNascita DATE NOT NULL,
-    numCarta CHAR(16) NOT NULL,
+    numCarta VARCHAR(50) NOT NULL,
     dataScadenza DATE NOT NULL,
-    cap CHAR(5) NOT NULL,
+    cap VARCHAR(50) NOT NULL,
     via VARCHAR(70) NOT NULL,
-    citta VARCHAR (30) NOT NULL
+    citta VARCHAR(30) NOT NULL,
+    tipo VARCHAR(30) NOT NULL
 );
 
 DROP TABLE IF EXISTS Recensione;
@@ -50,7 +51,7 @@ DROP TABLE IF EXISTS Recensione;
 CREATE TABLE Recensione (
 	ID INT PRIMARY KEY AUTO_INCREMENT,
     IDMaglietta INT NOT NULL REFERENCES Maglietta(ID),
-    username VARCHAR(30) NOT NULL REFERENCES Utente(ID),
+    username VARCHAR(30) NOT NULL REFERENCES Utente(username),
     contenuto VARCHAR(2000) NOT NULL
 );
 
@@ -58,11 +59,11 @@ DROP TABLE IF EXISTS Ordine;
 
 CREATE TABLE Ordine (
 	ID INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(30) NOT NULL REFERENCES Utente(ID),
+    username VARCHAR(30) NOT NULL REFERENCES Utente(username),
     prezzoTotale FLOAT DEFAULT 0 NOT NULL,
     dataConsegna DATE NOT NULL,
     dataOrdine DATE NOT NULL,
-    cap CHAR(5) NOT NULL,
+    cap VARCHAR(50) NOT NULL,
     via VARCHAR(70) NOT NULL,
     citta VARCHAR (30) NOT NULL
 );
@@ -76,4 +77,4 @@ CREATE TABLE Acquisto (
     immagine VARCHAR(400),
     prezzoAq FLOAT DEFAULT 0 NOT NULL,
     ivaAq INT DEFAULT 0 NOT NULL
-)
+);
