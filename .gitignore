@@ -1,5 +1,5 @@
 build/
-WebContent/META-INF
+WebContent/META-INF/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
