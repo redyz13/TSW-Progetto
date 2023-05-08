@@ -32,26 +32,17 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     // Restituisce un oggetto maglietta con delle caratteristiche (SQL SELECT)
     @Override
     public synchronized MagliettaBean doRetrieveByKey(int code) throws SQLException {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
         MagliettaBean magliettaBean = new MagliettaBean();
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE ID = ?";
 
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(query);
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, code);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
 
             setMaglietta(resultSet, magliettaBean);
-        } finally {
-            if (preparedStatement!= null)
-                preparedStatement.close();
-            if (connection != null)
-                connection.close();
         }
 
         return magliettaBean;
@@ -98,15 +89,9 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     // Salva i dati dell'oggetto maglietta nel database (SQL Insert)
     @Override
     public void doSave(MagliettaBean maglietta) throws SQLException {
-        Connection connection;
-        PreparedStatement preparedStatement;
-
         String query = "INSERT INTO " + TABLE_NAME + " (nome, prezzo, IVA, colore, tipo, grafica, descrizione)" + " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(query);
-
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setMagliettaStatement(maglietta, preparedStatement);
 
             preparedStatement.executeUpdate();
@@ -118,17 +103,11 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     // Aggiorna i dati dell'ogetto maglietta nel database (SQL UPDATE)
     @Override
     public void doUpdate(MagliettaBean maglietta) throws SQLException {
-        Connection connection;
-        PreparedStatement preparedStatement;
-
         String query = "UPDATE " + TABLE_NAME +
                        " SET nome = ?, prezzo = ?, IVA = ?, colore = ?, tipo = ?, grafica = ?, descrizione = ? " +
                        "WHERE ID = ?";
 
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(query);
-
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setMagliettaStatement(maglietta, preparedStatement);
             preparedStatement.setInt(8, maglietta.getID());
 
@@ -176,9 +155,6 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     }
 
     public int getMaxID() throws SQLException {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-
         String sessionCacheQuery = "SET @@SESSION.information_schema_stats_expiry = 0;";
         String query = "SELECT AUTO_INCREMENT " +
                        "FROM information_schema.tables WHERE table_name = '" + TABLE_NAME +
@@ -186,19 +162,12 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
         int ID;
 
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(query);
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             connection.createStatement().execute(sessionCacheQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
 
             ID = resultSet.getInt("AUTO_INCREMENT");
-        } finally {
-            if (preparedStatement != null)
-                preparedStatement.close();
-            if (connection != null)
-                connection.close();
         }
 
         return ID;
