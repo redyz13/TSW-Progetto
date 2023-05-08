@@ -65,15 +65,16 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
         PreparedStatement preparedStatement = null;
         Collection<MagliettaBean> magliette = new ArrayList<>();
 
-        String query = "SELECT * FROM " + TABLE_NAME;
+        StringBuilder query = new StringBuilder("SELECT * FROM " + TABLE_NAME);
 
         try {
             connection = ds.getConnection();
 
-            if (ORDERS.contains(order))
-                query += " ORDER BY " + order;
+            for (String s: ORDERS)
+                if (s.equals(order))
+                    query.append("ORDER BY ").append(s);
 
-            preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(query.toString());
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
