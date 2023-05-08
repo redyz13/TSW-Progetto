@@ -71,7 +71,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
             for (String s: ORDERS)
                 if (s.equals(order))
-                    query.append("ORDER BY ").append(s);
+                    query.append(" ORDER BY ").append(s);
 
             preparedStatement = connection.prepareStatement(query.toString());
 
