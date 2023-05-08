@@ -20,7 +20,7 @@
 <p><%= magliettaBean.getDescrizione() %></p>
 <form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="POST">
   <label>
-    <input type="hidden" name="ID" value="<%= request.getParameter("id") %>">
+    <input type="hidden" name="ID" value="<%= magliettaBean.getID() %>">
     <input type="submit" value="Aggiungi al carrello">
   </label>
 </form>
