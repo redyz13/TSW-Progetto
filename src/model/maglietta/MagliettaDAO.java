@@ -15,7 +15,6 @@ import java.util.List;
 public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     private final static String TABLE_NAME = "Maglietta";
     private static final DataSource ds;
-//    private static final String[] ORDERS = { "nome", "prezzo", "colore", "tipo" };
     private static final List<String> ORDERS = new ArrayList<>(Arrays.asList("nome", "prezzo", "colore", "tipo"));
 
     // Connessione database
