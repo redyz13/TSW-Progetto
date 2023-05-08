@@ -8,11 +8,15 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 public class MagliettaDAO implements DAOInterface<MagliettaBean> {
     private final static String TABLE_NAME = "Maglietta";
     private static final DataSource ds;
+//    private static final String[] ORDERS = { "nome", "prezzo", "colore", "tipo" };
+    private static final List<String> ORDERS = new ArrayList<>(Arrays.asList("nome", "prezzo", "colore", "tipo"));
 
     // Connessione database
     static {
@@ -60,15 +64,15 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         Collection<MagliettaBean> magliette = new ArrayList<>();
-        
-        String query = "SELECT * FROM " + TABLE_NAME;
 
-        if (order != null && !order.equals("")) {
-            query += " ORDER BY " + order;
-        }
+        String query = "SELECT * FROM " + TABLE_NAME;
 
         try {
             connection = ds.getConnection();
+
+            if (ORDERS.contains(order))
+                query += " ORDER BY " + order;
+
             preparedStatement = connection.prepareStatement(query);
 
             ResultSet resultSet = preparedStatement.executeQuery();
