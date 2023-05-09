@@ -34,6 +34,7 @@
 <style><%@ include file="../css/header.css" %></style>
 <h1>Carrello</h1>
 <table id="prodotti">
+  <caption hidden>Carrello</caption>
   <tr id="element">
     <th>Nome</th>
     <th>Prezzo</th>

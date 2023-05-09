@@ -25,6 +25,7 @@
   <h1> <a href="Catalogo">Magliette</a> </h1>
 
     <table id="prodotti">
+      <caption hidden>Catalogo</caption>
       <tr id="drop">
         <td colspan="6" >
           <div class="dropdown">
@@ -41,12 +42,12 @@
         </td>
       </tr>
       <tr id="element">
-        <th>Nome</th>
-        <th>Prezzo</th>
-        <th>IVA</th>
-        <th>Colore</th>
-        <th>Tipo</th>
-        <th>Grafica</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Prezzo</th>
+        <th scope="col">IVA</th>
+        <th scope="col">Colore</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Grafica</th>
       </tr>
     <%
       // Formatter per il prezzo
@@ -101,8 +102,8 @@
     <fieldset>
       <legend>Compilare i seguenti campi</legend>
       <label>Nome: <input type="text" name="nome" required autocomplete="off"></label> <br>
-      <label>Prezzo: <input type="text" name="prezzo" required autocomplete="off"></label> <br>
-      <label>IVA: <input type="text" name="IVA" required autocomplete="off"></label> <br>
+      <label>Prezzo: <input type="text" inputmode="decimal" name="prezzo" required autocomplete="off"></label> <br>
+      <label>IVA: <input type="text" inputmode="numeric" name="IVA" required autocomplete="off"></label> <br>
 
       <label for="colore">Colore: </label>
       <select name="colore" id="colore">
