@@ -1,10 +1,10 @@
 package model.utente;
 
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 
 public class UtenteBean {
     private String username, pwd, nome, cognome, email, numCarta, cap, via, citta, tipo;
-    private GregorianCalendar dataNascita, dataScadenza;
+    private LocalDate dataNascita, dataScadenza;
 
     public String getUsername() {
         return username;
@@ -86,24 +86,20 @@ public class UtenteBean {
         this.tipo = tipo;
     }
 
-    public GregorianCalendar getDataNascita() {
+    public LocalDate getDataNascita() {
         return dataNascita;
     }
 
-    public void setDataNascita(GregorianCalendar dataNascita) {
+    public void setDataNascita(LocalDate dataNascita) {
         this.dataNascita = dataNascita;
     }
 
-    public GregorianCalendar getDataScadenza() {
+    public LocalDate getDataScadenza() {
         return dataScadenza;
     }
 
-    public void setDataScadenza(GregorianCalendar dataScadenza) {
+    public void setDataScadenza(LocalDate dataScadenza) {
         this.dataScadenza = dataScadenza;
-    }
-
-    private String formatDate (GregorianCalendar date) {
-        return date.get(GregorianCalendar.DAY_OF_WEEK) + "/" + date.get(GregorianCalendar.MONTH) + "/" + date.get(GregorianCalendar.YEAR);
     }
 
     @Override
@@ -119,8 +115,8 @@ public class UtenteBean {
                 ", via='" + via + '\'' +
                 ", citta='" + citta + '\'' +
                 ", tipo='" + tipo + '\'' +
-                ", dataNascita=" + formatDate(dataNascita) +
-                ", dataScadenza=" + formatDate(dataScadenza) +
+                ", dataNascita=" + dataNascita +
+                ", dataScadenza=" + dataScadenza +
                 '}';
     }
 }

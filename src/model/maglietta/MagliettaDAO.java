@@ -12,11 +12,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class MagliettaDAO implements DAOInterface<MagliettaBean> {
+public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
     private final static String TABLE_NAME = "Maglietta";
     private static final DataSource ds;
     private static final List<String> ORDERS = new ArrayList<>(Arrays.asList("nome", "prezzo", "colore", "tipo"));
 
+    // TODO ricontrollare ID per maglietta visto che code è una stringa adesso >:c
     // Connessione database
     static {
         try {
@@ -31,7 +32,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
     // Restituisce un oggetto maglietta con delle caratteristiche (SQL SELECT)
     @Override
-    public synchronized MagliettaBean doRetrieveByKey(int code) throws SQLException {
+    public synchronized MagliettaBean doRetrieveByKey(Integer code) throws SQLException {
         MagliettaBean magliettaBean = new MagliettaBean();
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE ID = ?";
@@ -119,7 +120,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean> {
 
     // Cancella i dati dell'oggetto maglietta dal database (SQL DELETE)
     @Override
-    public boolean doDelete(int code) throws SQLException {
+    public boolean doDelete(Integer code) throws SQLException {
         int result;
 
         String query = "DELETE FROM " + TABLE_NAME + " WHERE ID = ?";
