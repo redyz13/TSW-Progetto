@@ -18,7 +18,8 @@ CREATE TABLE Maglietta (
 DROP TABLE IF EXISTS Taglia;
 
 CREATE TABLE Taglia (
-	TG INT PRIMARY KEY AUTO_INCREMENT
+	TG INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(5) NOT NULL,
 );
 
 DROP TABLE IF EXISTS Misura;
@@ -40,7 +41,7 @@ CREATE TABLE Utente (
     dataNascita DATE NOT NULL,
     numCarta VARCHAR(50) NOT NULL,
     dataScadenza DATE NOT NULL,
-    cap VARCHAR(50) NOT NULL,
+    cap VARCHAR(5) NOT NULL,
     via VARCHAR(70) NOT NULL,
     citta VARCHAR(30) NOT NULL,
     tipo VARCHAR(30) NOT NULL
@@ -63,7 +64,7 @@ CREATE TABLE Ordine (
     prezzoTotale FLOAT DEFAULT 0 NOT NULL,
     dataConsegna DATE NOT NULL,
     dataOrdine DATE NOT NULL,
-    cap VARCHAR(50) NOT NULL,
+    cap VARCHAR(5) NOT NULL,
     via VARCHAR(70) NOT NULL,
     citta VARCHAR (30) NOT NULL
 );
