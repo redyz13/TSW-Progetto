@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
-    private final static String TABLE_NAME = "Maglietta";
+    private static final String TABLE_NAME = "Maglietta";
     private static final DataSource ds;
     private static final List<String> ORDERS = new ArrayList<>(Arrays.asList("nome", "prezzo", "colore", "tipo"));
 
