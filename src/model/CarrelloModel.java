@@ -6,6 +6,7 @@ import model.maglietta.MagliettaOrdine;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarrelloModel {
     private ArrayList<MagliettaOrdine> carrello;
@@ -14,12 +15,12 @@ public class CarrelloModel {
         carrello = new ArrayList<>();
     }
 
-    public ArrayList<MagliettaOrdine> getCarrello() {
+    public List<MagliettaOrdine> getCarrello() {
         return carrello;
     }
 
-    public void setCarrello(ArrayList<MagliettaOrdine> carrello) {
-        this.carrello = carrello;
+    public void setCarrello(List<MagliettaOrdine> carrello) {
+        this.carrello = (ArrayList<MagliettaOrdine>) carrello;
     }
 
     public synchronized void aggiungi(int ID) {

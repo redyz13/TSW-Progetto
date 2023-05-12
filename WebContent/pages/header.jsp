@@ -1,4 +1,5 @@
 <%@ page import="control.utente.Login" %>
+
 <% Integer tipoUtente = (Integer) request.getSession().getAttribute("tipoUtente"); %>
 <nav>
   <a href="#" class = "whiTee">whiTee</a>
