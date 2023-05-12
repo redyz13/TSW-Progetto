@@ -133,6 +133,25 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
         return result != 0;
     }
 
+    public int getMaxID() throws SQLException {
+        String sessionCacheQuery = "SET @@SESSION.information_schema_stats_expiry = 0;";
+        String query = "SELECT AUTO_INCREMENT " +
+                       "FROM information_schema.tables WHERE table_name = '" + TABLE_NAME +
+                       "' AND table_schema = 'whiTee'";
+
+        int ID;
+
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            connection.createStatement().execute(sessionCacheQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            ID = resultSet.getInt("AUTO_INCREMENT");
+        }
+
+        return ID;
+    }
+
     private void setMaglietta(ResultSet resultSet, MagliettaBean magliettaBean) throws SQLException {
         magliettaBean.setID(resultSet.getInt("ID"));
         magliettaBean.setNome(resultSet.getString("nome"));
@@ -152,24 +171,5 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
         preparedStatement.setString(5, maglietta.getTipo());
         preparedStatement.setString(6, maglietta.getGrafica());
         preparedStatement.setString(7, maglietta.getDescrizione());
-    }
-
-    public int getMaxID() throws SQLException {
-        String sessionCacheQuery = "SET @@SESSION.information_schema_stats_expiry = 0;";
-        String query = "SELECT AUTO_INCREMENT " +
-                       "FROM information_schema.tables WHERE table_name = '" + TABLE_NAME +
-                       "' AND table_schema = 'whiTee'";
-
-        int ID;
-
-        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            connection.createStatement().execute(sessionCacheQuery);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-
-            ID = resultSet.getInt("AUTO_INCREMENT");
-        }
-
-        return ID;
     }
 }

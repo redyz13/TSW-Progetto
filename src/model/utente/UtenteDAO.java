@@ -14,7 +14,7 @@ import java.util.*;
 import java.sql.Date;
 
 public class UtenteDAO implements DAOInterface<UtenteBean, String> {
-    private final static String TABLE_NAME = "Utente";
+    private static final String TABLE_NAME = "Utente";
     private static final DataSource ds;
 
     // Connessione database
@@ -60,13 +60,13 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
 
         try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setUtenteStatement(utente, preparedStatement);
-
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
+    @SuppressWarnings("all")
     @Override
     public void doUpdate(UtenteBean product) throws SQLException {
 
