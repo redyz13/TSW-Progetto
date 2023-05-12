@@ -39,11 +39,16 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
             preparedStatement.setString(1, code);
 
             ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.isBeforeFirst())
+                return null;
+
             resultSet.next();
 
             setUtente(resultSet,utenteBean);
 
         }
+
         return utenteBean;
     }
 
