@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
         String password = req.getParameter("password");
 
         try {
-            String redirectedPage = "";
+            String redirectedPage;
             int tipoUtente = checkUser(username, password);
 
             switch (tipoUtente) {
@@ -36,6 +36,9 @@ public class Login extends HttpServlet {
                     break;
                 case NONREGISTRATO:
                     req.getSession().setAttribute("tipoUtente", NONREGISTRATO);
+                    redirectedPage = "pages/login.jsp";
+                    break;
+                default:
                     redirectedPage = "pages/login.jsp";
             }
 
