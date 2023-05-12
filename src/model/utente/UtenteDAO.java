@@ -46,7 +46,6 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
             resultSet.next();
 
             setUtente(resultSet,utenteBean);
-
         }
 
         return utenteBean;

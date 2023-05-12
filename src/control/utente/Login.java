@@ -2,8 +2,6 @@ package control.utente;
 
 import model.utente.UtenteBean;
 import model.utente.UtenteDAO;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,9 +12,9 @@ import java.sql.SQLException;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
-    private static final int ADMIN = 0;
-    private static final int REGISTRATO = 1;
-    private static final int NONREGISTRATO = 2;
+    public static final int ADMIN = 0;
+    public static final int REGISTRATO = 1;
+    public static final int NONREGISTRATO = 2;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,21 +27,19 @@ public class Login extends HttpServlet {
 
             switch (tipoUtente) {
                 case ADMIN:
-                    req.getSession().setAttribute("utente", "admin");
+                    req.getSession().setAttribute("tipoUtente", ADMIN);
                     redirectedPage = "indexAdmin.jsp";
                     break;
                 case REGISTRATO:
-                    req.getSession().setAttribute("utente", "registrato");
+                    req.getSession().setAttribute("tipoUtente", REGISTRATO);
                     redirectedPage = "index.jsp";
                     break;
                 case NONREGISTRATO:
-                    req.getSession().setAttribute("utente", "non registrato");
-                    redirectedPage = "login.jsp";
+                    req.getSession().setAttribute("tipoUtente", NONREGISTRATO);
+                    redirectedPage = "pages/login.jsp";
             }
 
-            RequestDispatcher dispatcher = req.getRequestDispatcher(redirectedPage);
-            dispatcher.forward(req, resp);
-
+            resp.sendRedirect(redirectedPage);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -53,7 +49,7 @@ public class Login extends HttpServlet {
         UtenteDAO utenteDAO = new UtenteDAO();
         UtenteBean utenteBean = utenteDAO.doRetrieveByKey(username);
 
-        if (utenteBean == null || utenteBean.getPwd().equals(password))
+        if (utenteBean == null || !(utenteBean.getPwd().equals(password)))
             return NONREGISTRATO;
         else {
             if (utenteBean.getTipo().equals("admin"))

@@ -18,7 +18,7 @@
 <h1><%= magliettaBean.getNome() %></h1>
 <img src="<%= magliettaBean.getGrafica() %>" alt="<%= magliettaBean.getNome() %>">
 <p><%= magliettaBean.getDescrizione() %></p>
-<form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="POST">
+<form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="post">
   <label>
     <input type="hidden" name="ID" value="<%= magliettaBean.getID() %>">
     <input type="submit" value="Aggiungi al carrello">

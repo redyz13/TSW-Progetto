@@ -1,8 +1,8 @@
 package control;
 
+import control.utente.Login;
 import model.maglietta.MagliettaDAO;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,9 +23,12 @@ public class Catalogo extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        // TODO if (admin) manda su indexAdmin.jsp else manda su index.jsp
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/indexAdmin.jsp");
-        dispatcher.forward(req, resp);
+        Integer tipoUtente = (Integer) req.getSession().getAttribute("tipoUtente");
+
+        if (tipoUtente != null && tipoUtente.equals(Login.ADMIN))
+            req.getRequestDispatcher("indexAdmin.jsp").forward(req, resp);
+        else
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 
     @Override
