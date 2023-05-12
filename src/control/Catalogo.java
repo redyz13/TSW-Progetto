@@ -23,9 +23,7 @@ public class Catalogo extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        // TODO
-        // if (admin) manda su indexAdmin.jsp
-        // else manda su index.jsp
+        // TODO if (admin) manda su indexAdmin.jsp else manda su index.jsp
         RequestDispatcher dispatcher = req.getRequestDispatcher("/indexAdmin.jsp");
         dispatcher.forward(req, resp);
     }

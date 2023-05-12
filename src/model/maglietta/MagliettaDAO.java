@@ -17,7 +17,6 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
     private static final DataSource ds;
     private static final List<String> ORDERS = new ArrayList<>(Arrays.asList("nome", "prezzo", "colore", "tipo"));
 
-    // TODO ricontrollare ID per maglietta visto che code è una stringa adesso >:c
     // Connessione database
     static {
         try {
