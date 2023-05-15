@@ -13,13 +13,13 @@
 
     <%-------------- Blocco utente registrato ----------%>
     <% if (tipoUtente != null && tipoUtente.equals(Login.REGISTRATO)) { %>
-    <a href="Logout" id="login-icon">Logout</a>
+    <a href="${pageContext.request.contextPath}/Logout" id="login-icon">Logout</a>
     <% } %>
     <%--------------------------------------------------%>
 
     <%-------------- Blocco admin ----------%>
     <% if (tipoUtente != null && tipoUtente.equals(Login.ADMIN)) { %>
-    <a href="Logout" id="">Logout</a>
+    <a href="${pageContext.request.contextPath}/Logout" id="">Logout</a>
     <% } %>
     <%--------------------------------------%>
 

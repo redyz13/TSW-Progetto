@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
 -- Host: localhost    Database: whiTee
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.32-0ubuntu0.20.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -15,10 +15,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-USE whiTee;
 --
 -- Table structure for table `Acquisto`
 --
+USE whiTee;
+
 DROP TABLE IF EXISTS `Acquisto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -163,7 +164,7 @@ CREATE TABLE `Taglia` (
   `TG` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(5) NOT NULL,
   PRIMARY KEY (`TG`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,13 +189,14 @@ CREATE TABLE `Utente` (
   `pwd` varchar(64) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `cognome` varchar(30) NOT NULL,
-  `email` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL UNIQUE ,
   `dataNascita` date NOT NULL,
-  `numCarta` varchar(50) NOT NULL,
-  `dataScadenza` date NOT NULL,
-  `cap` varchar(5) NOT NULL,
-  `via` varchar(70) NOT NULL,
-  `citta` varchar(30) NOT NULL,
+  `numCarta` varchar(50) DEFAULT NULL,
+  `dataScadenza` date DEFAULT NULL,
+  `CVV` varchar(5) DEFAULT NULL,
+  `cap` varchar(5) DEFAULT NULL,
+  `via` varchar(70) DEFAULT NULL,
+  `citta` varchar(30) DEFAULT NULL,
   `tipo` varchar(30) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -206,7 +208,7 @@ CREATE TABLE `Utente` (
 
 LOCK TABLES `Utente` WRITE;
 /*!40000 ALTER TABLE `Utente` DISABLE KEYS */;
-INSERT INTO `Utente` VALUES ('agovenlockf','ZJNtfPtjYa2','Alanna','Govenlock','agovenlockf@oracle.com','1970-10-24','374288773429328','2025-08-30','70119','374 Meadow Ridge Parkway','Trzemeszno','user'),('aologhlen7','md1uFwQzgK91','Ambrosio','O\'Loghlen','aologhlen7@aboutads.info','2002-01-07','3536362078660470','2028-03-15','59977','8 Forster Place','Zhaitou','user'),('arenault5','Clvfwt2Gu7Lc','Annabella','Renault','arenault5@house.gov','1963-11-15','5610529600346731078','2026-09-04','87199','31970 Jana Lane','Oborniki ┼Ül─àskie','user'),('aseggen','9Qq6pHUBARAE','Alyce','Segge','aseggen@statcounter.com','1990-12-18','3550656637414357','2027-02-17','01157','17193 Jenna Pass','Thß╗ï Trß║Ñn Thß╗ì Xu├ón','user'),('cbalbeckk','9t5C4f','Cornell','Balbeck','cbalbeckk@sogou.com','1986-08-05','201996451814145','2029-01-21','61062','4186 Texas Hill','Corticeiro de Baixo','user'),('clonergano','cAZPf3vAU','Carlota','Lonergan','clonergano@scribd.com','1989-03-28','3574939790589906','2028-04-30','95104','00 Cottonwood Junction','Mahates','user'),('cmcgucken2','6S1rng5kX','Culley','McGucken','cmcgucken2@sbwire.com','1991-08-16','36442967633902','2026-11-17','59897','0 Grover Pass','Turkestan','user'),('cmoulstert','kMyLKqL3h','Craggy','Moulster','cmoulstert@amazon.com','2002-05-12','3540465736761111','2028-09-01','01912','0051 Buell Place','Hengdian','user'),('cphipp0','LFZUUXjnS9','Calypso','Phipp','cphipp0@posterous.com','1975-12-15','5602259305531520','2028-07-01','78751','0924 Jana Trail','Nereta','user'),('dodoughertyh','gmTuZB','Darren','O\'Dougherty','dodoughertyh@mit.edu','1984-03-10','3572791630934293','2029-03-10','78402','4983 Green Ridge Junction','Kirovgrad','user'),('ebomfieldr','HyGC7mDTT','Elvira','Bomfield','ebomfieldr@nationalgeographic.com','1986-06-24','3531967784979967','2028-09-06','14169','4708 Ohio Point','Roma','user'),('econradiei','Oyqdojzx','Erna','Conradie','econradiei@privacy.gov.au','1969-11-11','670600954715283646','2026-02-15','80080','446 Kinsman Trail','Padhahegha','user'),('fbarnbrook9','35bV42eoIt','Flo','Barnbrook','fbarnbrook9@dmoz.org','1994-07-13','36888646157053','2025-10-06','00126','7701 Blackbird Pass','Jinping','user'),('gfernelym','MbZa4rcKcR','Gunner','Fernely','gfernelym@google.com.br','1990-01-17','201490374406585','2027-05-26','82259','9981 Forest Dale Crossing','Bluri','user'),('gflucks1','0KNTOZqVDF','Gianina','Flucks','gflucks1@soundcloud.com','2003-12-04','3549105101434644','2027-06-28','61244','8 Esch Park','Koundara','user'),('gidwalevansd','awkUzNGmcOzF','Gert','Idwal Evans','gidwalevansd@amazonaws.com','1961-08-30','3533409596742760','2026-07-04','16810','1 Lyons Lane','Topolovgrad','user'),('jarmfieldp','vPHONxyJxER','Jennifer','Armfield','jarmfieldp@vimeo.com','1986-04-27','67615079647924265','2025-07-19','33268','422 Toban Place','Bangkle','user'),('jmaddicksb','ktDH8DKi','Jocelyne','Maddicks','jmaddicksb@usda.gov','1988-08-02','4459672859008074','2028-09-29','97429','72625 Del Mar Alley','Huaicheng','user'),('jtironeg','x8rWaf','Jule','Tirone','jtironeg@about.me','1998-08-23','5100144892952163','2025-10-22','61516','161 Golf Course Hill','Pokrovka','user'),('klelievre3','kTXQyQfWMj','Kahaleel','Lelievre','klelievre3@thetimes.co.uk','1969-12-06','5108497127350302','2025-08-01','45172','87375 Michigan Center','Bakungan','user'),('ltayloure','98pNQnX','Lanni','Taylour','ltayloure@japanpost.jp','1982-11-13','67619566239208061','2025-07-08','70889','33 Delladonna Place','Tindog','user'),('msolland8','1LS9mRVW2Wx3','Major','Solland','msolland8@jalbum.net','1989-10-31','63047057357415531','2027-02-21','27493','51981 Nova Court','Rat├¡┼íkovice','user'),('nlockner4','830L29YLWVB','Nixie','Lockner','nlockner4@furl.net','1979-08-04','201419602648320','2025-08-23','39695','1 Farwell Place','Nyk├Âping','user'),('nskeneq','tlqPz8PF96','Neda','Skene','nskeneq@comcast.net','2000-04-28','30260857131472','2026-11-07','28387','919 Melrose Court','Kolobolon','user'),('rgethinsa','5D5ajEWbz','Roana','Gethins','rgethinsa@blog.com','1989-04-21','201410134416500','2027-03-28','62657','861 Surrey Drive','Amqui','user'),('sbittlestone6','8YpzCljci6o','Shandeigh','Bittlestone','sbittlestone6@chronoengine.com','1991-08-12','560224701266557244','2025-12-06','38609','584 Golf Course Avenue','Vilarinho da Castanheira','user'),('sbrouwerj','egM3oyF3X','Sallee','Brouwer','sbrouwerj@yelp.com','1969-12-06','3544121540810570','2025-12-16','36371','8 Meadow Valley Drive','Barayong','user'),('sferons','dzhPifMJJUNR','Sandro','Feron','sferons@live.com','1974-04-18','6331105789968794094','2026-11-27','44682','05325 Bashford Junction','Tagum','user'),('slarmouthc','UslwRz666l','Susie','Larmouth','slarmouthc@nationalgeographic.com','1987-10-26','5610112778422666542','2028-01-24','78269','276 Hoard Alley','Kanbe','user'),('tchastonl','yjmvNIBMEQ','Ted','Chaston','tchastonl@stanford.edu','1999-07-29','3571788550196508','2028-06-02','36615','0 Maple Wood Terrace','Ampele├¡es','user');
+INSERT INTO `Utente` VALUES ('admin','admin','admin','admin','admin','2023-05-12',NULL,NULL,NULL,NULL,NULL,NULL,'admin'),('agovenlockf','ZJNtfPtjYa2','Alanna','Govenlock','agovenlockf@oracle.com','1970-10-24','374288773429328','2025-08-30','12345','70119','374 Meadow Ridge Parkway','Trzemeszno','user'),('aologhlen7','md1uFwQzgK91','Ambrosio','O\'Loghlen','aologhlen7@aboutads.info','2002-01-07','3536362078660470','2028-03-15','12345','59977','8 Forster Place','Zhaitou','user'),('arenault5','Clvfwt2Gu7Lc','Annabella','Renault','arenault5@house.gov','1963-11-15','5610529600346731078','2026-09-04','12345','87199','31970 Jana Lane','Oborniki ┼Ül─àskie','user'),('aseggen','9Qq6pHUBARAE','Alyce','Segge','aseggen@statcounter.com','1990-12-18','3550656637414357','2027-02-17','12345','01157','17193 Jenna Pass','Thß╗ï Trß║Ñn Thß╗ì Xu├ón','user'),('cbalbeckk','9t5C4f','Cornell','Balbeck','cbalbeckk@sogou.com','1986-08-05','201996451814145','2029-01-21','12345','61062','4186 Texas Hill','Corticeiro de Baixo','user'),('clonergano','cAZPf3vAU','Carlota','Lonergan','clonergano@scribd.com','1989-03-28','3574939790589906','2028-04-30','12345','95104','00 Cottonwood Junction','Mahates','user'),('cmcgucken2','6S1rng5kX','Culley','McGucken','cmcgucken2@sbwire.com','1991-08-16','36442967633902','2026-11-17','12345','59897','0 Grover Pass','Turkestan','user'),('cmoulstert','kMyLKqL3h','Craggy','Moulster','cmoulstert@amazon.com','2002-05-12','3540465736761111','2028-09-01','12345','01912','0051 Buell Place','Hengdian','user'),('cphipp0','LFZUUXjnS9','Calypso','Phipp','cphipp0@posterous.com','1975-12-15','5602259305531520','2028-07-01','12345','78751','0924 Jana Trail','Nereta','user'),('dodoughertyh','gmTuZB','Darren','O\'Dougherty','dodoughertyh@mit.edu','1984-03-10','3572791630934293','2029-03-10','12345','78402','4983 Green Ridge Junction','Kirovgrad','user'),('ebomfieldr','HyGC7mDTT','Elvira','Bomfield','ebomfieldr@nationalgeographic.com','1986-06-24','3531967784979967','2028-09-06','12345','14169','4708 Ohio Point','Roma','user'),('econradiei','Oyqdojzx','Erna','Conradie','econradiei@privacy.gov.au','1969-11-11','670600954715283646','2026-02-15','12345','80080','446 Kinsman Trail','Padhahegha','user'),('fbarnbrook9','35bV42eoIt','Flo','Barnbrook','fbarnbrook9@dmoz.org','1994-07-13','36888646157053','2025-10-06','12345','00126','7701 Blackbird Pass','Jinping','user'),('gfernelym','MbZa4rcKcR','Gunner','Fernely','gfernelym@google.com.br','1990-01-17','201490374406585','2027-05-26','12345','82259','9981 Forest Dale Crossing','Bluri','user'),('gflucks1','0KNTOZqVDF','Gianina','Flucks','gflucks1@soundcloud.com','2003-12-04','3549105101434644','2027-06-28','12345','61244','8 Esch Park','Koundara','user'),('gidwalevansd','awkUzNGmcOzF','Gert','Idwal Evans','gidwalevansd@amazonaws.com','1961-08-30','3533409596742760','2026-07-04','12345','16810','1 Lyons Lane','Topolovgrad','user'),('jarmfieldp','vPHONxyJxER','Jennifer','Armfield','jarmfieldp@vimeo.com','1986-04-27','67615079647924265','2025-07-19','12345','33268','422 Toban Place','Bangkle','user'),('jmaddicksb','ktDH8DKi','Jocelyne','Maddicks','jmaddicksb@usda.gov','1988-08-02','4459672859008074','2028-09-29','12345','97429','72625 Del Mar Alley','Huaicheng','user'),('jtironeg','x8rWaf','Jule','Tirone','jtironeg@about.me','1998-08-23','5100144892952163','2025-10-22','12345','61516','161 Golf Course Hill','Pokrovka','user'),('klelievre3','kTXQyQfWMj','Kahaleel','Lelievre','klelievre3@thetimes.co.uk','1969-12-06','5108497127350302','2025-08-01','12345','45172','87375 Michigan Center','Bakungan','user'),('ltayloure','98pNQnX','Lanni','Taylour','ltayloure@japanpost.jp','1982-11-13','67619566239208061','2025-07-08','12345','70889','33 Delladonna Place','Tindog','user'),('msolland8','1LS9mRVW2Wx3','Major','Solland','msolland8@jalbum.net','1989-10-31','63047057357415531','2027-02-21','12345','27493','51981 Nova Court','Rat├¡┼íkovice','user'),('nlockner4','830L29YLWVB','Nixie','Lockner','nlockner4@furl.net','1979-08-04','201419602648320','2025-08-23','12345','39695','1 Farwell Place','Nyk├Âping','user'),('nskeneq','tlqPz8PF96','Neda','Skene','nskeneq@comcast.net','2000-04-28','30260857131472','2026-11-07','28387','12345','919 Melrose Court','Kolobolon','user'),('rgethinsa','5D5ajEWbz','Roana','Gethins','rgethinsa@blog.com','1989-04-21','201410134416500','2027-03-28','12345','62657','861 Surrey Drive','Amqui','user'),('sbittlestone6','8YpzCljci6o','Shandeigh','Bittlestone','sbittlestone6@chronoengine.com','1991-08-12','560224701266557244','2025-12-06','12345','38609','584 Golf Course Avenue','Vilarinho da Castanheira','user'),('sbrouwerj','egM3oyF3X','Sallee','Brouwer','sbrouwerj@yelp.com','1969-12-06','3544121540810570','2025-12-16','12345','36371','8 Meadow Valley Drive','Barayong','user'),('sferons','dzhPifMJJUNR','Sandro','Feron','sferons@live.com','1974-04-18','6331105789968794094','2026-11-27','12345','44682','05325 Bashford Junction','Tagum','user'),('slarmouthc','UslwRz666l','Susie','Larmouth','slarmouthc@nationalgeographic.com','1987-10-26','5610112778422666542','2028-01-24','12345','78269','276 Hoard Alley','Kanbe','user'),('tchastonl','yjmvNIBMEQ','Ted','Chaston','tchastonl@stanford.edu','1999-07-29','3571788550196508','2028-06-02','12345','36615','0 Maple Wood Terrace','Ampele├¡es','user'),('user','user','user','user','user','2002-04-05',NULL,NULL,NULL,NULL,NULL,NULL,'user');
 /*!40000 ALTER TABLE `Utente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -219,5 +221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-11 18:58:16
-
+-- Dump completed on 2023-05-12 21:20:24

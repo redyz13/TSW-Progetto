@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -21,6 +22,30 @@
     </fieldset>
 </form>
 
+<% if(session.getAttribute("tipoUtente") != null && (session.getAttribute("tipoUtente").equals(Login.NONREGISTRATO))) { %>
+    <p>Credenziali errate: RIPROVARE!</p>
+<% } %>
+<br>
+<form action="${pageContext.request.contextPath}/Registrazione" method="post">
+    <fieldset>
+        <legend>Registrazione</legend>
+        <label for="usernameReg"></label><input  type="text" name="usernameReg" id="usernameReg" placeholder="Username" required>
+        <br><label for="passwordReg"></label><input type="password" name="passwordReg" id="passwordReg" placeholder="Password" required>
+        <br><label for="nomeReg"></label><input type="text" name="nomeReg" id="nomeReg" placeholder="Nome" required>
+        <br><label for="cognomeReg"></label><input type="text" name="cognomeReg" id="cognomeReg" placeholder="Cognome" required>
+        <br><label for="emailReg"></label><input type="text" name="emailReg" id="emailReg" placeholder="Email" required>
+        <br><label for="dataNascitaReg"></label><input type="date" name="dataNascitaReg" id="dataNascitaReg" required>
+        <input type="hidden" name="tipo" value="user">
+        <br><button type="submit">Registrati</button>
+    </fieldset>
+</form>
+<% if (session.getAttribute("utentePresente") != null  && session.getAttribute("utentePresente").equals(false)) { %>
+<p>Utente registrato correttamente!</p>
+<% } else if (session.getAttribute("utentePresente")!= null && session.getAttribute("utentePresente").equals(true)) { %>
+<p>&#200; gi&#224; presente questo usernamex, riprovare!</p>
+<% }
+    session.removeAttribute("utentePresente");
+%>
 <%@ include file="footer.jsp" %>
 <style><%@ include file="../css/footer.css" %></style>
 </body>

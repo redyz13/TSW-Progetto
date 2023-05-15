@@ -37,13 +37,14 @@ CREATE TABLE Utente (
     pwd VARCHAR(64) NOT NULL,
     nome VARCHAR(30) NOT NULL,
     cognome VARCHAR(30) NOT NULL,
-    email VARCHAR(40) NOT NULL,
+    email VARCHAR(40) NOT NULL UNIQUE,
     dataNascita DATE NOT NULL,
-    numCarta VARCHAR(50) NOT NULL,
-    dataScadenza DATE NOT NULL,
-    cap VARCHAR(5) NOT NULL,
-    via VARCHAR(70) NOT NULL,
-    citta VARCHAR(30) NOT NULL,
+    numCarta VARCHAR(50),
+    dataScadenza DATE,
+    CVV VARCHAR(5),
+    cap VARCHAR(5),
+    via VARCHAR(70),
+    citta VARCHAR(30),
     tipo VARCHAR(30) NOT NULL
 );
 

@@ -1,6 +1,7 @@
 package model.utente;
 
 import model.DAOInterface;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -35,26 +36,21 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE username = ?";
 
-        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, code);
+        return getUtenteBean(code, utenteBean, query);
+    }
 
-            ResultSet resultSet = preparedStatement.executeQuery();
+    public UtenteBean doRetrieveByEmail(String email) throws SQLException {
+        UtenteBean utenteBean = new UtenteBean();
 
-            if (!resultSet.isBeforeFirst())
-                return null;
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE email = ?";
 
-            resultSet.next();
-
-            setUtente(resultSet,utenteBean);
-        }
-
-        return utenteBean;
+        return getUtenteBean(email, utenteBean, query);
     }
 
     @SuppressWarnings("all")
     @Override
     public Collection<UtenteBean> doRetriveAll(String order) throws SQLException {
-      return null;
+        return null;
     }
 
     @Override
@@ -73,7 +69,6 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
     @SuppressWarnings("all")
     @Override
     public void doUpdate(UtenteBean product) throws SQLException {
-
     }
 
     @Override
@@ -91,19 +86,40 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
         return result != 0;
     }
 
+    private UtenteBean getUtenteBean(String code, UtenteBean utenteBean, String query) throws SQLException {
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, code);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.isBeforeFirst())
+                return null;
+
+            resultSet.next();
+
+            setUtente(resultSet, utenteBean);
+        }
+
+        return utenteBean;
+    }
+
     private void setUtente(ResultSet resultSet, UtenteBean utenteBean) throws SQLException {
         utenteBean.setUsername(resultSet.getString("username"));
         utenteBean.setPwd(resultSet.getString("pwd"));
         utenteBean.setNome(resultSet.getString("nome"));
         utenteBean.setCognome(resultSet.getString("cognome"));
         utenteBean.setEmail(resultSet.getString("email"));
+        utenteBean.setDataNascita((resultSet.getDate("dataNascita").toLocalDate()));
         utenteBean.setNumCarta(resultSet.getString("numCarta"));
+        if (resultSet.getDate("dataScadenza") == null)
+            utenteBean.setDataScadenza(null);
+        else
+            utenteBean.setDataScadenza((resultSet.getDate("dataScadenza").toLocalDate()));
         utenteBean.setCap(resultSet.getString("cap"));
         utenteBean.setVia(resultSet.getString("via"));
         utenteBean.setCitta(resultSet.getString("citta"));
         utenteBean.setTipo(resultSet.getString("tipo"));
-        utenteBean.setDataNascita((resultSet.getDate("dataNascita").toLocalDate()));
-        utenteBean.setDataScadenza((resultSet.getDate("dataScadenza").toLocalDate()));
+
     }
 
     private void setUtenteStatement(UtenteBean utenteBean, PreparedStatement preparedStatement) throws SQLException {
@@ -114,11 +130,16 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
         preparedStatement.setString(5, utenteBean.getEmail());
         preparedStatement.setDate(6, Date.valueOf(utenteBean.getDataNascita()));
         preparedStatement.setString(7, utenteBean.getNumCarta());
-        preparedStatement.setDate(8, Date.valueOf(utenteBean.getDataScadenza()));
+        if(utenteBean.getDataScadenza() == null)
+            preparedStatement.setDate(8, null);
+        else
+            preparedStatement.setDate(8, Date.valueOf(utenteBean.getDataScadenza()));
         preparedStatement.setString(9, utenteBean.getCap());
         preparedStatement.setString(10, utenteBean.getVia());
         preparedStatement.setString(11, utenteBean.getCitta());
         preparedStatement.setString(12, utenteBean.getTipo());
 
     }
+
+
 }
