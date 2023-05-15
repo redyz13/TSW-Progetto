@@ -13,6 +13,7 @@
 <body>
 <%@ include file="header.jsp" %>
 <style><%@ include file="../css/header.css" %></style>
+
 <form action="${pageContext.request.contextPath}/Login" method="post">
     <fieldset>
         <legend>Login</legend>
@@ -21,10 +22,6 @@
         <br><button type="submit">Accedi</button>
     </fieldset>
 </form>
-
-<% if(session.getAttribute("tipoUtente") != null && (session.getAttribute("tipoUtente").equals(Login.NONREGISTRATO))) { %>
-    <p>Credenziali errate: RIPROVARE!</p>
-<% } %>
 <br>
 <form action="${pageContext.request.contextPath}/Registrazione" method="post">
     <fieldset>
@@ -42,10 +39,11 @@
 <% if (session.getAttribute("utentePresente") != null  && session.getAttribute("utentePresente").equals(false)) { %>
 <p>Utente registrato correttamente!</p>
 <% } else if (session.getAttribute("utentePresente")!= null && session.getAttribute("utentePresente").equals(true)) { %>
-<p>&#200; gi&#224; presente questo usernamex, riprovare!</p>
+<p>Username o email gi&#224 in uso</p>
 <% }
     session.removeAttribute("utentePresente");
 %>
+
 <%@ include file="footer.jsp" %>
 <style><%@ include file="../css/footer.css" %></style>
 </body>

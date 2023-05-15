@@ -14,7 +14,6 @@ import java.sql.SQLException;
 public class Login extends HttpServlet {
     public static final int ADMIN = 0;
     public static final int REGISTRATO = 1;
-    public static final int NONREGISTRATO = 2;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,10 +33,6 @@ public class Login extends HttpServlet {
                     req.getSession().setAttribute("tipoUtente", REGISTRATO);
                     redirectedPage = "index.jsp";
                     break;
-                case NONREGISTRATO:
-                    req.getSession().setAttribute("tipoUtente", NONREGISTRATO);
-                    redirectedPage = "pages/login.jsp";
-                    break;
                 default:
                     redirectedPage = "pages/login.jsp";
             }
@@ -53,7 +48,7 @@ public class Login extends HttpServlet {
         UtenteBean utenteBean = utenteDAO.doRetrieveByKey(username);
 
         if (utenteBean == null || !(utenteBean.getPwd().equals(password)))
-            return NONREGISTRATO;
+            return -1;
         else {
             if (utenteBean.getTipo().equals("admin"))
                 return ADMIN;

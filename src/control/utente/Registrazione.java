@@ -3,7 +3,6 @@ package control.utente;
 import model.utente.UtenteBean;
 import model.utente.UtenteDAO;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,8 +47,7 @@ public class Registrazione extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("pages/login.jsp");
-        requestDispatcher.forward(req,resp);
+        resp.sendRedirect("pages/login.jsp");
     }
 
     @Override

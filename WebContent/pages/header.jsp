@@ -6,7 +6,7 @@
   <a href="${pageContext.request.contextPath}/Catalogo">Home</a>
   <div class="nav-right">
     <%-------------- Blocco utente non registrato ----------%>
-    <% if (tipoUtente == null || tipoUtente.equals(Login.NONREGISTRATO)) { %>
+    <% if (tipoUtente == null) { %>
     <a href="${pageContext.request.contextPath}/pages/login.jsp" id="login-icon">Login</a>
     <% } %>
     <%------------------------------------------------------%>
