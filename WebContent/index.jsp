@@ -21,7 +21,6 @@
 
 <body>
   <%@ include file="pages/header.jsp" %>
-  <style><%@ include file="css/header.css" %></style>
   <h1> <a href="Catalogo">Magliette</a> </h1>
 
     <table id="prodotti">
@@ -90,7 +89,6 @@
     <% } %>
   </table>
   <%@ include file="pages/footer.jsp" %>
-  <style><%@ include file="css/footer.css" %></style>
 </body>
 
 </html>

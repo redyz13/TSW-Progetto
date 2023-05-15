@@ -31,7 +31,6 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<style><%@ include file="../css/header.css" %></style>
 <h1>Carrello</h1>
 <table id="prodotti">
   <caption hidden>Carrello</caption>
@@ -91,5 +90,4 @@
 </table>
 
 <%@ include file="footer.jsp" %>
-<style><%@ include file="../css/footer.css" %></style>
 </body>

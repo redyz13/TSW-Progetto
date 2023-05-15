@@ -13,7 +13,6 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<style><%@ include file="../css/header.css" %></style>
 
 <h1><%= magliettaBean.getNome() %></h1>
 <img src="<%= magliettaBean.getGrafica() %>" alt="<%= magliettaBean.getNome() %>">
@@ -26,5 +25,4 @@
 </form>
 
 <%@ include file="footer.jsp" %>
-<style><%@ include file="../css/footer.css" %></style>
 </body>

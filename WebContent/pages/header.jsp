@@ -1,6 +1,8 @@
 <%@ page import="control.utente.Login" %>
 
 <% Integer tipoUtente = (Integer) request.getSession().getAttribute("tipoUtente"); %>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <nav>
   <a href="#" class = "whiTee">whiTee</a>
   <a href="${pageContext.request.contextPath}/Catalogo">Home</a>

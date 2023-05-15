@@ -16,7 +16,6 @@
 </head>
 <body onload="setRadio()">
 <%@ include file="header.jsp" %>
-<style> <%@ include file="../css/header.css" %> </style>
 <h1>Modifica maglietta</h1>
 <form id="update" action="UpdateMaglietta" method="POST" enctype="multipart/form-data"></form>
 <fieldset>
@@ -66,6 +65,5 @@
 </fieldset>
 
 <%@ include file="footer.jsp" %>
-<style> <%@ include file="../css/footer.css" %> </style>
 </body>
 </html>

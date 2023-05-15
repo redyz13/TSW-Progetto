@@ -12,7 +12,6 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<style><%@ include file="../css/header.css" %></style>
 
 <form action="${pageContext.request.contextPath}/Login" method="post">
     <fieldset>
@@ -45,6 +44,5 @@
 %>
 
 <%@ include file="footer.jsp" %>
-<style><%@ include file="../css/footer.css" %></style>
 </body>
 </html>
