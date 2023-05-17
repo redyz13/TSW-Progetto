@@ -3,15 +3,36 @@
 }
 
 nav {
-  background-color: #FFFEFF;
-  border-bottom: #181818;
-  overflow: hidden;
-  margin-left: -0.6%;
-  margin-right: -0.6%;
-  margin-top: -0.6%;
+    min-height: 10vh;
+    overflow: hidden;
+    background-color: #FFFEFF;
+    display: center;
+    align-items: left;
+    position: sticky;
+    top: 0;
+    margin-left: .1vh;
+    width: 100%;
+    z-index: 104;
+}
+nav a {
+    color: #181818;
+    float: left;
+    text-decoration: none;
+    letter-spacing: .05rem;
+    font-size: 1.1rem;
+    min-height: 10vh;
+    line-height: 10vh;
+    padding: 0.5vh 2.5vh 0.5vh 2.5vh;
+    flex: 1;
+    text-align: center;
+}
+nav a:hover {
+	color: #ff9229;
+    background-color: #e2e2e2;
 }
 
-nav a {
+
+/*nav a {
   color: #181818;
   float: left;
   padding: 18px 20px;
@@ -21,8 +42,17 @@ nav a {
 
 nav a:hover {
   color: #ff9229;
+}*/
+
+nav .nav-right {
+  float: right;
 }
 
-.nav-right {
-  float: right;
+nav a .cart{
+	width: 10vh;
+	height: 10vh;
+}
+
+nav a .cart:hover{
+	
 }

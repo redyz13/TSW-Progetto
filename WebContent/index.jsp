@@ -26,7 +26,7 @@
     <table id="prodotti">
       <caption hidden>Catalogo</caption>
       <tr id="drop">
-        <td colspan="6" >
+        <td colspan="7" >
           <div class="dropdown">
             <button class="dropbtn">Ordina per &dtrif;</button>
             <div class="dropdown-content">
@@ -71,7 +71,7 @@
       <td>
         <form action="DescrizioneMaglietta" method="GET">
           <input type="hidden" name="id" value="<%= maglietta.getID() %>">
-          <button type="submit">Mostra descrizione</button>
+          <button type="submit" class="btn">Mostra descrizione</button>
         </form>
         <form action="AggiungiMaglietta" method="POST">
           <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
