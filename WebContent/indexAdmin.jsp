@@ -65,17 +65,37 @@
 		    	<tr>
 		    		<td class="bottoni" colspan="2">
 		    			<form action="DescrizioneMaglietta" method="GET">
-				          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
-				          <button type="submit">Mostra descrizione</button>
-				        </form>
+		          			<input type="hidden" name="id" value="<%= maglietta.getID() %>">
+		          			<button class="btn-shine" type="submit">
+	    						<span>Mostra Descrizione</span>
+	    						<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+								<lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00"stroke="120"></lord-icon>
+							</button>
+		        		</form>
+		    		</td>
+	    		</tr>
+	    		<tr>
+		    		<td class="funzioni">
+		        		<p style="font-size:2%">&nbsp;</p>
 				        <form action="StampaMaglietta" method="GET">
 				          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
-				          <button type="submit">Modifica</button>
+				          <button class="green-btn-shine" type="submit">
+	    						<span>Modifica</span>
+	    						<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+								<lord-icon src="https://cdn.lordicon.com/sbiheqdr.json" trigger="hover" colors="primary:#0c8125,secondary:#f24c00"stroke="120"></lord-icon>
+							</button>
 				        </form>
+				    </td>
+				    <td class="funzioni">
+				        <p style="font-size:2%">&nbsp;</p>
 				        <form action="DeleteMaglietta" method="POST">
 				          <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
 				          <input type="hidden" name="tipo" value="<%= maglietta.getTipo()%>">
-				          <button type="submit">Elimina</button>
+				          <button class="red-btn-shine" type="submit">
+	    						<span>Elimina</span>
+	    						<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+								<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="hover" colors="primary:#810c0c,secondary:#f24c00"stroke="120"></lord-icon>
+							</button>
 				        </form>
 		    		</td>
 	    		</tr>
