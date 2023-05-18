@@ -22,78 +22,82 @@
 <body>
   <%@ include file="pages/header.jsp" %>
   <h1> <a href="Catalogo">Magliette</a> </h1>
-
-    <table id="prodotti">
-      <caption hidden>Catalogo</caption>
-      <tr id="drop">
-        <td colspan="6" >
-          <div class="dropdown">
-            <button class="dropbtn">Ordina per &dtrif;</button>
-            <div class="dropdown-content">
-              <a href="Catalogo?ordine=nome">Nome</a>
-              <a href="Catalogo?ordine=prezzo">Prezzo</a>
-              <a href="Catalogo?ordine=colore">Colore</a>
-              <a href="Catalogo?ordine=tipo">Tipo</a>
-            </div>
-          </div>
-          <br>
-          <br>
-        </td>
-      </tr>
-      <tr id="element">
-        <th scope="col">Nome</th>
-        <th scope="col">Prezzo</th>
-        <th scope="col">IVA</th>
-        <th scope="col">Colore</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Grafica</th>
-      </tr>
+  <div class="dropdown b">
+  	<button class="dropbtn">Ordina per &dtrif;</button>
+    <div class="dropdown-content">
+    	<a href="Catalogo?ordine=nome">Nome</a>
+    	<a href="Catalogo?ordine=prezzo">Prezzo</a>
+    	<a href="Catalogo?ordine=colore">Colore</a>
+    	<a href="Catalogo?ordine=tipo">Tipo</a>
+    </div>
+  </div>
+  <br>
+  <div class="magliette">
     <%
-      // Formatter per il prezzo
-      if (magliette != null && magliette.size() != 0) {
-        DecimalFormat df = new DecimalFormat("#.##");
-        df.setRoundingMode(RoundingMode.FLOOR);
+ // Formatter per il prezzo
+    if (magliette != null && magliette.size() != 0) {
+      DecimalFormat df = new DecimalFormat("#.##");
+      df.setRoundingMode(RoundingMode.FLOOR);
 
-        // Stampa catalogo
-        for (Object o : magliette) {
-          MagliettaBean maglietta = (MagliettaBean) o;
-          String prezzo = df.format(maglietta.getPrezzo());
+      // Stampa catalogo
+      for (Object o : magliette) {
+        MagliettaBean maglietta = (MagliettaBean) o;
+        String prezzo = df.format(maglietta.getPrezzo());
 
-          if (prezzo.matches("[0-9]+"))
-            prezzo += ".00";
+        if (prezzo.matches("[0-9]+"))
+          prezzo += ".00";
     %>
-    <tr id="element">
-      <td><%= maglietta.getNome() %> </td>
-      <td>&euro;&nbsp;<%= prezzo %> </td>
-      <td><%= maglietta.getIVA() %> </td>
-      <td><%= maglietta.getColore() %> </td>
-      <td><%= maglietta.getTipo() %> </td>
-      <td><img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></td>
-      <td>
-        <form action="DescrizioneMaglietta" method="GET">
-          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
-          <button type="submit">Mostra descrizione</button>
-        </form>
-        <form action="StampaMaglietta" method="GET">
-          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
-          <button type="submit">Modifica</button>
-        </form>
-        <form action="DeleteMaglietta" method="POST">
-          <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
-          <input type="hidden" name="tipo" value="<%= maglietta.getTipo()%>">
-          <button type="submit">Elimina</button>
-        </form>
-      </td>
-    </tr>
+    	<div class="elemento">
+	    	<table class="dettagli">
+	    		<tr>
+	    			<td colspan="2" class="maglietta">
+	    				<img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>">
+	    			</td>
+	    		</tr>
+	    		<tr>
+		    		<td colspan="2">
+		    			<%= maglietta.getTipo() %><br>
+		    			<%= maglietta.getNome() %><br>
+		    			&euro;&nbsp;<%= prezzo %> + <%= maglietta.getIVA() %> &percnt; IVA<br>
+		    			Colore: <%= maglietta.getColore() %> <br>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td class="bottoni" colspan="2">
+		    			<form action="DescrizioneMaglietta" method="GET">
+				          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
+				          <button type="submit">Mostra descrizione</button>
+				        </form>
+				        <form action="StampaMaglietta" method="GET">
+				          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
+				          <button type="submit">Modifica</button>
+				        </form>
+				        <form action="DeleteMaglietta" method="POST">
+				          <input type="hidden" name="ID" value="<%= maglietta.getID() %>">
+				          <input type="hidden" name="tipo" value="<%= maglietta.getTipo()%>">
+				          <button type="submit">Elimina</button>
+				        </form>
+		    		</td>
+	    		</tr>
+	    	</table>
+    	</div>
     <%
       // Parentesi del for e dell'if
       } } else {
     %>
-    <tr>
-      <td colspan="6">Nessun prodotto disponibile</td>
-    </tr>
+    <p class="niente">Nessun prodotto disponibile</p>
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+	<lord-icon
+	    src="https://cdn.lordicon.com/imamsnbq.json"
+	    trigger="loop"
+	    delay="1500"
+	    colors="primary:#000000,secondary:#000000"
+	    stroke="85"
+	    style="width:25%;height:25%">
+	</lord-icon>
     <% } %>
-  </table>
+ </div>
+ <br><br>
 
   <h1>Inserimento magliette</h1>
 

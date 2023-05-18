@@ -49,14 +49,10 @@ select {
 td img {
   height: 30vh;
   width: auto;
-  filter: grayscale(30%);
   transition: filter 0.5s linear;
 }
 
-td img:hover {
-  filter: grayscale(0%);
-}
-
+  
 .dropbtn {
     position: relative;
     float: right;
@@ -69,12 +65,14 @@ td img:hover {
     width: 20vh;
 }
 
-.dropdown:hover .dropbtn {
+.dropdown.b:hover .dropbtn {
   background-color: #8f8f8f;
 }
 
-.dropdown {
-    position: relative;
+.dropdown.b {
+    float: right;
+    margin-top: -5vh;
+    margin-right: 10vh;
     display: inline-block;
 }
 
@@ -94,12 +92,35 @@ td img:hover {
     display: block;
 }
 
-.dropdown-content a:hover {
+ .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown.b:hover .dropdown-content {
     display: block;
+}
+
+.magliette{
+	width:80%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+.elemento{
+	margin-left: auto;
+	margin-right: auto;
+	aspect-ratio: 2/1;
+	width: 200px;
+	flex-basis: calc(100% / 4);
+}
+
+.maglietta img{
+	aspect-ratio:1/1;
+	width: auto;
+	height: 200px;
+	object-fit: contain;
+	
 }
 
 #prodotti tr th,
@@ -122,6 +143,8 @@ td img:hover {
   border-radius: 2%;
 }
 
-.btn{
-
+.niente{
+	font-size:20%;
+	display: center;
+	font-weight:bold;
 }

@@ -2,6 +2,10 @@
   color: #4ed0da ;
 }
 
+body{
+	overflow-x: hidden;
+  	overflow-y: auto;
+}
 nav {
     min-height: 10vh;
     overflow: hidden;
@@ -41,6 +45,7 @@ nav .cart{
 	filter: brightness(0%);
 	transition: filter 0.7s;
 }
+
 
 nav .cart:hover{
 	filter: none;
