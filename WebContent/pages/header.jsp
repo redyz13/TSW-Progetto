@@ -1,7 +1,9 @@
 <%@ page import="control.utente.Login" %>
 
 <% Integer tipoUtente = (Integer) request.getSession().getAttribute("tipoUtente"); %>
-
+<script type="text/javascript">
+	var contextPath = '<%= request.getContextPath() %>'
+</script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 	<nav class="stickynavbar">
 	<a href="#" class = "whiTee">whiTee</a>
@@ -27,7 +29,8 @@
 	
 	    <!-- L'admin è l'unico a non vedere il carrello -->
 	    <% if (tipoUtente == null || !tipoUtente.equals(Login.ADMIN)) { %>
-	    <a href="${pageContext.request.contextPath}/pages/carrello.jsp"><img src="../images/cart/cart.png"></a>
+	    	<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+	    	<lord-icon src="https://cdn.lordicon.com/lpddubrl.json" trigger="hover" colors="primary:#e88c30,secondary:#30c9e8" stroke="85" class="cart" onclick="location.href = '${pageContext.request.contextPath}/pages/carrello.jsp';"></lord-icon>
 	    <% } %>
 	</div>
 </nav>

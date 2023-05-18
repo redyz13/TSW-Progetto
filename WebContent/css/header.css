@@ -31,28 +31,18 @@ nav a:hover {
     background-color: #e2e2e2;
 }
 
-
-/*nav a {
-  color: #181818;
-  float: left;
-  padding: 18px 20px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-nav a:hover {
-  color: #ff9229;
-}*/
-
 nav .nav-right {
   float: right;
 }
 
-nav a .cart{
+nav .cart{
 	width: 10vh;
 	height: 10vh;
+	filter: brightness(0%);
+	transition: filter 0.7s;
 }
 
-nav a .cart:hover{
+nav .cart:hover{
+	filter: none;
 	
 }
