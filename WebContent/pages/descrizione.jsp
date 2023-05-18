@@ -11,6 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/descrizione.css">
+  <script src="${pageContext.request.contextPath}/js/imageZoom.js"></script>
   <title>Descrizione Prodotto</title>
 </head>
 <body>
@@ -27,14 +28,20 @@
 <table class="mostraProdotto">
 	<tr>
 		<td class="Prodotto">
-			<img src="<%= magliettaBean.getGrafica() %>" alt="<%= magliettaBean.getNome() %>" class="mgt">
+			<div class="img-zoom-container">
+				<img id="myimage" src="<%= magliettaBean.getGrafica() %>" alt="<%= magliettaBean.getNome() %>" class="mgt">
+			  	<div id="myresult" class="img-zoom-result"></div><br><br><br><br>
+			</div>
 		</td>
 		<td class="Descrizione">
+			<br>
 			<h1><%= magliettaBean.getNome() %></h1>
+			<br><br>
 			<p><%= magliettaBean.getTipo() %><br></p>
 			<p><%= magliettaBean.getDescrizione() %><br></p>
 			<p>&euro;&nbsp;<%= prezzo %> + <%= magliettaBean.getIVA() %> &percnt; IVA<br></p>
 			<p>Colore: <%= magliettaBean.getColore() %> <br></p>
+			<br><br><br><br><br>
 			<form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="post">
 				  <label>
 					    <input type="hidden" name="ID" value="<%= magliettaBean.getID() %>">
@@ -48,5 +55,10 @@
 		</td>
 	</tr>
 </table>
+<script>
+// Initiate zoom effect:
+document.getElementById("myresult").style.visibility = "hidden";
+imageZoom("myimage", "myresult");
+</script>
 <%@ include file="footer.jsp" %>
 </body>

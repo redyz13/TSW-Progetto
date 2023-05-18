@@ -154,3 +154,32 @@ button:hover span {
   left: 120%;
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
+
+/*image lens*/
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid transparent;
+  width: 50px;
+  height: 50px;
+}
+.img-zoom-lens:hover {
+  position: absolute;
+  border: 1px solid transparent;
+  width: 50px;
+  height: 50px;
+  display: hidden;
+}
+
+.img-zoom-result {
+  border: none;
+  width: 60vh;
+  height: 60vh;
+  z-index: 900;
+  margin-top: -120%;
+  margin-left: 100%;
+}
