@@ -65,7 +65,7 @@ function imageZoom(imgID, resultID) {
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
   }
   function getCursorPos(e) {
-    let a, x = 0, y = 0;
+    let a, x, y;
     /*get the x and y positions of the image:*/
     a = img.getBoundingClientRect();
     /*calculate the cursor's x and y coordinates, relative to the image:*/
