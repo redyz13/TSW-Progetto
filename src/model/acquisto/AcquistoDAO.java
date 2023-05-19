@@ -1,15 +1,11 @@
 package model.acquisto;
 
 import model.DAOInterface;
-import model.ordine.OrdineBean;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 
@@ -35,7 +31,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE IDOrdine = ? && ID";
 
-//        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+//        try( Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 //            ResultSet resultSet = preparedStatement.executeQuery();
 //
 //            setOrders(resultSet,ordineBean);
