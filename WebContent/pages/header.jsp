@@ -29,7 +29,7 @@
 	
 	    <!-- L'admin è l'unico a non vedere il carrello -->
 	    <% if (tipoUtente == null || !tipoUtente.equals(Login.ADMIN)) { %>
-	    	<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+			<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
 	    	<lord-icon src="https://cdn.lordicon.com/lpddubrl.json" trigger="hover" colors="primary:#e88c30,secondary:#30c9e8" stroke="85" class="cart" onclick="location.href = '${pageContext.request.contextPath}/pages/carrello.jsp';"></lord-icon>
 	    <% } %>
 	</div>
