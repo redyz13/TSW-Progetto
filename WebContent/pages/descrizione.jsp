@@ -26,6 +26,7 @@
 
 %>
 <table class="mostraProdotto">
+	<caption hidden>Descrizione</caption>
 	<tr>
 		<td class="Prodotto">
 			<div class="img-zoom-container">

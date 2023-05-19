@@ -48,6 +48,7 @@
     %>
     	<div class="elemento">
 	    	<table class="dettagli">
+				<caption hidden>Catalogo</caption>
 	    		<tr>
 	    			<td colspan="2" class="maglietta">
 						<a href="${pageContext.request.contextPath}/DescrizioneMaglietta?id=<%= maglietta.getID() %>">
