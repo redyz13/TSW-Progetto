@@ -50,7 +50,8 @@
 	    	<table class="dettagli">
 	    		<tr>
 	    			<td colspan="2" class="maglietta">
-	    				<img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>">
+						<a href="${pageContext.request.contextPath}/DescrizioneMaglietta?id=<%= maglietta.getID() %>">
+						  <img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></a>
 	    			</td>
 	    		</tr>
 	    		<tr>
@@ -68,7 +69,7 @@
 		          			<button class="btn-shine" type="submit">
 	    						<span>Mostra Descrizione</span>
 								<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
-								<lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00"stroke="120"></lord-icon>
+								<lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="120"></lord-icon>
 							</button>
 		        		</form>
 		        		<p style="font-size:2%">&nbsp;</p>
@@ -77,7 +78,7 @@
 		         			<button class="btn-shine" type="submit">
 	    						<span>Aggiungi al carrello</span>
 								<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
-								<lord-icon src="https://cdn.lordicon.com/dnoiydox.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00"stroke="85"></lord-icon>
+								<lord-icon src="https://cdn.lordicon.com/dnoiydox.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="85"></lord-icon>
 							</button>
 		        		</form>
 		    		</td>

@@ -10,8 +10,8 @@ nav {
     min-height: 10vh;
     overflow: hidden;
     background-color: #FFFEFF;
-    display: center;
-    align-items: left;
+    /*display: center;*/
+    /*align-items: left;*/
     position: sticky;
     top: 0;
     margin-left: .1vh;
@@ -49,5 +49,4 @@ nav .cart{
 
 nav .cart:hover{
 	filter: none;
-	
 }

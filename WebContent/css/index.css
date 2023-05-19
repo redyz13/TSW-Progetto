@@ -145,7 +145,7 @@ td img {
 
 .niente{
 	font-size:20%;
-	display: center;
+	/*display: center;*/
 	font-weight:bold;
 }
 
@@ -165,7 +165,6 @@ button {
   border: 1px solid #000000;
   border-radius: 10px;
   color: #000000;
-  font-weight: 400;
   font-family: inherit;
   z-index: 0;
   overflow: hidden;
@@ -295,7 +294,6 @@ button.green-btn-shine {
   border: 1px solid #000000;
   border-radius: 10px;
   color: #000000;
-  font-weight: 400;
   font-family: inherit;
   z-index: 0;
   overflow: hidden;
@@ -425,7 +423,6 @@ button.red-btn-shine {
   border: 1px solid #000000;
   border-radius: 10px;
   color: #000000;
-  font-weight: 400;
   font-family: inherit;
   z-index: 0;
   overflow: hidden;

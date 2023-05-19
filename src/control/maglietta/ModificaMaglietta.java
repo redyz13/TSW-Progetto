@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/StampaMaglietta")
-public class StampaMaglietta extends HttpServlet {
+@WebServlet("/ModificaMaglietta")
+public class ModificaMaglietta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int ID = Integer.parseInt(req.getParameter("id"));

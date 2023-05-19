@@ -51,7 +51,8 @@
 	    	<table class="dettagli">
 	    		<tr>
 	    			<td colspan="2" class="maglietta">
-	    				<img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>">
+                        <a href="${pageContext.request.contextPath}/DescrizioneMaglietta?id=<%= maglietta.getID() %>">
+                          <img src="<%= maglietta.getGrafica() %>" alt="<%= maglietta.getNome() %>"></a>
 	    			</td>
 	    		</tr>
 	    		<tr>
@@ -69,7 +70,7 @@
 		          			<button class="btn-shine" type="submit">
 	    						<span>Mostra Descrizione</span>
                                 <script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
-								<lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00"stroke="120"></lord-icon>
+								<lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="120"></lord-icon>
 							</button>
 		        		</form>
 		    		</td>
@@ -77,12 +78,12 @@
 	    		<tr>
 		    		<td class="funzioni">
 		        		<p style="font-size:2%">&nbsp;</p>
-				        <form action="StampaMaglietta" method="GET">
+				        <form action="ModificaMaglietta" method="GET">
 				          <input type="hidden" name="id" value="<%= maglietta.getID() %>">
 				          <button class="green-btn-shine" type="submit">
 	    						<span>Modifica</span>
                                 <script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
-								<lord-icon src="https://cdn.lordicon.com/sbiheqdr.json" trigger="hover" colors="primary:#0c8125,secondary:#f24c00"stroke="120"></lord-icon>
+								<lord-icon src="https://cdn.lordicon.com/sbiheqdr.json" trigger="hover" colors="primary:#0c8125,secondary:#f24c00" stroke="120"></lord-icon>
 							</button>
 				        </form>
 				    </td>
@@ -94,7 +95,7 @@
 				          <button class="red-btn-shine" type="submit">
 	    						<span>Elimina</span>
                                 <script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
-								<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="hover" colors="primary:#810c0c,secondary:#f24c00"stroke="120"></lord-icon>
+								<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="hover" colors="primary:#810c0c,secondary:#f24c00" stroke="120"></lord-icon>
 							</button>
 				        </form>
 		    		</td>
