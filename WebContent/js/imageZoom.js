@@ -66,15 +66,12 @@ function imageZoom(imgID, resultID) {
   }
   function getCursorPos(e) {
     let a, x = 0, y = 0;
-    // e = e || window.event;
     /*get the x and y positions of the image:*/
     a = img.getBoundingClientRect();
     /*calculate the cursor's x and y coordinates, relative to the image:*/
     x = e.pageX - a.left;
     y = e.pageY - a.top;
     /*consider any page scrolling:*/
-    // x = x - window.pageXOffset;
-    // y = y - window.pageYOffset;
     return {x : x, y : y};
   }
 }
