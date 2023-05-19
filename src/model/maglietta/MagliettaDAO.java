@@ -1,6 +1,8 @@
 package model.maglietta;
 
 import model.DAOInterface;
+import model.ordine.OrdineBean;
+import model.utente.UtenteBean;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
