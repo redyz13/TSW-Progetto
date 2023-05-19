@@ -2,7 +2,7 @@
 
 <% Integer tipoUtente = (Integer) request.getSession().getAttribute("tipoUtente"); %>
 <script type="text/javascript">
-	var contextPath = '<%= request.getContextPath() %>'
+	let contextPath = '<%= request.getContextPath() %>'
 </script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 	<nav class="stickynavbar">
