@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/descrizione.css">
   <script src="${pageContext.request.contextPath}/js/imageZoom.js"></script>
+  <script src="${pageContext.request.contextPath}/js/Modal.js"></script>
   <title>Descrizione Prodotto</title>
 </head>
 <body>
@@ -25,13 +26,22 @@
 		prezzo += ".00";
 
 %>
+
 <table class="mostraProdotto">
 	<caption hidden>Descrizione</caption>
 	<tr>
 		<td class="Prodotto">
-			<div class="img-zoom-container">
+			<div class="img-zoom-container" onclick="Modal();">
 				<img id="myimage" src="<%= magliettaBean.getGrafica() %>" alt="<%= magliettaBean.getNome() %>" class="mgt">
 			  	<div id="myresult" class="img-zoom-result"></div><br><br><br><br>
+			  	<div id="myModal" class="modal">
+					<div class="modal-content">
+						<img src="<%= magliettaBean.getGrafica() %>" alt="<%= magliettaBean.getNome() %>" class="show">
+					</div>
+				</div>
+				<script>
+					document.getElementById("myModal").style.visibility = "hidden";
+				</script>
 			</div>
 		</td>
 		<td class="Descrizione">
@@ -56,6 +66,7 @@
 		</td>
 	</tr>
 </table>
+
 <script>
 // Initiate zoom effect:
 document.getElementById("myresult").style.visibility = "hidden";
@@ -63,3 +74,4 @@ imageZoom("myimage", "myresult");
 </script>
 <%@ include file="footer.jsp" %>
 </body>
+</html>
