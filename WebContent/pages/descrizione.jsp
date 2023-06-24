@@ -29,6 +29,10 @@
 
 <table class="mostraProdotto">
 	<caption hidden>Descrizione</caption>
+	<tr hidden>
+		<th>Prodotto</th>
+		<th>Descrizione</th>
+	</tr>
 	<tr>
 		<td class="Prodotto">
 			<div class="img-zoom-container" onclick="Modal();">

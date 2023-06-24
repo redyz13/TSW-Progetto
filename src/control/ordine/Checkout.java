@@ -13,10 +13,6 @@ public class Checkout extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
 
-//        if(session.getAttribute("utentePresente")) {
-//
-//        }
     }
 }
