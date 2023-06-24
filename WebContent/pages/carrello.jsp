@@ -80,8 +80,17 @@
     </td>
   </tr>
   <%
-      // Parentesi del for e dell'if
-    } } else {
+    // Parentesi del for
+    }
+  %>
+  <div id="checkout">
+    <form action="${pageContext.request.contextPath}/Checkout" method="POST">
+      <button type="submit">Checkout</button>
+    </form>
+  </div>
+  <%
+    // Parentesi dell'if
+    } else {
   %>
   <tr>
     <td colspan="7">Nessun prodotto nel carello</td>
