@@ -6,6 +6,54 @@
 	height: 100%;
 	width: 100%;
 }
+.modal {
+	display: block;
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 90vw;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+			
+.modal-content {
+	background-color: rgba(0, 0, 0, 0);
+	background-size:cover;
+	margin: auto auto auto auto;
+	border: none;
+	max-height: 90vh;
+	max-width: 90vw;
+	content-fit: contain;
+	text-align: center;
+	content-align: center;
+	position: relative;
+}
+			
+.close {
+	color: #FFFFFF;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	cursor: pointer;
+}
+			
+.close:hover,
+.close:focus {
+	color: black;
+}
+			
+.show{
+	height: 100vh;
+	width: auto;
+	padding-top: auto;
+	patting-bottom: auto;
+	background-color: white;
+}
 
 .mostraProdotto{
 	margin-bottom: 5%;
@@ -158,6 +206,7 @@ button:hover span {
 
 .img-zoom-container {
   position: relative;
+  cursor: pointer;
 }
 
 .img-zoom-lens {
@@ -179,6 +228,10 @@ button:hover span {
   width: 60vh;
   height: 60vh;
   z-index: 900;
-  margin-top: -120%;
-  margin-left: 100%;
+  /*margin-top: -120%;
+  margin-left: 100%;*/
+  top: 5%;
+  left: 120%;
+  position: absolute;
 }
+
