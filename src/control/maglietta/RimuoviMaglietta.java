@@ -23,7 +23,5 @@ public class RimuoviMaglietta extends HttpServlet {
         int ID = Integer.parseInt(req.getParameter("ID"));
 
         carrello.rimuovi(ID);
-
-        resp.sendRedirect("pages/carrello.jsp");
     }
 }

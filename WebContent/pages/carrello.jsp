@@ -55,7 +55,7 @@
         if (prezzo.matches("[0-9]+"))
           prezzo += ".00";
   %>
-  <tr id="element">
+  <tr class="productRow" id="<%= magliettaOrdine.getMagliettaBean().getID() %>">
     <td><%= magliettaOrdine.getMagliettaBean().getNome() %> </td>
     <td>&euro;&nbsp;<%= prezzo %> </td>
     <td><%= magliettaOrdine.getMagliettaBean().getIVA() %> </td>
@@ -73,7 +73,7 @@
       </form>
     </td>
     <td>
-      <form action="${pageContext.request.contextPath}/RimuoviMaglietta" method="POST">
+      <form class="rmvForm">
         <input type="hidden" name="ID" value="<%= magliettaOrdine.getMagliettaBean().getID() %>">
         <button type="submit">Elimina</button>
       </form>
@@ -100,6 +100,21 @@
         type: "POST",
         url: "${pageContext.request.contextPath}/AggiungiMaglietta",
         data: $(this).serialize()
+      });
+    });
+    $(".rmvForm").on("submit", function(event) {
+      event.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "${pageContext.request.contextPath}/RimuoviMaglietta",
+        data: $(this).serialize(),
+        success: function() {
+          let ID = $(".rmvForm input[name='ID']").attr("value");
+          document.getElementById(ID.toString()).remove();
+
+          if (document.getElementsByClassName("productRow").length === 0)
+            location.reload();
+        }
       });
     });
   });
