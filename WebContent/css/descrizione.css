@@ -25,9 +25,7 @@
 	border: none;
 	max-height: 90vh;
 	max-width: 90vw;
-	content-fit: contain;
 	text-align: center;
-	content-align: center;
 	position: relative;
 }
 			
@@ -50,8 +48,6 @@
 .show{
 	height: 100vh;
 	width: auto;
-	padding-top: auto;
-	patting-bottom: auto;
 	background-color: white;
 }
 
