@@ -29,11 +29,10 @@ public class AggiungiMaglietta extends HttpServlet {
 
         if (quantita == null) {
             carrello.aggiungi(ID);
+            resp.sendRedirect("pages/carrello.jsp");
         }
         else {
             carrello.setQuantita(ID, Integer.parseInt(quantita));
         }
-
-        resp.sendRedirect("pages/carrello.jsp");
     }
 }

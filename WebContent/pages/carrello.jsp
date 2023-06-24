@@ -63,7 +63,7 @@
     <td><%= magliettaOrdine.getMagliettaBean().getTipo() %> </td>
     <td><img src="../<%= magliettaOrdine.getMagliettaBean().getGrafica() %>" alt="<%= magliettaOrdine.getMagliettaBean().getNome() %>"></td>
     <td>
-      <form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="POST">
+      <form class="addForm">
         <label>
         <%-- TODO fare in modo che sia possibile inserire solo numeri nella request --%>
         <input type="number" name="quantita" min="0" max="100" value="<%= magliettaOrdine.getQuantita() %>">
@@ -90,4 +90,19 @@
 </table>
 
 <%@ include file="footer.jsp" %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".addForm").on("submit", function(event) {
+      event.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "${pageContext.request.contextPath}/AggiungiMaglietta",
+        data: $(this).serialize()
+      });
+    });
+  });
+</script>
+
 </body>
