@@ -48,7 +48,7 @@
           prezzo += ".00";
     %>
     	<div class="elemento">
-	    	<table class="dettagli">
+	    	<table class="dettagli" role="presentation">
                 <caption hidden>Catalogo</caption>
 	    		<tr>
 	    			<td colspan="2" class="maglietta">
