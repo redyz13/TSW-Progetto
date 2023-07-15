@@ -3,6 +3,8 @@ footer {
   text-align: center;
   padding: 18px 20px;
   margin: 1% -1% -1%;
+  display: block;
+  bottom: 0;
 }
 
 footer a {
