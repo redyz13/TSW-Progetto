@@ -104,6 +104,25 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
         return false;
     }
 
+    public int getMaxID() throws SQLException {
+        String sessionCacheQuery = "SET @@SESSION.information_schema_stats_expiry = 0;";
+        String query = "SELECT AUTO_INCREMENT " +
+                "FROM information_schema.tables WHERE table_name = '" + TABLE_NAME +
+                "' AND table_schema = 'whiTee'";
+
+        int ID;
+
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            connection.createStatement().execute(sessionCacheQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            ID = resultSet.getInt("AUTO_INCREMENT");
+        }
+
+        return ID;
+    }
+
     private void setOrders(ResultSet resultSet, OrdineBean ordineBean) throws SQLException {
         ordineBean.setID(resultSet.getString("ID"));
         ordineBean.setUsername(resultSet.getString("username"));

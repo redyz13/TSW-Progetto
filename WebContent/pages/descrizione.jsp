@@ -50,7 +50,7 @@
 		</td>
 		<td class="Descrizione">
 			<br>
-			<h1><%= magliettaBean.getNome() %></h1>
+			<h1 class="titolo"><%= magliettaBean.getNome() %></h1>
 			<br><br>
 			<p><%= magliettaBean.getTipo() %><br></p>
 			<p><%= magliettaBean.getDescrizione() %><br></p>

@@ -95,8 +95,6 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
             setMagliettaStatement(maglietta, preparedStatement);
 
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -112,8 +110,6 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
             preparedStatement.setInt(8, maglietta.getID());
 
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 

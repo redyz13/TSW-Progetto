@@ -2,13 +2,33 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.table {
-    margin: auto;
-    width: 50%;
+.data-consegna-p {
+    font-size: large;
+    font-weight: bold;
 }
 
-td img {
-    height: 30vh;
-    width: auto;
-    transition: filter 0.5s linear;
+.box {
+    display: grid;
+    grid-template-rows: auto ;
 }
+.metodo-di-pagamento {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1px 15px 15px 15px;
+    width: 500px;
+    line-height: 150%;
+}
+
+.indirizzo-spedizione {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1px 15px 15px 15px;
+    width: 500px;
+    line-height: 200%;
+}
+
+.immagine-prodotto {
+    width: 20%;
+    height: auto;
+}
+

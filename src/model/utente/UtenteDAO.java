@@ -39,6 +39,11 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
         return getUtenteBean(code, utenteBean, query);
     }
 
+    @Override
+    public Collection<UtenteBean> doRetriveAll(String order) throws SQLException {
+        return null;
+    }
+
     public UtenteBean doRetrieveByEmail(String email) throws SQLException {
         UtenteBean utenteBean = new UtenteBean();
 
@@ -47,16 +52,11 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
         return getUtenteBean(email, utenteBean, query);
     }
 
-    @SuppressWarnings("all")
-    @Override
-    public Collection<UtenteBean> doRetriveAll(String order) throws SQLException {
-        return null;
-    }
 
     @Override
     public synchronized void doSave(UtenteBean utente) throws SQLException {
-        String query = "INSERT INTO " + TABLE_NAME + " (username, pwd, nome, cognome, email, dataNascita, numCarta, dataScadenza, cap, via, citta, tipo) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (username, pwd, nome, cognome, email, dataNascita, numCarta, dataScadenza, CVV, cap, via, citta, tipo) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setUtenteStatement(utente, preparedStatement);
@@ -68,7 +68,38 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
 
     @SuppressWarnings("all")
     @Override
-    public void doUpdate(UtenteBean product) throws SQLException {
+    public synchronized void doUpdate(UtenteBean utente) throws SQLException {
+        String query =  "UPDATE " + TABLE_NAME +
+                        " SET pwd = ?, nome = ?, cognome = ?,"+
+                        " email = ?, dataNascita = ?, numCarta = ?," +
+                        " dataScadenza = ?, CVV = ?, cap = ?, via = ?," +
+                        " citta = ?, tipo = ?" +
+                        " WHERE username = ?";
+
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+           preparedStatement.setString(1, utente.getPwd());
+           preparedStatement.setString(2, utente.getNome());
+           preparedStatement.setString(3, utente.getCognome());
+           preparedStatement.setString(4, utente.getEmail());
+           preparedStatement.setDate(5, Date.valueOf(utente.getDataNascita()));
+           preparedStatement.setString(6, utente.getNumCarta());
+           if(utente.getDataScadenza() == null){
+               preparedStatement.setDate(7, null);
+           }
+           else{
+               preparedStatement.setDate(7, Date.valueOf(utente.getDataScadenza()));
+           }
+           preparedStatement.setString(8, utente.getCVV());
+           preparedStatement.setString(9, utente.getCap());
+           preparedStatement.setString(10, utente.getVia());
+           preparedStatement.setString(11, utente.getCitta());
+           preparedStatement.setString(12, utente.getTipo());
+
+           preparedStatement.setString(13, utente.getUsername());
+
+           preparedStatement.executeUpdate();
+
+        }
     }
 
     @Override
@@ -115,6 +146,7 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
             utenteBean.setDataScadenza(null);
         else
             utenteBean.setDataScadenza((resultSet.getDate("dataScadenza").toLocalDate()));
+        utenteBean.setCVV((resultSet.getString("CVV")));
         utenteBean.setCap(resultSet.getString("cap"));
         utenteBean.setVia(resultSet.getString("via"));
         utenteBean.setCitta(resultSet.getString("citta"));
@@ -134,12 +166,11 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
             preparedStatement.setDate(8, null);
         else
             preparedStatement.setDate(8, Date.valueOf(utenteBean.getDataScadenza()));
-        preparedStatement.setString(9, utenteBean.getCap());
-        preparedStatement.setString(10, utenteBean.getVia());
-        preparedStatement.setString(11, utenteBean.getCitta());
-        preparedStatement.setString(12, utenteBean.getTipo());
+        preparedStatement.setString(9, utenteBean.getCVV());
+        preparedStatement.setString(10, utenteBean.getCap());
+        preparedStatement.setString(11, utenteBean.getVia());
+        preparedStatement.setString(12, utenteBean.getCitta());
+        preparedStatement.setString(13, utenteBean.getTipo());
 
     }
-
-
 }

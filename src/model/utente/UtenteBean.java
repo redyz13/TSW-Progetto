@@ -3,11 +3,19 @@ package model.utente;
 import java.time.LocalDate;
 
 public class UtenteBean {
-    private String username, pwd, nome, cognome, email, numCarta, cap, via, citta, tipo;
+    private String username, pwd, nome, cognome, email, numCarta, cap, via, citta, tipo, CVV;
     private LocalDate dataNascita, dataScadenza;
 
     public String getUsername() {
         return username;
+    }
+
+    public String getCVV() {
+        return CVV;
+    }
+
+    public void setCVV(String CVV) {
+        this.CVV = CVV;
     }
 
     public void setUsername(String username) {

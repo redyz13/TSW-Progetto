@@ -1,0 +1,42 @@
+package control.ordine;
+
+import model.utente.UtenteBean;
+import model.utente.UtenteDAO;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+@WebServlet("/ModificaPagamento")
+public class ModificaPagamento extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        UtenteBean utenteBean = (UtenteBean) req.getSession().getAttribute("utente");
+
+        String numeroCarta = req.getParameter("numCartaNuova");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dataScadenza = LocalDate.parse(req.getParameter("dataScadNuova"), formatter);
+        String CVV = req.getParameter("CVVNuovo");
+
+        utenteBean.setNumCarta(numeroCarta);
+        utenteBean.setDataScadenza(dataScadenza);
+        utenteBean.setCVV(CVV);
+
+        UtenteDAO utenteDAO = new UtenteDAO();
+        try {
+            utenteDAO.doUpdate(utenteBean);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("pages/checkout.jsp");
+        requestDispatcher.forward(req, resp);
+    }
+}

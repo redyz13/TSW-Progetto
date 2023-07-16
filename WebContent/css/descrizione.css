@@ -1,7 +1,9 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
-
+.titolo {
+    border-bottom: 1px solid darkgray;
+}
 .mgt {
 	height: 100%;
 	width: 100%;
