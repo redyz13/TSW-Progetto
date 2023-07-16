@@ -23,6 +23,10 @@ public class Login extends HttpServlet {
         try {
             String redirectedPage;
             int tipoUtente = checkUser(username, password);
+            UtenteDAO utenteDAO = new UtenteDAO();
+            UtenteBean utenteBean = utenteDAO.doRetrieveByKey(username);
+
+            req.getSession().setAttribute("utente", utenteBean);
 
             switch (tipoUtente) {
                 case ADMIN:
@@ -31,6 +35,7 @@ public class Login extends HttpServlet {
                     break;
                 case REGISTRATO:
                     req.getSession().setAttribute("tipoUtente", REGISTRATO);
+
                     redirectedPage = "index.jsp";
                     break;
                 default:

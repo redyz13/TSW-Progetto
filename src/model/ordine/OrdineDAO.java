@@ -101,7 +101,6 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
 
     @Override
     public boolean doDelete(Integer code) throws SQLException {
-
         return false;
     }
 

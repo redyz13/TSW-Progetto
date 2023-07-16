@@ -3,7 +3,6 @@ package model.ordine;
 import java.time.LocalDate;
 
 public class OrdineBean {
-
     String ID, username, cap, via, citta;
     LocalDate dataConsegna, dataOrdine;
     float prezzoTotale;
