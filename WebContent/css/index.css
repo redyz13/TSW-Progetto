@@ -146,7 +146,7 @@ td img {
 }
 
 /* bottone acquisti*/
-button {
+.button {
   position: relative;
   margin: 0;
   padding: 0.5% 1%;
@@ -168,7 +168,7 @@ button {
   width: 100%;
 }
 
-button span {
+.button span {
   color: #000000;
   font-size: 12px;
   font-weight: bold;
@@ -176,7 +176,7 @@ button span {
   animation: storm1261 0.7s ease-in-out both;
 }
 
-button lord-icon {
+.button lord-icon {
 	height: 18px;
 	width: 18px;
 	z-index: 20;
@@ -184,16 +184,16 @@ button lord-icon {
 	animation: filter 0.7s;
 }
 
-button:hover lord-icon {
+.button:hover lord-icon {
 	filter: none;	
 }
 
 
-button:hover {
+.button:hover {
   animation: rotate624 0.7s ease-in-out both;
 }
 
-button:hover span {
+.button:hover span {
   animation-delay: 0.06s;
   color: #164ca7;
 }
@@ -275,7 +275,7 @@ button:hover span {
 }
 
 /* bottone modifica*/
-button.green-btn-shine {
+.button.green-btn-shine {
   position: relative;
   margin: 0;
   padding: 0.5% 1%;
@@ -297,7 +297,7 @@ button.green-btn-shine {
   width: 100%;
 }
 
-button.green-btn-shine span {
+.button.green-btn-shine span {
   color: #000000;
   font-size: 12px;
   font-weight: bold;
@@ -305,7 +305,7 @@ button.green-btn-shine span {
   animation: greenstorm1261 0.7s ease-in-out both;
 }
 
-button.green-btn-shine lord-icon {
+.button.green-btn-shine lord-icon {
 	height: 18px;
 	width: 18px;
 	z-index: 20;
@@ -313,16 +313,16 @@ button.green-btn-shine lord-icon {
 	animation: filter 0.7s;
 }
 
-button.green-btn-shine:hover lord-icon {
+.button.green-btn-shine:hover lord-icon {
 	filter: none;	
 }
 
 
-button.green-btn-shine:hover {
+.button.green-btn-shine:hover {
   animation: greenrotate624 0.7s ease-in-out both;
 }
 
-button.green-btn-shine:hover span {
+.button.green-btn-shine:hover span {
   animation-delay: 0.06s;
   color: #0c8125;
 }
@@ -404,7 +404,7 @@ button.green-btn-shine:hover span {
 }
 
 /* bottone cancella*/
-button.red-btn-shine {
+.button.red-btn-shine {
   position: relative;
   margin: 0;
   padding: 0.5% 1%;
@@ -426,7 +426,7 @@ button.red-btn-shine {
   width: 100%;
 }
 
-button.red-btn-shine span {
+.button.red-btn-shine span {
   color: #000000;
   font-size: 12px;
   font-weight: bold;
@@ -434,7 +434,7 @@ button.red-btn-shine span {
   animation: redstorm1261 0.7s ease-in-out both;
 }
 
-button.red-btn-shine lord-icon {
+.button.red-btn-shine lord-icon {
 	height: 18px;
 	width: 18px;
 	z-index: 20;
@@ -442,16 +442,16 @@ button.red-btn-shine lord-icon {
 	animation: filter 0.7s;
 }
 
-button.red-btn-shine:hover lord-icon {
+.button.red-btn-shine:hover lord-icon {
 	filter: none;	
 }
 
 
-button.red-btn-shine:hover {
+.button.red-btn-shine:hover {
   animation: redrotate624 0.7s ease-in-out both;
 }
 
-button.red-btn-shine:hover span {
+.button.red-btn-shine:hover span {
   animation-delay: 0.06s;
   color: #810c0c;
 }

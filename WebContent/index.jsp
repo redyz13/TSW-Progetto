@@ -72,7 +72,7 @@
 		    		<td class="bottoni" colspan="2">
 		    			<form action="DescrizioneMaglietta" method="GET">
 		          			<input type="hidden" name="id" value="<%= maglietta.getID() %>">
-		          			<button class="btn-shine" type="submit">
+		          			<button class="btn-shine button" type="submit">
 	    						<span>Mostra Descrizione</span>
 								<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
 								<lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="120"></lord-icon>
@@ -81,7 +81,7 @@
 		        		<p style="font-size:2%">&nbsp;</p>
 		        		<form action="AggiungiMaglietta" method="POST">
 		          			<input type="hidden" name="ID" value="<%= maglietta.getID() %>">
-		         			<button class="btn-shine" type="submit">
+		         			<button class="btn-shine button" type="submit">
 	    						<span>Aggiungi al carrello</span>
 								<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
 								<lord-icon src="https://cdn.lordicon.com/dnoiydox.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="85"></lord-icon>
