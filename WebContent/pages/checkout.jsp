@@ -6,10 +6,9 @@
 <%@ page import="model.utente.UtenteBean"%>
 <%@ page import="java.time.LocalDate"%>
 <%@ page import="java.time.temporal.ChronoUnit"%>
-<%@ page import="javax.swing.text.DateFormatter"%>
 <%@ page import="java.time.format.DateTimeFormatter"%>
 <%@ page import="java.time.format.FormatStyle"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%
 	CarrelloModel carrello = (CarrelloModel) session.getAttribute("carrello");
 	Collection<?> oggettiCarrello = carrello.getCarrello();

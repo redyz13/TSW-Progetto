@@ -2,6 +2,8 @@ package control.maglietta;
 
 import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
+import model.misura.MisuraBean;
+import model.misura.MisuraDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -57,8 +59,17 @@ public class SaveMaglietta extends HttpServlet {
         maglietta.setDescrizione(descrizione);
         maglietta.setGrafica(relativePath);
 
+        String taglia = req.getParameter("taglia");
+        int quantita = Integer.parseInt(req.getParameter("quantita"));
+
+        MisuraDAO misuraDAO = new MisuraDAO();
+
         try {
             magliettaDAO.doSave(maglietta);
+
+            MisuraBean misuraBean = new MisuraBean(magliettaDAO.getMaxID(), quantita, taglia);
+
+            misuraDAO.doSave(misuraBean);
         } catch (SQLException e) {
             throw new RuntimeException();
         }

@@ -1,7 +1,14 @@
 package model.misura;
 
 public class MisuraBean {
-    int IDMaglietta, TG, quantita;
+    private int IDMaglietta, quantita;
+    private String taglia;
+
+    public MisuraBean(int IDMaglietta, int quantita, String taglia) {
+        this.IDMaglietta = IDMaglietta;
+        this.quantita = quantita;
+        this.taglia = taglia;
+    }
 
     public int getIDMaglietta() {
         return IDMaglietta;
@@ -11,12 +18,12 @@ public class MisuraBean {
         this.IDMaglietta = IDMaglietta;
     }
 
-    public int getTG() {
-        return TG;
+    public String getTaglia() {
+        return taglia;
     }
 
-    public void setTG(int TG) {
-        this.TG = TG;
+    public void setTaglia(String taglia) {
+        this.taglia = taglia;
     }
 
     public int getQuantita() {
@@ -31,8 +38,8 @@ public class MisuraBean {
     public String toString() {
         return "MisuraBean{" +
                 "IDMaglietta=" + IDMaglietta +
-                ", TG=" + TG +
                 ", quantita=" + quantita +
+                ", taglia='" + taglia + '\'' +
                 '}';
     }
 }

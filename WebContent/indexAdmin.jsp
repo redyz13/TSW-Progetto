@@ -156,6 +156,17 @@
         <option value="Girl Power">GRLPWR: Girl Power</option>
         <option value="Fumetti">Fumetti</option>
       </select> <br>
+      <label for="taglia">Taglia:</label>
+      <select name="taglia" id="taglia">
+        <option value="" selected disabled hidden>M</option>
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+       </select> <br>
+       <label>Quantit&agrave: <input type="number" min="1" max="100" name="quantita" required autocomplete="off"></label> <br>
 
       <label>Descrizione: <br> <textarea name="descrizione" required autocomplete="off"></textarea></label> <br> <br>
       <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label> <br>
