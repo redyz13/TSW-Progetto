@@ -50,13 +50,33 @@
 		</td>
 		<td class="Descrizione">
 			<br>
-			<h1 class="titolo"><%= magliettaBean.getNome() %></h1>
+			<div class="titolo"><h1><%= magliettaBean.getNome() %></h1></div>
 			<br><br>
+			<div class="prezzo">&euro;&nbsp;<%= prezzo %> </div>
+			<div class="iva"><p>+ <%= magliettaBean.getIVA() %> &percnt; IVA</p></div><br>
+			<div class="descrizione-titolo"><p>Descrizione:</p></div>
 			<p><%= magliettaBean.getTipo() %><br></p>
 			<p><%= magliettaBean.getDescrizione() %><br></p>
-			<p>&euro;&nbsp;<%= prezzo %> + <%= magliettaBean.getIVA() %> &percnt; IVA<br></p>
-			<p>Colore: <%= magliettaBean.getColore() %> <br></p>
-			<br><br><br><br><br>
+			<p>Colore: <%= magliettaBean.getColore() %></p><br>
+
+			<div class="taglie">
+				<%--TODO da vedere come risolvere --%>
+<%--					<span><button type="submit" name="taglia" value="1">XS</button></span>--%>
+<%--					<span><button type="submit" name="taglia" value="2">S</button></span>--%>
+<%--					<span><button type="submit" name="taglia" value="3">M</button></span>--%>
+<%--					<span><button type="submit" name="taglia" value="4">L</button></span>--%>
+<%--					<span><button type="submit" name="taglia" value="5">XL</button></span>--%>
+<%--					<span><button type="submit" name="taglia" value="6">XXL</button></span>--%>
+				<label><select name="size" id="size">
+					<option value="XS">XS</option>
+					<option value="S">S</option>
+					<option value="M">M</option>
+					<option value="L">L</option>
+					<option value="XL">XL</option>
+					<option value="XXL">XXL</option>
+				</select></label>
+			</div>
+			<br><br>
 			<form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="post">
 				  <label>
 					    <input type="hidden" name="ID" value="<%= magliettaBean.getID() %>">

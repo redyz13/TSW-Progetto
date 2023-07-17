@@ -56,4 +56,12 @@ public class CarrelloModel {
     public synchronized void rimuovi(int ID) {
         carrello.removeIf(m -> m.getMagliettaBean().getID() == ID);
     }
+
+    public synchronized void setTaglia(int ID, String size) {
+            for(MagliettaOrdine m : carrello) {
+                if(m.getMagliettaBean().getID() == ID) {
+                    m.setSize(size);
+                }
+            }
+    }
 }

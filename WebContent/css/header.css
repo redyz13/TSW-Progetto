@@ -66,7 +66,7 @@ nav #searchForm {
 
 nav #searchForm .inputSearch {
   vertical-align: middle;
-  background: #DEDEDE;
+  background: #EEE;
   border: none;
   outline: none;
   max-width: 190px;
@@ -74,7 +74,7 @@ nav #searchForm .inputSearch {
   font-size: 16px;
   border-radius: 9999px;
   transition: 200ms ease-in-out;
-  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  box-shadow: inset 2px 5px 10px #ccc;
   display: inline;
 }
 

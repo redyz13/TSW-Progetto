@@ -51,8 +51,3 @@
     pointer-events: none;
     z-index: 105;
 }
-
-/*#overlay.active {*/
-/*    opacity: 1;*/
-/*    pointer-events: all;*/
-/*}*/

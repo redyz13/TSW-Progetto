@@ -3,6 +3,7 @@ package model.maglietta;
 public class MagliettaOrdine {
     private MagliettaBean magliettaBean;
     private int quantita;
+    private String size;
 
     public MagliettaOrdine(MagliettaBean magliettaBean) {
         this.magliettaBean = magliettaBean;
@@ -11,6 +12,14 @@ public class MagliettaOrdine {
 
     public MagliettaBean getMagliettaBean() {
         return magliettaBean;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public void setMagliettaBean(MagliettaBean magliettaBean) {

@@ -26,6 +26,9 @@ public class AggiungiMaglietta extends HttpServlet {
 
         int ID = Integer.parseInt(req.getParameter("ID"));
         String quantita = req.getParameter("quantita");
+        String taglia = req.getParameter("taglia");
+
+        carrello.setTaglia(ID, taglia);
 
         if (quantita == null) {
             carrello.aggiungi(ID);

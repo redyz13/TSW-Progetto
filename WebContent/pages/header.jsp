@@ -29,13 +29,13 @@
     			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
     		</button>
 	    </form>
-	    <a href="${pageContext.request.contextPath}/Logout" id="login-icon">Logout</a>
+	    <a href="profilo.jsp" id="login-icon">Profilo</a>
 	    <% } %>
 	    <%--------------------------------------------------%>
 	
 	    <%-------------- Blocco admin ----------%>
 	    <% if (tipoUtente != null && tipoUtente.equals(Login.ADMIN)) { %>
-	    <a href="${pageContext.request.contextPath}/Logout" id="">Logout</a>
+	    <a href="${pageContext.request.contextPath}/Login" id="">Logout</a>
 	    <% } %>
 	    <%--------------------------------------%>
 	

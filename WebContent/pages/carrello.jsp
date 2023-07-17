@@ -67,9 +67,9 @@
     <td>
       <form class="addForm">
         <label>
-        <%-- TODO fare in modo che sia possibile inserire solo numeri nella request --%>
         <input type="number" name="quantita" min="0" max="100" value="<%= magliettaOrdine.getQuantita() %>">
         <input type="hidden" name="ID" value="<%= magliettaOrdine.getMagliettaBean().getID() %>">
+
         <br> <button type="submit">Aggiorna</button>
         </label>
       </form>
