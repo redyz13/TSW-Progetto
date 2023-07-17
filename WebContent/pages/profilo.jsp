@@ -8,15 +8,17 @@
     UtenteBean utenteBean = (UtenteBean) request.getSession().getAttribute("utente");
 %>
 <body>
-    <div class="utente-bar">
-        <p><%= utenteBean.getUsername()%>!</p>
+<%@ include file="header.jsp" %>
+<div class="profilo">
+    <div class="utente-header">
+        <h3>Bentornato <%= utenteBean.getUsername()%>!</h3>
     </div>
     <div class="indirizzo">
         <div class="indirizzo-header">Indirizzo</div>
         <div class="indirizzo-body">
             <p>Via: <%=utenteBean.getVia() %></p><br>
-            <p><%=utenteBean.getCitta() %>,</p>
-            <p><%=utenteBean.getCap() %></p>
+            <p>Citta:<%=utenteBean.getCitta() %>,</p>
+            <p>Cap:<%=utenteBean.getCap() %></p>
         </div>
         <div class="modifica-indirizzo">
             <button class="indirizzo-button" type="submit">Modifica indirizzo</button>
@@ -38,5 +40,6 @@
             <button class="pagamento-button" type="submit">Modifica metodo di pagamento</button>
         </div>
     </div>
+</div>
 </body>
 </html>

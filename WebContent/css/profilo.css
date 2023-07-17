@@ -1,0 +1,12 @@
+.profilo {
+    display: grid;
+    grid-template-columns: auto;
+}
+.utente-header {
+    border-bottom: 1px solid black;
+    width: 50%;
+}
+.indirizzo {
+    display: grid;
+    grid-template-columns: auto;
+}
