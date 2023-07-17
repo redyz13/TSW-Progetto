@@ -23,9 +23,10 @@ public class CarrelloModel {
         this.carrello = (ArrayList<MagliettaOrdine>) carrello;
     }
 
-    public synchronized void aggiungi(int ID) {
+    public synchronized void aggiungi(int ID, String taglia) {
         for (MagliettaOrdine m : carrello) {
-            if (m.getMagliettaBean().getID() == ID) {
+            if (m.getMagliettaBean().getID() == ID &&
+                m.getTaglia().equals(taglia)) {
                 m.incrementaQuantita();
                 return;
             }
@@ -35,15 +36,15 @@ public class CarrelloModel {
 
         try {
             MagliettaBean magliettaBean = magliettaDAO.doRetrieveByKey(ID);
-            carrello.add(new MagliettaOrdine(magliettaBean));
+            carrello.add(new MagliettaOrdine(magliettaBean, taglia));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public synchronized void setQuantita(int ID, int quantita) {
+    public synchronized void setQuantita(int ID, int quantita, String taglia) {
         for (MagliettaOrdine m : carrello) {
-            if (m.getMagliettaBean().getID() == ID) {
+            if (m.getMagliettaBean().getID() == ID && m.getTaglia().equals(taglia)) {
                 if (m.getQuantita() <= 0 || quantita == 0)
                     carrello.remove(m);
                 else
@@ -53,15 +54,8 @@ public class CarrelloModel {
         }
     }
 
-    public synchronized void rimuovi(int ID) {
-        carrello.removeIf(m -> m.getMagliettaBean().getID() == ID);
-    }
-
-    public synchronized void setTaglia(int ID, String size) {
-            for(MagliettaOrdine m : carrello) {
-                if(m.getMagliettaBean().getID() == ID) {
-                    m.setSize(size);
-                }
-            }
+    public synchronized void rimuovi(int ID, String taglia) {
+        carrello.removeIf(m -> m.getMagliettaBean().getID() == ID &&
+                m.getTaglia().equals(taglia));
     }
 }

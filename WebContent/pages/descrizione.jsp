@@ -69,8 +69,8 @@
 					<%--					<span><button type="submit" name="taglia" value="4">L</button></span>--%>
 					<%--					<span><button type="submit" name="taglia" value="5">XL</button></span>--%>
 					<%--					<span><button type="submit" name="taglia" value="6">XXL</button></span>--%>
-					<label><select name="size" id="size">
-						<option value="XS">XS</option>
+					<label><select name="taglia" id="size">
+						<option value="XS" selected>XS</option>
 						<option value="S">S</option>
 						<option value="M">M</option>
 						<option value="L">L</option>

@@ -21,7 +21,8 @@ public class RimuoviMaglietta extends HttpServlet {
         }
 
         int ID = Integer.parseInt(req.getParameter("ID"));
+        String taglia = req.getParameter("taglia");
 
-        carrello.rimuovi(ID);
+        carrello.rimuovi(ID, taglia);
     }
 }

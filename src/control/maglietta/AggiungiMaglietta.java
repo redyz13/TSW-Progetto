@@ -28,14 +28,12 @@ public class AggiungiMaglietta extends HttpServlet {
         String quantita = req.getParameter("quantita");
         String taglia = req.getParameter("taglia");
 
-        carrello.setTaglia(ID, taglia);
-
         if (quantita == null) {
-            carrello.aggiungi(ID);
+            carrello.aggiungi(ID, taglia);
             resp.sendRedirect("pages/carrello.jsp");
         }
         else {
-            carrello.setQuantita(ID, Integer.parseInt(quantita));
+            carrello.setQuantita(ID, Integer.parseInt(quantita), taglia);
         }
     }
 }

@@ -41,6 +41,7 @@
     <th>Colore</th>
     <th>Tipo</th>
     <th>Grafica</th>
+    <th>Taglia</th>
     <th>Quantit&#224</th>
   </tr>
   <%
@@ -55,19 +56,20 @@
         if (prezzo.matches("[0-9]+"))
           prezzo += ".00";
   %>
-  <tr class="productRow" id="<%= magliettaOrdine.getMagliettaBean().getID() %>">
+  <tr class="productRow" id="<%= magliettaOrdine.getMagliettaBean().getID() + magliettaOrdine.getTaglia() %>">
     <td><%= magliettaOrdine.getMagliettaBean().getNome() %> </td>
     <td>&euro;&nbsp;<%= prezzo %> </td>
     <td><%= magliettaOrdine.getMagliettaBean().getIVA() %> </td>
     <td><%= magliettaOrdine.getMagliettaBean().getColore() %> </td>
     <td><%= magliettaOrdine.getMagliettaBean().getTipo() %> </td>
     <td><img src="../<%= magliettaOrdine.getMagliettaBean().getGrafica() %>" alt="<%= magliettaOrdine.getMagliettaBean().getNome() %>"></td>
+    <td><%= magliettaOrdine.getTaglia() %> </td>
     <td>
       <form class="addForm">
         <label>
-        <%-- TODO fare in modo che sia possibile inserire solo numeri nella request --%>
         <input type="number" name="quantita" min="0" max="100" value="<%= magliettaOrdine.getQuantita() %>">
         <input type="hidden" name="ID" value="<%= magliettaOrdine.getMagliettaBean().getID() %>">
+        <input type="hidden" name="taglia" value="<%= magliettaOrdine.getTaglia() %>">
         <br> <button type="submit">Aggiorna</button>
         </label>
       </form>
@@ -75,6 +77,7 @@
     <td>
       <form class="rmvForm">
         <input type="hidden" name="ID" value="<%= magliettaOrdine.getMagliettaBean().getID() %>">
+        <input type="hidden" name="taglia" value="<%= magliettaOrdine.getTaglia() %>">
         <button type="submit">Elimina</button>
       </form>
     </td>
@@ -116,7 +119,8 @@
         data: $(this).serialize(),
         success: function() {
           let ID = $(".rmvForm input[name='ID']").attr("value");
-          document.getElementById(ID.toString()).remove();
+          let taglia = $(".rmvForm input[name='taglia']").attr("value");
+          document.getElementById(ID.toString() + taglia).remove();
 
           if (document.getElementsByClassName("productRow").length === 0)
             location.reload();
