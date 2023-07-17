@@ -4,7 +4,6 @@
 <%@ page import="java.util.Collection" %>
 <%@ page import="model.CarrelloModel" %>
 
-
 <%
   CarrelloModel carrello;
   synchronized (session) {
@@ -35,7 +34,15 @@
 <h1>Carrello</h1>
 <table id="prodotti">
   <caption hidden>Carrello</caption>
-
+  <tr id="element">
+    <th>Nome</th>
+    <th>Prezzo</th>
+    <th>IVA</th>
+    <th>Colore</th>
+    <th>Tipo</th>
+    <th>Grafica</th>
+    <th>Quantit&#224</th>
+  </tr>
   <%
     if (oggettiCarrello != null && oggettiCarrello.size() != 0) {
       DecimalFormat df = new DecimalFormat("#.##");
@@ -48,15 +55,6 @@
         if (prezzo.matches("[0-9]+"))
           prezzo += ".00";
   %>
-  <tr id="element">
-    <th>Nome</th>
-    <th>Prezzo</th>
-    <th>IVA</th>
-    <th>Colore</th>
-    <th>Tipo</th>
-    <th>Grafica</th>
-    <th>Quantit&#224</th>
-  </tr>
   <tr class="productRow" id="<%= magliettaOrdine.getMagliettaBean().getID() %>">
     <td><%= magliettaOrdine.getMagliettaBean().getNome() %> </td>
     <td>&euro;&nbsp;<%= prezzo %> </td>
@@ -67,9 +65,9 @@
     <td>
       <form class="addForm">
         <label>
+        <%-- TODO fare in modo che sia possibile inserire solo numeri nella request --%>
         <input type="number" name="quantita" min="0" max="100" value="<%= magliettaOrdine.getQuantita() %>">
         <input type="hidden" name="ID" value="<%= magliettaOrdine.getMagliettaBean().getID() %>">
-
         <br> <button type="submit">Aggiorna</button>
         </label>
       </form>
@@ -82,17 +80,14 @@
     </td>
   </tr>
   <%
-    // Parentesi del for
-    }
-  %>
+      // Parentesi del for e dell'if
+  }%>
   <div id="checkout">
     <form action="${pageContext.request.contextPath}/CheckoutRedirect" method="POST">
       <button type="submit">Checkout</button>
     </form>
   </div>
-  <%
-    // Parentesi dell'if
-    } else {
+  <%  } else {
   %>
   <tr>
     <td colspan="7">Nessun prodotto nel carrello</td>
@@ -123,9 +118,8 @@
           let ID = $(".rmvForm input[name='ID']").attr("value");
           document.getElementById(ID.toString()).remove();
 
-          if (document.getElementsByClassName("productRow").length === 0) {
+          if (document.getElementsByClassName("productRow").length === 0)
             location.reload();
-          }
         }
       });
     });
