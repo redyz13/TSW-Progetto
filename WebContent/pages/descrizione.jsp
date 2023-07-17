@@ -59,25 +59,26 @@
 			<p><%= magliettaBean.getDescrizione() %><br></p>
 			<p>Colore: <%= magliettaBean.getColore() %></p><br>
 
-			<div class="taglie">
-				<%--TODO da vedere come risolvere --%>
-<%--					<span><button type="submit" name="taglia" value="1">XS</button></span>--%>
-<%--					<span><button type="submit" name="taglia" value="2">S</button></span>--%>
-<%--					<span><button type="submit" name="taglia" value="3">M</button></span>--%>
-<%--					<span><button type="submit" name="taglia" value="4">L</button></span>--%>
-<%--					<span><button type="submit" name="taglia" value="5">XL</button></span>--%>
-<%--					<span><button type="submit" name="taglia" value="6">XXL</button></span>--%>
-				<label><select name="size" id="size">
-					<option value="XS">XS</option>
-					<option value="S">S</option>
-					<option value="M">M</option>
-					<option value="L">L</option>
-					<option value="XL">XL</option>
-					<option value="XXL">XXL</option>
-				</select></label>
-			</div>
-			<br><br>
+
 			<form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="post">
+				<div class="taglie">
+					<%--TODO da vedere come risolvere --%>
+					<%--					<span><button type="submit" name="taglia" value="1">XS</button></span>--%>
+					<%--					<span><button type="submit" name="taglia" value="2">S</button></span>--%>
+					<%--					<span><button type="submit" name="taglia" value="3">M</button></span>--%>
+					<%--					<span><button type="submit" name="taglia" value="4">L</button></span>--%>
+					<%--					<span><button type="submit" name="taglia" value="5">XL</button></span>--%>
+					<%--					<span><button type="submit" name="taglia" value="6">XXL</button></span>--%>
+					<label><select name="size" id="size">
+						<option value="XS">XS</option>
+						<option value="S">S</option>
+						<option value="M">M</option>
+						<option value="L">L</option>
+						<option value="XL">XL</option>
+						<option value="XXL">XXL</option>
+					</select></label>
+				</div>
+				<br><br>
 				  <label>
 					    <input type="hidden" name="ID" value="<%= magliettaBean.getID() %>">
 					    <button class="btn-shine" type="submit">

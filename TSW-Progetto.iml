@@ -26,5 +26,6 @@
     <orderEntry type="library" name="bhenfmcm" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="gson-2.8.6" level="project" />
   </component>
 </module>

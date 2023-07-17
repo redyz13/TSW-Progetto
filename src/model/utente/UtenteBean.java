@@ -3,8 +3,9 @@ package model.utente;
 import java.time.LocalDate;
 
 public class UtenteBean {
-    private String username, pwd, nome, cognome, email, numCarta, cap, via, citta, tipo, CVV;
+    private String username, pwd, nome, cognome, email, nomeCarta, cognomeCarta, numCarta, cap, via, citta, tipo, CVV;
     private LocalDate dataNascita, dataScadenza;
+
 
     public String getUsername() {
         return username;
@@ -52,6 +53,22 @@ public class UtenteBean {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNomeCarta() {
+        return nomeCarta;
+    }
+
+    public void setNomeCarta(String nomeCarta) {
+        this.nomeCarta = nomeCarta;
+    }
+
+    public String getCognomeCarta() {
+        return cognomeCarta;
+    }
+
+    public void setCognomeCarta(String cognomeCarta) {
+        this.cognomeCarta = cognomeCarta;
     }
 
     public String getNumCarta() {

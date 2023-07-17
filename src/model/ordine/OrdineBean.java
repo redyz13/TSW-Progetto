@@ -3,7 +3,7 @@ package model.ordine;
 import java.time.LocalDate;
 
 public class OrdineBean {
-    String ID, username, cap, via, citta;
+    String ID, username, cap, via, citta, nomeConsegna, cognomeConsegna;
     LocalDate dataConsegna, dataOrdine;
     float prezzoTotale;
 
@@ -29,6 +29,22 @@ public class OrdineBean {
 
     public void setCap(String cap) {
         this.cap = cap;
+    }
+
+    public String getNomeConsegna() {
+        return nomeConsegna;
+    }
+
+    public void setNomeConsegna(String nomeConsegna) {
+        this.nomeConsegna = nomeConsegna;
+    }
+
+    public String getCognomeConsegna() {
+        return cognomeConsegna;
+    }
+
+    public void setCognomeConsegna(String cognomeConsegna) {
+        this.cognomeConsegna = cognomeConsegna;
     }
 
     public String getVia() {

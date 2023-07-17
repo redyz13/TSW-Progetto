@@ -55,8 +55,8 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
 
     @Override
     public synchronized void doSave(UtenteBean utente) throws SQLException {
-        String query = "INSERT INTO " + TABLE_NAME + " (username, pwd, nome, cognome, email, dataNascita, numCarta, dataScadenza, CVV, cap, via, citta, tipo) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (username, pwd, nome, cognome, email, dataNascita, nomeCarta, cognomeCarta, numCarta, dataScadenza, CVV, cap, via, citta, tipo) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setUtenteStatement(utente, preparedStatement);
@@ -72,7 +72,7 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
         String query =  "UPDATE " + TABLE_NAME +
                         " SET pwd = ?, nome = ?, cognome = ?,"+
                         " email = ?, dataNascita = ?, numCarta = ?," +
-                        " dataScadenza = ?, CVV = ?, cap = ?, via = ?," +
+                        " dataScadenza = ?, CVV = ?, nomeCarta = ?, cognomeCarta = ?, cap = ?, via = ?," +
                         " citta = ?, tipo = ?" +
                         " WHERE username = ?";
 
@@ -89,13 +89,16 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
            else{
                preparedStatement.setDate(7, Date.valueOf(utente.getDataScadenza()));
            }
-           preparedStatement.setString(8, utente.getCVV());
-           preparedStatement.setString(9, utente.getCap());
-           preparedStatement.setString(10, utente.getVia());
-           preparedStatement.setString(11, utente.getCitta());
-           preparedStatement.setString(12, utente.getTipo());
 
-           preparedStatement.setString(13, utente.getUsername());
+           preparedStatement.setString(8, utente.getCVV());
+           preparedStatement.setString(9, utente.getNomeCarta());
+           preparedStatement.setString(10, utente.getCognomeCarta());
+           preparedStatement.setString(11, utente.getCap());
+           preparedStatement.setString(12, utente.getVia());
+           preparedStatement.setString(13, utente.getCitta());
+           preparedStatement.setString(14, utente.getTipo());
+
+           preparedStatement.setString(15, utente.getUsername());
 
            preparedStatement.executeUpdate();
 
@@ -141,6 +144,8 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
         utenteBean.setCognome(resultSet.getString("cognome"));
         utenteBean.setEmail(resultSet.getString("email"));
         utenteBean.setDataNascita((resultSet.getDate("dataNascita").toLocalDate()));
+        utenteBean.setNomeCarta((resultSet.getString("nomeCarta")));
+        utenteBean.setCognomeCarta((resultSet.getString("cognomeCarta")));
         utenteBean.setNumCarta(resultSet.getString("numCarta"));
         if (resultSet.getDate("dataScadenza") == null)
             utenteBean.setDataScadenza(null);
@@ -151,7 +156,6 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
         utenteBean.setVia(resultSet.getString("via"));
         utenteBean.setCitta(resultSet.getString("citta"));
         utenteBean.setTipo(resultSet.getString("tipo"));
-
     }
 
     private void setUtenteStatement(UtenteBean utenteBean, PreparedStatement preparedStatement) throws SQLException {
@@ -161,16 +165,17 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
         preparedStatement.setString(4, utenteBean.getCognome());
         preparedStatement.setString(5, utenteBean.getEmail());
         preparedStatement.setDate(6, Date.valueOf(utenteBean.getDataNascita()));
-        preparedStatement.setString(7, utenteBean.getNumCarta());
+        preparedStatement.setString(7, utenteBean.getNomeCarta());
+        preparedStatement.setString(8, utenteBean.getCognomeCarta());
+        preparedStatement.setString(9, utenteBean.getNumCarta());
         if(utenteBean.getDataScadenza() == null)
-            preparedStatement.setDate(8, null);
+            preparedStatement.setDate(10, null);
         else
-            preparedStatement.setDate(8, Date.valueOf(utenteBean.getDataScadenza()));
-        preparedStatement.setString(9, utenteBean.getCVV());
-        preparedStatement.setString(10, utenteBean.getCap());
-        preparedStatement.setString(11, utenteBean.getVia());
-        preparedStatement.setString(12, utenteBean.getCitta());
-        preparedStatement.setString(13, utenteBean.getTipo());
-
+            preparedStatement.setDate(10, Date.valueOf(utenteBean.getDataScadenza()));
+        preparedStatement.setString(11, utenteBean.getCVV());
+        preparedStatement.setString(12, utenteBean.getCap());
+        preparedStatement.setString(13, utenteBean.getVia());
+        preparedStatement.setString(14, utenteBean.getCitta());
+        preparedStatement.setString(15, utenteBean.getTipo());
     }
 }

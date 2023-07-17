@@ -18,13 +18,9 @@ public class CheckoutRedirect extends HttpServlet {
 
        if (tipoUtente == null || !tipoUtente.equals(Login.REGISTRATO)) {
            resp.sendRedirect("pages/login.jsp");
-//           RequestDispatcher requestDispatcher = req.getRequestDispatcher("pages/login.jsp");
-//           requestDispatcher.forward(req,resp);
        }
        else {
            resp.sendRedirect("pages/checkout.jsp");
-//           RequestDispatcher requestDispatcher = req.getRequestDispatcher("pages/checkout.jsp");
-//           requestDispatcher.forward(req,resp);
        }
     }
 }

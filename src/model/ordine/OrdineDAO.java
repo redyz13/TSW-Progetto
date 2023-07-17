@@ -84,8 +84,8 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
 
     @Override
     public void doSave(OrdineBean ordineBean) throws SQLException {
-        String query = "INSERT INTO " + TABLE_NAME + " (username, prezzoTotale, dataConsegna, dataOrdine, cap, via, citta) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (username, prezzoTotale, dataConsegna, dataOrdine, nomeConsegna, cognomeConsegna, cap, via, citta) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setOrdineStatement(ordineBean, preparedStatement);
@@ -129,6 +129,8 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
         ordineBean.setPrezzoTotale(resultSet.getFloat("prezzoTotale"));
         ordineBean.setDataConsegna(resultSet.getDate("dataConsegna").toLocalDate());
         ordineBean.setDataOrdine(resultSet.getDate("dataOrdine").toLocalDate());
+        ordineBean.setNomeConsegna(resultSet.getString("nomeConsegna"));
+        ordineBean.setCognomeConsegna(resultSet.getString("cognomeConsegna"));
         ordineBean.setCap(resultSet.getString("cap"));
         ordineBean.setVia(resultSet.getString("via"));
         ordineBean.setCitta(resultSet.getString("citta"));
@@ -139,7 +141,9 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
         preparedStatement.setFloat(2, ordineBean.getPrezzoTotale());
         preparedStatement.setDate(3, Date.valueOf(LocalDate.now().plusDays(10)));
         preparedStatement.setDate(4, Date.valueOf(LocalDate.now()));
-        preparedStatement.setString(5, ordineBean.getCap());
-        preparedStatement.setString(6, ordineBean.getCitta());
+        preparedStatement.setString(5, ordineBean.getNomeConsegna());
+        preparedStatement.setString(6, ordineBean.getCognomeConsegna());
+        preparedStatement.setString(7, ordineBean.getCap());
+        preparedStatement.setString(8, ordineBean.getCitta());
     }
 }

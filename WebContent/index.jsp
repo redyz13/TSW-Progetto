@@ -21,7 +21,7 @@
 
 <body>
   <%@ include file="pages/header.jsp" %>
-  <h1> <a href="Catalogo">Magliette</a> </h1>
+  <h1 class="index-header"> <a href="Catalogo">Catalogo</a> </h1>
   <div class="dropdown b">
   	<button class="dropbtn">Ordina per &dtrif;</button>
     <div class="dropdown-content">

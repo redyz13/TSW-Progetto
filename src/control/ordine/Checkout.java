@@ -29,6 +29,8 @@ public class Checkout extends HttpServlet {
         ordineBean.setPrezzoTotale(prezzoTot);
         ordineBean.setDataConsegna(dataConsegna);
         ordineBean.setDataOrdine(LocalDate.now());
+        ordineBean.setNomeConsegna(req.getParameter("nomeConsegna"));
+        ordineBean.setCognomeConsegna(req.getParameter("cognomeConsegna"));
         ordineBean.setCap(req.getParameter("cap-spedizione"));
         ordineBean.setVia(req.getParameter("via-spedizione"));
         ordineBean.setCitta(req.getParameter("citta-spedizione"));

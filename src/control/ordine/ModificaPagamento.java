@@ -20,11 +20,15 @@ public class ModificaPagamento extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UtenteBean utenteBean = (UtenteBean) req.getSession().getAttribute("utente");
 
+        String nomeCarta = req.getParameter("nomeCartaNuova");
+        String cognomeCarta = req.getParameter("cognomeCartaNuova");
         String numeroCarta = req.getParameter("numCartaNuova");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate dataScadenza = LocalDate.parse(req.getParameter("dataScadNuova"), formatter);
         String CVV = req.getParameter("CVVNuovo");
 
+        utenteBean.setNomeCarta(nomeCarta);
+        utenteBean.setCognomeCarta(cognomeCarta);
         utenteBean.setNumCarta(numeroCarta);
         utenteBean.setDataScadenza(dataScadenza);
         utenteBean.setCVV(CVV);
