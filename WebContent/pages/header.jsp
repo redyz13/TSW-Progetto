@@ -29,16 +29,16 @@
     			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
     		</button>
 	    </form>
-	    <a href="profilo.jsp" id="login-icon">Profilo</a>
+	    <a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon">Profilo</a>
 	    <% } %>
 	    <%--------------------------------------------------%>
 	
 	    <%-------------- Blocco admin ----------%>
 	    <% if (tipoUtente != null && tipoUtente.equals(Login.ADMIN)) { %>
-	    <a href="${pageContext.request.contextPath}/Login" id="">Logout</a>
+	    <a href="${pageContext.request.contextPath}/Logout" id="">Logout</a>
 	    <% } %>
 	    <%--------------------------------------%>
-	
+
 	    <!-- L'admin è l'unico a non vedere il carrello -->
 	    <% if (tipoUtente == null || !tipoUtente.equals(Login.ADMIN)) { %>
 			<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
