@@ -8,7 +8,10 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class MisuraDAO {
     private static final String TABLE_NAME = "Misura";
@@ -50,5 +53,44 @@ public class MisuraDAO {
 
             preparedStatement.executeUpdate();
         }
+    }
+
+    public Collection<MisuraBean> doRetrieveAll(int IDMaglietta) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        Collection<MisuraBean> misure = new ArrayList<>();
+
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE IDMaglietta = ?";
+
+        try {
+            connection = ds.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, IDMaglietta);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                MisuraBean misuraBean = new MisuraBean();
+
+                setMisura(resultSet, misuraBean);
+
+                misure.add(misuraBean);
+            }
+
+        } finally {
+            if (preparedStatement!= null)
+                preparedStatement.close();
+            if (connection != null)
+                connection.close();
+        }
+
+        return misure;
+    }
+
+    private void setMisura(ResultSet resultSet, MisuraBean misuraBean) throws SQLException {
+        misuraBean.setIDMaglietta(resultSet.getInt("IDMaglietta"));
+        misuraBean.setTaglia(resultSet.getString("taglia"));
+        misuraBean.setQuantita(resultSet.getInt("quantita"));
     }
 }

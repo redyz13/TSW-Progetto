@@ -4,6 +4,8 @@ public class MisuraBean {
     private int IDMaglietta, quantita;
     private String taglia;
 
+    public MisuraBean() {}
+
     public MisuraBean(int IDMaglietta, int quantita, String taglia) {
         this.IDMaglietta = IDMaglietta;
         this.quantita = quantita;

@@ -2,6 +2,7 @@ package control.maglietta;
 
 import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
+import model.misura.MisuraDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,10 +20,12 @@ public class ModificaMaglietta extends HttpServlet {
         int ID = Integer.parseInt(req.getParameter("id"));
 
         MagliettaDAO magliettaDAO = new MagliettaDAO();
+        MisuraDAO misuraDAO = new MisuraDAO();
 
         try {
             MagliettaBean magliettaBean = magliettaDAO.doRetrieveByKey(ID);
             req.setAttribute("maglietta", magliettaBean);
+            req.setAttribute("misure", misuraDAO.doRetrieveAll(ID));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

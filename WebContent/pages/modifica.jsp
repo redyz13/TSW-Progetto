@@ -1,6 +1,9 @@
 <%@ page import="model.maglietta.MagliettaBean" %>
+<%@ page import="java.util.Collection" %>
+<%@ page import="model.misura.MisuraBean" %>
 
 <% MagliettaBean magliettaBean = (MagliettaBean) request.getAttribute("maglietta"); %>
+<% Collection<?> misure = (Collection<?>) request.getAttribute("misure"); %>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -52,8 +55,21 @@
         <option value="Fumetti">Fumetti</option>
     </select> <br>
 
+    <label for="taglia">Taglia:</label>
+    <select name="taglia" id="taglia">
+        <%
+            if (misure != null && misure.size() != 0) {
+                for (Object o : misure) {
+                    MisuraBean misuraBean = (MisuraBean) o;
+        %>
+        <option value="<%= misuraBean.getTaglia() %>"><%= misuraBean.getTaglia() %></option>
+        <% } } %>
+    </select> <br>
+    <label>Quantit&agrave: <input type="number" min="1" max="100" name="quantita" required autocomplete="off"></label> <br>
+
     <label>Descrizione: <br> <textarea form="update" name="descrizione" required
                                        autocomplete="off"><%=magliettaBean.getDescrizione()%></textarea></label>
+
     <p>Aggiornare la grafica?</p>
     <label>S&igrave<input type="radio" name="selezione" value="si" onclick="selezione()"></label>
     <label>No<input type="radio" id="radioNo" name="selezione" value="no" checked onclick="selezione()"></label>
