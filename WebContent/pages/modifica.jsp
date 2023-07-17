@@ -4,7 +4,12 @@
 
 <% MagliettaBean magliettaBean = (MagliettaBean) request.getAttribute("maglietta"); %>
 <% Collection<?> misure = (Collection<?>) request.getAttribute("misure"); %>
+<% Integer user = (Integer) request.getSession().getAttribute("tipoUtente"); %>
 
+<% if (user == null || !user.equals(Login.ADMIN)) {
+        response.sendRedirect("index.jsp");
+}
+%>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -56,7 +61,7 @@
     </select> <br>
 
     <label for="taglia">Taglia:</label>
-    <select name="taglia" required id="taglia">
+    <select form="update" name="taglia" required id="taglia">
         <%
             if (misure != null && misure.size() != 0) {
                 for (Object o : misure) {
@@ -65,7 +70,7 @@
         <option value="<%= misuraBean.getTaglia() %>"><%= misuraBean.getTaglia() %></option>
         <% } } %>
     </select> <br>
-    <label>Quantit&agrave: <input type="number" min="1" max="100" name="quantita" required autocomplete="off"></label><br>
+    <label>Quantit&agrave: <input form="update" type="number" min="1" max="100" name="quantita" required autocomplete="off"></label><br>
 
     <label>Descrizione: <br> <textarea form="update" name="descrizione" required
                                        autocomplete="off"><%=magliettaBean.getDescrizione()%></textarea></label>

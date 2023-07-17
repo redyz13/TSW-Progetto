@@ -2,6 +2,8 @@ package control.maglietta;
 
 import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
+import model.misura.MisuraBean;
+import model.misura.MisuraDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -77,8 +79,14 @@ public class UpdateMaglietta extends HttpServlet {
         maglietta.setDescrizione(descrizione);
         maglietta.setGrafica(pathGrafica);
 
+        int quantita = Integer.parseInt(req.getParameter("quantita"));
+        String taglia = req.getParameter("taglia");
+        MisuraBean misuraBean = new MisuraBean(ID, quantita, taglia);
+        MisuraDAO misuraDAO = new MisuraDAO();
+
         try {
             magliettaDAO.doUpdate(maglietta);
+            misuraDAO.doUpdate(misuraBean);
         } catch (SQLException e) {
             throw new RuntimeException();
         }

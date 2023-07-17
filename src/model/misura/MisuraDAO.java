@@ -41,6 +41,20 @@ public class MisuraDAO {
         }
     }
 
+    public void doUpdate(MisuraBean misuraBean) throws SQLException {
+        String query = "UPDATE " + TABLE_NAME +
+                " SET quantita = ?" +
+                " WHERE IDMaglietta = ? AND taglia = ?";
+
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, misuraBean.getQuantita());
+            preparedStatement.setInt(2, misuraBean.getIDMaglietta());
+            preparedStatement.setString(3, misuraBean.getTaglia());
+
+            preparedStatement.executeUpdate();
+        }
+    }
+
     public void doUpdateUtente(AcquistoBean product, String taglia) throws SQLException {
         String query = "UPDATE " + TABLE_NAME +
                        " SET quantita = quantita - ? " +
