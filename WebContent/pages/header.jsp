@@ -74,10 +74,10 @@
 </nav>
 <div id="risultati">
 	<table>
+		<caption hidden>Risultati</caption>
 		<tr hidden>
 			<th>Risultato</th>
 		</tr>
-		<caption hidden>Risultati</caption>
 	</table>
 </div>
 
