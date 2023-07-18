@@ -12,7 +12,7 @@
 <%@ include file="header.jsp" %>
 <script src="${pageContext.request.contextPath}/js/changeForm.js"></script>
 <div class="logSig">
-	<img src="${pageContext.request.contextPath}/images/system/logSig.png" id="imgLogSig">
+	<img src="${pageContext.request.contextPath}/images/system/logSig.png" id="imgLogSig" alt="Logo">
 	<div class="form-container">
 			<form action="${pageContext.request.contextPath}/Login" method="post" id="lform">
 			    <p id="head">Accedi</p>
@@ -44,7 +44,7 @@
       				<label for="nomeReg">Nome</label>
     			</div>
     			<div class="group">      
-      				<input type="text" type="text" name="cognomeReg" id="cognomeReg" required>
+      				<input type="text" name="cognomeReg" id="cognomeReg" required>
       				<label for="cognomeReg">Cognome</label>
     			</div>
     			<div class="group">      

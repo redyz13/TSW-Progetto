@@ -1,15 +1,17 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .whiTee {
   color: #4ed0da ;
 }
 
-body{
+body {
 	overflow-x: hidden;
   	overflow-y: auto;
   	transition: background-color .5s;
 }
+
 nav {
     min-height: 10vh;
     overflow: hidden;
@@ -21,6 +23,7 @@ nav {
     z-index: 104;
     align-items: center;
 }
+
 nav .a {
     color: #181818;
     float: left;
@@ -33,6 +36,7 @@ nav .a {
     flex: 1;
     text-align: center;
 }
+
 nav .a:hover {
 	color: #ff9229;
     background-color: #e2e2e2;
@@ -44,14 +48,13 @@ nav .nav-right {
   display: inline-block;
 }
 
-nav .cart{
+nav .cart {
 	width: 10vh;
 	height: 10vh;
 	filter: brightness(0%);
 	transition: filter 0.7s;
 	cursor: pointer;
 }
-
 
 nav .cart:hover{
 	filter: none;
@@ -78,7 +81,6 @@ nav .cart:hover{
   display: inline;
 }
 
-
 .searchForm .inputSearch:focus{
   background: transparent;
 }
@@ -88,7 +90,6 @@ nav .cart:hover{
 	border: none;
 	width: 30px;
 	height: 30px;
-	auto-ratio: 1/1;
 	display: inline;
 	margin-top: auto;
   	margin-bottom: auto;
@@ -98,15 +99,16 @@ nav .cart:hover{
 .searchForm #srcImg {
 	width: 20px;
 	height: 20px;
-	auto-ratio: 1/1;
 }
 
 .search-img {
     width: 15%
 }
+
 .nessun-articolo {
     align-content: center;
 }
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -151,14 +153,14 @@ nav .cart:hover{
 
 #main {
   transition: margin-right .5s;
-  padding: 16px;
   text-align: right;
   background: transparent;
   display: inline;
-  padding-bottom: 7vh;
+  padding: 16px 16px 7vh;
   vertical-align: middle;
   align-items: center;
 }
+
 #main span {
 	font-size: 40vh;
 }

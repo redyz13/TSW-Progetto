@@ -78,7 +78,7 @@
 </nav>
 <div id="risultati">
 	<table>
-
+		<caption hidden>Risultati</caption>
 	</table>
 </div>
 

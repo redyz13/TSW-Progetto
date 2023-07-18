@@ -33,6 +33,7 @@
 		float prezzoTot = 0;
 	%>
 	<table id="checkoutTable">
+		<caption hidden>Tabella checkout</caption>
 		<tr>
 			<th><h1>Riepilogo Ordine</h1></th>
 			<th><h1>Dettagli Ordine</h1></th>
