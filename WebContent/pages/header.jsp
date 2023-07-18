@@ -100,7 +100,6 @@
 					success: function (data) {
 						divRisultati.innerHTML = " "
 						let jsonarray = eval(data);
-						console.log(jsonarray);
 						if (data.length > 0) {
 							 for (let i = 0; i < jsonarray.length; i++) {
 								  let obj = jsonarray[i];
