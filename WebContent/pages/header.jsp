@@ -12,9 +12,9 @@
 	    <%-------------- Blocco utente non registrato ----------%>
 	    <% if (tipoUtente == null) { %>
 			<label><input placeholder="Cerca..." class="inputSearch" name="searchText" type="text"></label>
-<%--    		<button id="srcBtn">--%>
-<%--    			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">--%>
-<%--    		</button>--%>
+    		<button id="srcBtn">
+    			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
+    		</button>
 	    <a href="${pageContext.request.contextPath}/pages/login.jsp" id="login-icon" class="a">Login</a>
 	    <% } %>
 	    <%------------------------------------------------------%>
@@ -23,9 +23,9 @@
 	    <% if (tipoUtente != null && tipoUtente.equals(Login.REGISTRATO)) { %>
 	    <form id="searchForm" action="#" method="#">
 	    	<input placeholder="Cerca..." class="inputSearch" name="searchText" type="text">
-<%--    		<button id="srcBtn">--%>
-<%--    			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">--%>
-<%--    		</button>--%>
+    		<button id="srcBtn">
+    			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
+    		</button>
 	    </form>
 	    <a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon">Profilo</a>
 	    <% } %>
