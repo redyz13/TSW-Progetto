@@ -11,17 +11,19 @@
 	<div class="nav-right">
 	    <%-------------- Blocco utente non registrato ----------%>
 	    <% if (tipoUtente == null) { %>
-			<label><input placeholder="Cerca..." class="inputSearch" name="searchText" type="text"></label>
+		<form class="searchForm" action="#" method="#">
+	    	<input placeholder="Cerca..." class="inputSearch" name="searchText" type="text">
     		<button id="srcBtn">
     			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
     		</button>
+	    </form>
 	    <a href="${pageContext.request.contextPath}/pages/login.jsp" id="login-icon" class="a">Login</a>
 	    <% } %>
 	    <%------------------------------------------------------%>
 	
 	    <%-------------- Blocco utente registrato ----------%>
 	    <% if (tipoUtente != null && tipoUtente.equals(Login.REGISTRATO)) { %>
-	    <form id="searchForm" action="#" method="#">
+	    <form class="searchForm" action="#" method="#">
 	    	<input placeholder="Cerca..." class="inputSearch" name="searchText" type="text">
     		<button id="srcBtn">
     			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">

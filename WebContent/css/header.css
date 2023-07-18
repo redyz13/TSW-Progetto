@@ -57,14 +57,14 @@ nav .cart:hover{
 	filter: none;
 }
 
-nav #searchForm {
+.searchForm {
 	display: inline;
 	vertical-align: middle;
 	align-items: center;
 	padding-bottom: 7vh;
 }
 
-nav #searchForm .inputSearch {
+.searchForm .inputSearch {
   vertical-align: middle;
   background: #EEE;
   border: none;
@@ -78,11 +78,11 @@ nav #searchForm .inputSearch {
   display: inline;
 }
 
-nav #searchForm .inputSearch:focus{
+.searchForm .inputSearch:focus{
   background: transparent;
 }
 
-nav #searchForm #srcBtn {
+.searchForm #srcBtn {
 	background: transparent;
 	border: none;
 	width: 30px;
@@ -94,7 +94,7 @@ nav #searchForm #srcBtn {
   	cursor: pointer;
 }
 
-nav #searchForm #srcImg {
+.searchForm #srcImg {
 	width: 20px;
 	height: 20px;
 	auto-ratio: 1/1;

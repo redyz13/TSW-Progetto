@@ -8,17 +8,13 @@
     grid-template-rows: auto ;
 }
 .metodo-di-pagamento {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 1px 15px 15px 15px;
+    padding: 1px 15px 5px 5px;
     width: 500px;
     line-height: 150%;
 }
 
 .indirizzo-spedizione {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 1px 15px 15px 15px;
+    padding: 1px 15px 5px 5px;
     width: 500px;
     line-height: 200%;
 }
@@ -26,5 +22,11 @@
 .immagine-prodotto {
     width: 20%;
     height: auto;
+}
+
+.metodo-body input:disabled {
+	color: black;
+	font-style:italic;
+	cursor: no-drop;
 }
 
