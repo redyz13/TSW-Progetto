@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/system/favicon.ico" type="image/x-icon">
 	<nav class="stickynavbar">
     <%-- TODO logo al posto della scritta --%>
-    <%-- <img id="logo" src="${pageContext.request.contextPath}/images/system/logo.png" alt="whiTee"> --%>
+	<%-- <img id="logo" src="${pageContext.request.contextPath}/images/system/logo.png" alt="whiTee"> --%>
 	<a href="#" class = "whiTee a">whiTee</a>
 	<a href="${pageContext.request.contextPath}/Catalogo" class="a">Home</a>
 	<div class="nav-right">
@@ -17,8 +17,7 @@
 		<form class="searchForm">
 	    	<label><input placeholder="Cerca..." class="inputSearch" name="searchText" id="searchInput" type="text"></label>
     		<button id="srcBtn">
-			<%-- TODO barra di ricerca enorme --%>
-			<%-- <img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg"> --%>
+			 <img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
     		</button>
 	    </form>
 	    <a href="${pageContext.request.contextPath}/pages/login.jsp" id="login-icon" class="a">Login</a>
@@ -30,8 +29,7 @@
 	    <form class="searchForm">
 	    	<input placeholder="Cerca..." class="inputSearch" name="searchText" type="text">
     		<button id="srcBtn">
-			<%-- TODO barra di ricerca enorme --%>
-			<%-- <img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg"> --%>
+			 <img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
     		</button>
 	    </form>
 	    <a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon">Profilo</a>

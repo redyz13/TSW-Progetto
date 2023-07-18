@@ -64,7 +64,6 @@ public class SearchBar extends HttpServlet {
             }
 
             String lista = new Gson().toJson(results);
-            System.out.println(lista);
 
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
