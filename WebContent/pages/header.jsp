@@ -5,16 +5,20 @@
 	let contextPath = '<%= request.getContextPath() %>'
 </script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/system/favicon.ico" type="image/x-icon">
 	<nav class="stickynavbar">
+    <%-- TODO logo al posto della scritta --%>
+    <%-- <img id="logo" src="${pageContext.request.contextPath}/images/system/logo.png" alt="whiTee"> --%>
 	<a href="#" class = "whiTee a">whiTee</a>
 	<a href="${pageContext.request.contextPath}/Catalogo" class="a">Home</a>
 	<div class="nav-right">
 	    <%-------------- Blocco utente non registrato ----------%>
 	    <% if (tipoUtente == null) { %>
-		<form class="searchForm" action="#" method="#">
+		<form class="searchForm">
 	    	<label><input placeholder="Cerca..." class="inputSearch" name="searchText" id="searchInput" type="text"></label>
     		<button id="srcBtn">
-    			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
+			<%-- TODO barra di ricerca enorme --%>
+			<%-- <img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg"> --%>
     		</button>
 	    </form>
 	    <a href="${pageContext.request.contextPath}/pages/login.jsp" id="login-icon" class="a">Login</a>
@@ -23,10 +27,11 @@
 	
 	    <%-------------- Blocco utente registrato ----------%>
 	    <% if (tipoUtente != null && tipoUtente.equals(Login.REGISTRATO)) { %>
-	    <form class="searchForm" action="#" method="#">
+	    <form class="searchForm">
 	    	<input placeholder="Cerca..." class="inputSearch" name="searchText" type="text">
     		<button id="srcBtn">
-    			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
+			<%-- TODO barra di ricerca enorme --%>
+			<%-- <img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg"> --%>
     		</button>
 	    </form>
 	    <a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon">Profilo</a>
@@ -86,7 +91,7 @@
 		searchInput.addEventListener("input", function () {
 			let searchQuery = searchInput.value;
 			let divRisultati = document.getElementById("risultati");
-			if(searchQuery !== "" && searchQuery !== " ") {
+			if (searchQuery !== "" && searchQuery !== " ") {
 				$(divRisultati).css("display", "block")
 				$.ajax ({
 					url: '${pageContext.request.contextPath}/SearchBar',
@@ -96,7 +101,7 @@
 						divRisultati.innerHTML = " "
 						let jsonarray = eval(data);
 						console.log(jsonarray);
-						if(data.length > 0) {
+						if (data.length > 0) {
 							 for (let i = 0; i < jsonarray.length; i++) {
 								  let obj = jsonarray[i];
 								  divRisultati.innerHTML += '<td>' +'<a href="DescrizioneMaglietta?id='+ obj.ID + '">' + '<img class ="search-img" src="' + obj.grafica + '" alt="'+ obj.nome +'">' +'</a>' +'</td>';
