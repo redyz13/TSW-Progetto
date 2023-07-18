@@ -1,33 +1,29 @@
-var vuota = document.getElementById("tshirt-new").src;
+let vuota = document.getElementById("tshirt-new").src;
 
 function changeColor() {
-	let selectedColor = document.getElementById("tshirt-color").value;
-
-	document.getElementById("tshirt-backgroundpicture").style.backgroundColor = selectedColor;
+	document.getElementById("tshirt-backgroundpicture").style.backgroundColor = document.getElementById("tshirt-color").value;
 }
 
 function addImage() {
-	let selectedImage = document.getElementById("tshirt-design").value;
-	document.getElementById("tshirt-new").src = selectedImage;
+	document.getElementById("tshirt-new").src = document.getElementById("tshirt-design").value;
 	document.getElementById("rmImage").style.display = 'block';
 
 }
 
 function rmImage() {
-	let selectedImage = vuota;
-	document.getElementById("tshirt-new").src = selectedImage;
+	document.getElementById("tshirt-new").src = vuota;
 	document.getElementById("rmImage").style.display = 'none';
 }
 
 function addNew() {
-	var fileInput = document.getElementById("tshirt-custompicture");
-	var file = fileInput.files[0];
+	let fileInput = document.getElementById("tshirt-custompicture");
+	let file = fileInput.files[0];
 
 	if (file) {
-		var reader = new FileReader();
+		let reader = new FileReader();
 		reader.onload = function(e) {
-			var newSrc = e.target.result;
-			var tshirtNewElement = document.getElementById("tshirt-new");
+			let newSrc = e.target.result;
+			let tshirtNewElement = document.getElementById("tshirt-new");
 			tshirtNewElement.setAttribute('src', newSrc);
 		};
 		reader.readAsDataURL(file);

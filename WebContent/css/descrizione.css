@@ -1,13 +1,12 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .titolo {
     border-bottom: 1px solid darkgray;
     padding-bottom: 1px;
     width: 50%
 }
-
-
 
 .mgt {
 	height: 100%;
@@ -52,7 +51,7 @@
 	color: black;
 }
 			
-.show{
+.show {
 	height: 100vh;
 	width: auto;
 	background-color: white;
@@ -63,12 +62,10 @@
 }
 
 .Prodotto{
-	/*auto-ratio:1/1;*/
 	height: 40%;
 	width: 40%;
 	padding-left:10%;
 	object-fit: contain;
-	/*display: center;*/
 }
 
 .Descrizione{
@@ -79,7 +76,6 @@
     font-size: 1.3em;
     font-weight: bold;
 }
-
 
 /* bottone acquisti*/
 button {
@@ -243,10 +239,6 @@ button:hover span {
   position: absolute;
 }
 
-
-.taglie {
-
-}
 .prezzo {
     font-size: 2.4em ;
     font-weight: bold;

@@ -22,9 +22,6 @@
 	box-sizing: border-box;
 }
 
-.form-container form {
-}
-
 .form-container form #head {
 	font-size: 7vh;
 	margin-bottom: 1vh;
