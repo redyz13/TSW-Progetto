@@ -158,10 +158,9 @@
       </select> <br>
       <label for="taglia">Taglia:</label>
       <select name="taglia" id="taglia">
-        <option value="" selected disabled hidden>M</option>
         <option value="XS">XS</option>
         <option value="S">S</option>
-        <option value="M">M</option>
+        <option value="M" selected>M</option>
         <option value="L">L</option>
         <option value="XL">XL</option>
         <option value="XXL">XXL</option>

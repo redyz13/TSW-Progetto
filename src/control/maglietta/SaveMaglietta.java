@@ -67,7 +67,8 @@ public class SaveMaglietta extends HttpServlet {
         try {
             magliettaDAO.doSave(maglietta);
 
-            MisuraBean misuraBean = new MisuraBean(magliettaDAO.getMaxID(), quantita, taglia);
+            MisuraBean misuraBean = new MisuraBean(magliettaDAO.getMaxID() - 1, quantita, taglia);
+            System.out.println(misuraBean);
 
             misuraDAO.doSave(misuraBean);
         } catch (SQLException e) {
