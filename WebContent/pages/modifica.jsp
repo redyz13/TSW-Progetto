@@ -8,8 +8,7 @@
 
 <% if (user == null || !user.equals(Login.ADMIN)) {
         response.sendRedirect("index.jsp");
-}
-%>
+} else { %>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -87,4 +86,4 @@
 
 <%@ include file="footer.jsp" %>
 </body>
-</html>
+</html><% } %>
