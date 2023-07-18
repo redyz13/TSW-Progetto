@@ -96,7 +96,7 @@ nav .cart:hover{
   	cursor: pointer;
 }
 
-.searchForm #srcImg {
+.searchForm .srcImg {
 	width: 20px;
 	height: 20px;
 }

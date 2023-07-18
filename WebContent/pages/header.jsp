@@ -16,9 +16,7 @@
 	    <% if (tipoUtente == null) { %>
 		<form class="searchForm">
 	    	<label><input placeholder="Cerca..." class="inputSearch" name="searchText" id="searchInput" type="text"></label>
-    		<button id="srcBtn">
-			 <img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
-    		</button>
+			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" class="srcImg">
 	    </form>
 	    <a href="${pageContext.request.contextPath}/pages/login.jsp" id="login-icon" class="a">Login</a>
 	    <% } %>
@@ -27,10 +25,8 @@
 	    <%-------------- Blocco utente registrato ----------%>
 	    <% if (tipoUtente != null && tipoUtente.equals(Login.REGISTRATO)) { %>
 	    <form class="searchForm">
-	    	<input placeholder="Cerca..." class="inputSearch" name="searchText" type="text">
-    		<button id="srcBtn">
-			 <img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" id="srcImg">
-    		</button>
+			<label><input placeholder="Cerca..." class="inputSearch" name="searchText" type="text"></label>
+			<img alt="search" src="${pageContext.request.contextPath}/images/system/search.png" class="srcImg">
 	    </form>
 	    <a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon">Profilo</a>
 	    <% } %>
