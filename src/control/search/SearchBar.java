@@ -1,4 +1,4 @@
-package model.search;
+package control.search;
 
 import javax.imageio.stream.ImageInputStream;
 import javax.naming.Context;
@@ -6,6 +6,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.google.gson.Gson;
-
+@WebServlet("/SearchBar")
 public class SearchBar extends HttpServlet {
     private static final String TABLE_NAME = "Maglietta";
     private static final DataSource ds;
@@ -63,12 +64,19 @@ public class SearchBar extends HttpServlet {
             }
 
             String lista = new Gson().toJson(results);
-            req.setAttribute("lista", lista);
+            System.out.println(lista);
+
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            resp.getWriter().write(lista);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
 
-
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       doPost(req,resp);
     }
 }

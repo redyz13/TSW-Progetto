@@ -78,6 +78,7 @@ nav .cart:hover{
   display: inline;
 }
 
+
 .searchForm .inputSearch:focus{
   background: transparent;
 }
@@ -100,6 +101,12 @@ nav .cart:hover{
 	auto-ratio: 1/1;
 }
 
+.search-img {
+    width: 15%
+}
+.nessun-articolo {
+    align-content: center;
+}
 .sidenav {
   height: 100%;
   width: 0;
