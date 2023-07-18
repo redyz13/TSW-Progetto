@@ -78,6 +78,9 @@
 </nav>
 <div id="risultati">
 	<table>
+		<tr hidden>
+			<th>Risultato</th>
+		</tr>
 		<caption hidden>Risultati</caption>
 	</table>
 </div>
