@@ -107,6 +107,7 @@ td img {
 	display: flex;
 	flex-wrap: wrap;
 }
+
 .elemento{
 	margin-left: auto;
 	margin-right: auto;
@@ -143,6 +144,22 @@ td img {
   border-radius: 2%;
 }
 
+.taglie {
+  display: inline;
+}
+
+select {
+  background-color: white;
+  border: 1px solid #000000;
+  border-radius: 9px;
+  color: #000000;
+  text-align: center;
+}
+
+.aggiungi-maglietta .button {
+  display: inline-flex;
+}
+
 .niente{
 	font-size:20%;
 	/*display: center;*/
@@ -156,7 +173,7 @@ td img {
   padding: 0.5% 1%;
   outline: none;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;

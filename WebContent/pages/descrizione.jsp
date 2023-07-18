@@ -62,13 +62,6 @@
 
 			<form action="${pageContext.request.contextPath}/AggiungiMaglietta" method="post">
 				<div class="taglie">
-					<%--TODO da vedere come risolvere --%>
-					<%--					<span><button type="submit" name="taglia" value="1">XS</button></span>--%>
-					<%--					<span><button type="submit" name="taglia" value="2">S</button></span>--%>
-					<%--					<span><button type="submit" name="taglia" value="3">M</button></span>--%>
-					<%--					<span><button type="submit" name="taglia" value="4">L</button></span>--%>
-					<%--					<span><button type="submit" name="taglia" value="5">XL</button></span>--%>
-					<%--					<span><button type="submit" name="taglia" value="6">XXL</button></span>--%>
 					<label><select name="taglia" id="size">
 						<option value="XS" selected>XS</option>
 						<option value="S">S</option>

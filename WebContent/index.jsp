@@ -78,15 +78,26 @@
 								<lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="120"></lord-icon>
 							</button>
 		        		</form>
-		        		<p style="font-size:2%">&nbsp;</p>
-		        		<form action="AggiungiMaglietta" method="POST">
-		          			<input type="hidden" name="ID" value="<%= maglietta.getID() %>">
-		         			<button class="btn-shine button" type="submit">
-	    						<span>Aggiungi al carrello</span>
-								<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
-								<lord-icon src="https://cdn.lordicon.com/dnoiydox.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="85"></lord-icon>
-							</button>
-		        		</form>
+						<div class="aggiungi-maglietta">
+							<form action="AggiungiMaglietta" method="POST">
+								<input type="hidden" name="ID" value="<%= maglietta.getID() %>">
+								<button class="btn-shine button" type="submit" onclick=checkTaglia()>
+									<span>Aggiungi al carrello</span>
+									<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
+									<lord-icon src="https://cdn.lordicon.com/dnoiydox.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="85"></lord-icon>
+								</button>
+								<span class="taglie">
+								<label><select name="taglia" class="button" id="size" required>
+									<option value="XS" selected>XS</option>
+									<option value="S">S</option>
+									<option value="M">M</option>
+									<option value="L">L</option>
+									<option value="XL">XL</option>
+									<option value="XXL">XXL</option>
+								</select></label>
+								</span>
+							</form>
+						</div>
 		    		</td>
 	    		</tr>
 	    	</table>

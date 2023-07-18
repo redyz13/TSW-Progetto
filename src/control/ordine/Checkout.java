@@ -46,7 +46,7 @@ public class Checkout extends HttpServlet {
         carrelloModel.getCarrello().forEach(p -> {
             try {
                 AcquistoBean acquistoBean = new AcquistoBean();
-                acquistoBean.setIDOrdine(new OrdineDAO().getMaxID());
+                acquistoBean.setIDOrdine(new OrdineDAO().getMaxID() - 1);
                 acquistoBean.setIDMaglietta(p.getMagliettaBean().getID());
                 acquistoBean.setQuantita(p.getQuantita());
                 acquistoBean.setImmagine(p.getMagliettaBean().getGrafica());
