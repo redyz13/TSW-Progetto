@@ -23,7 +23,7 @@ public class DescrizioneMaglietta extends HttpServlet {
             MagliettaBean magliettaBean = magliettaDAO.doRetrieveByKey(ID);
             req.setAttribute("magliettaBean", magliettaBean);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/descrizione.jsp");

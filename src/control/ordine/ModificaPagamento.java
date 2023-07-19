@@ -37,7 +37,7 @@ public class ModificaPagamento extends HttpServlet {
         try {
             utenteDAO.doUpdate(utenteBean);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("pages/checkout.jsp");

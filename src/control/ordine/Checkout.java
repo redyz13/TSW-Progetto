@@ -43,7 +43,7 @@ public class Checkout extends HttpServlet {
         try {
             ordineDAO.doSave(ordineBean);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         carrelloModel.getCarrello().forEach(p -> {
@@ -64,7 +64,7 @@ public class Checkout extends HttpServlet {
                 misuraDAO.doUpdateUtente(acquistoBean, p.getTaglia());
 
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
             }
         });
 

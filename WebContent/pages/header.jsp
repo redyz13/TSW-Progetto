@@ -1,5 +1,7 @@
 <%@ page import="control.utente.Login" %>
 
+<%@ page errorPage = "errorpage.jsp" %>
+
 <% Integer tipoUtente = (Integer) request.getSession().getAttribute("tipoUtente"); %>
 <% String[] validPagesForSearchBar = { "catalogo.jsp", "catalogoAdmin.jsp", "index.jsp" }; %>
 

@@ -32,14 +32,14 @@ public class SaveMaglietta extends HttpServlet {
         Part grafica = req.getPart("grafica");
 
         MagliettaDAO magliettaDAO = new MagliettaDAO();
-        String nomeFile;
+        String nomeFile = "";
         int extensionIndex = grafica.getSubmittedFileName().lastIndexOf(".");
 
         try {
             nomeFile = magliettaDAO.getMaxID() + tipo +
                     grafica.getSubmittedFileName().substring(extensionIndex);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         String relativePath = "images" + File.separator + "grafiche" + File.separator + nomeFile;
@@ -47,7 +47,7 @@ public class SaveMaglietta extends HttpServlet {
         try (OutputStream outputStream = new FileOutputStream(PATH + nomeFile); InputStream inputStream = grafica.getInputStream()) {
             inputStream.transferTo(outputStream);
         } catch (IOException e) {
-            throw new RuntimeException();
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         MagliettaBean maglietta = new MagliettaBean();
@@ -71,7 +71,7 @@ public class SaveMaglietta extends HttpServlet {
 
             misuraDAO.doSave(misuraBean);
         } catch (SQLException e) {
-            throw new RuntimeException();
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         resp.sendRedirect("./Catalogo");

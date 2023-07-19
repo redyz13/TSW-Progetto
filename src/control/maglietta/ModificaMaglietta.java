@@ -27,7 +27,7 @@ public class ModificaMaglietta extends HttpServlet {
             req.setAttribute("maglietta", magliettaBean);
             req.setAttribute("misure", misuraDAO.doRetrieveAll(ID));
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("pages/modifica.jsp");
