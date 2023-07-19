@@ -35,12 +35,15 @@
         <div class="indirizzo">
             <div class="indirizzo-header">Indirizzo</div>
             <div class="indirizzo-body">
-                <p>Via: <%=utenteBean.getVia() %></p><br>
-                <p>Citta:<%=utenteBean.getCitta() %>,</p>
-                <p>Cap:<%=utenteBean.getCap() %></p>
+                <label for="via-utente">Via: </label>
+                <input type="text" name="via-utente" id="via-utente" value="<%=utenteBean.getVia() %>" disabled>
+                <label for="citta-utente">Citta: </label>
+                <input type="text" name="citta-utente" id="citta-utente" value="<%=utenteBean.getCitta()%>" disabled>
+                <label for="cap-utente">Cap: </label>
+                <input type="text" name="cap-utente" id="cap-utente" value="<%=utenteBean.getCap()%>()" disabled>
             </div>
             <div class="modifica-indirizzo">
-                <button class="indirizzo-button" type="submit">Modifica indirizzo</button>
+                <button class="indirizzo-button button" id="modifica-indirizzo" type="submit">Modifica indirizzo</button>
             </div>
         </div>
 
@@ -55,7 +58,7 @@
             <div class="pagamento-button">
                 <form action="ModificaPagamento">
                 </form>
-                <button class="pagamento-button" type="submit">Modifica metodo di pagamento</button>
+                <button class="pagamento-button button" type="submit">Modifica metodo di pagamento</button>
             </div>
         </div>
     </div>
@@ -65,11 +68,10 @@
                 for (Map.Entry<?, ?> entry : ordini.entrySet()) {
                     OrdineBean ordineBean = (OrdineBean) entry.getKey();
                     Collection<AcquistoBean> acquisti = (Collection<AcquistoBean>) entry.getValue();
-                    System.out.println(acquisti);
         %>
         <table>
             <caption hidden>Ordini</caption>
-            <tr hidden>
+            <tr class="header-ordini">
                 <th>Ordine numero</th>
                 <th>Prezzo Totale</th>
                 <th>Data Ordine</th>
@@ -82,11 +84,40 @@
                 <%
                     for (AcquistoBean acquisto: acquisti) {
                 %>
-                <td><img src="<%= acquisto.getImmagine() %>" alt="<%= acquisto.getIDMaglietta() %>"></td>
+                <td>
+                    <button type="button" id="<%=ordineBean.getID()%>" class="button" onclick="slide(<%=acquisto.getIDAcquisto()%>, <%=ordineBean.getID()%>)">Mostra dettagli</button>
+                </td>
             </tr>
+            <tr>
+            <td>
+                <div class="acquisti-div" id="<%=acquisto.getIDAcquisto()%>">
+                    <img src="<%= acquisto.getImmagine() %>" alt="<%= acquisto.getIDMaglietta() %>">
+                </div>
+            </td>
+        </tr>
         </table>
         <%} }%>
     </div>
 </div>
+<script>
+    let toggle = false;
+</script>
+<script>
+    function slide(acquisto, ordine) {
+        toggle ^= true;
+
+        let acq = document.getElementById(acquisto);
+        let button = document.getElementById(ordine);
+
+        if (toggle) {
+            acq.classList.remove("acquisti-div");
+            button.innerText = "Mostra meno";
+        }
+        else {
+            acq.classList.add("acquisti-div");
+            button.innerText = "Mostra dettagli";
+        }
+    }
+</script>
 </body>
 </html>

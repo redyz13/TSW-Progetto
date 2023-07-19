@@ -11,6 +11,7 @@ body {
 
 /* Intestazione */
 .utente-header {
+    text-align: center;
     background-color: #f0f0f0;
     padding: 10px;
     margin-bottom: 20px;
@@ -20,91 +21,65 @@ body {
     display: flex;
 }
 
-/* Indirizzo */
-.indirizzo {
+.metodo-di-pagamento, .indirizzo {
     background-color: #f9f9f9;
     padding: 20px;
     margin-bottom: 20px;
     width: 50%;
 }
 
-/* Metodo di pagamento */
-.metodo-di-pagamento {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-bottom: 20px;
-    width: 50%;
-}
-
-.indirizzo-header {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.indirizzo-body {
-    margin-bottom: 10px;
-}
 
 .modifica-indirizzo {
     margin-top: 10px;
 }
 
-.indirizzo-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.indirizzo-button:hover {
-    background-color: #45a049;
-}
-
-/*!* Metodo di pagamento *!*/
-/*.metodo-di-pagamento {*/
-/*    background-color: #f9f9f9;*/
-/*    padding: 20px;*/
-/*    margin-bottom: 20px;*/
-/*}*/
-
-.pagamento-header {
+.pagamento-header, .indirizzo-header {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.pagamento-body {
+.pagamento-body, .indirizzo-body {
     margin-bottom: 10px;
 }
 
-.pagamento-body label {
+.pagamento-body label, .indirizzo-body label {
     display: block;
     margin-bottom: 5px;
 }
 
-.pagamento-body input {
+.pagamento-body input, .indirizzo-body input {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-.pagamento-button {
-    margin-top: 10px;
-}
 
-.pagamento-button button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 16px;
-    border: none;
+.button {
+    position: relative;
+    margin: 0;
+    padding: 0.5% 1%;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    font-weight: bold;
+    background-color: #fff;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    color: #000000;
+    font-family: inherit;
+    z-index: 0;
+    overflow: hidden;
+    width: 50%;
 }
 
-.pagamento-button button:hover {
-    background-color: #45a049;
+.button:hover {
+    color: #164ca7;
+    border-color: #164ca7;
 }
 
 /* Ordini */
@@ -124,11 +99,16 @@ body {
     text-align: left;
 }
 
-.ordini table th {
-    background-color: #4CAF50;
+.header-ordini  {
+    background-color: #ff9229;
     color: white;
+    border-radius: 7%;
 }
 
 .ordini table td img {
     max-width: 100px;
+}
+
+.acquisti-div {
+    display: none;
 }
