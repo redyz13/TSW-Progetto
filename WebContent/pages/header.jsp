@@ -42,7 +42,13 @@
 	
 			<%-------------- Blocco utente registrato ----------%>
 			<% if (tipoUtente != null && tipoUtente.equals(Login.REGISTRATO)) { %>
-			<a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon" class="a"><img src="${pageContext.request.contextPath}/images/system/profilo.png" class="logo lo" alt="profilo"></a>
+			<div class="dropdown b">
+			  	<a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon" class="a"><img src="${pageContext.request.contextPath}/images/system/profilo.png" class="logo lo" alt="profilo"></a>
+			    <div class="dropdown-content">
+			    	<a href="${pageContext.request.contextPath}/Logout" id="login-icon" class="a"><img src="${pageContext.request.contextPath}/images/system/logout.png" class="esci" alt="Logout"></a>
+			    </div>
+			</div>
+			
 			<% } %>
 			<%--------------------------------------------------%>
 	
@@ -64,10 +70,9 @@
 		</div>
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="#">About</a>
-			<a href="#">Services</a>
-			<a href="#">Clients</a>
-			<a href="#">Contact</a>
+			<a href="${pageContext.request.contextPath}/Catalogo">Catalogo</a>
+			<a href="${pageContext.request.contextPath}/pages/personalizzata.jsp">Personalizza</a>
+			<a href="${pageContext.request.contextPath}/pages/about.jsp">Chi Siamo</a>
 		</div>
 
 		<div id="main">
