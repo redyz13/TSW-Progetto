@@ -8,6 +8,10 @@ const cards = document.querySelectorAll('.slide-category');
 let currentIndex = 0;
 
 
+const tshirtContainer = document.querySelector('.magliette');
+const shirt = document.querySelectorAll('.elemento');
+
+let currentShirt = 0;
 
 function next() {
 	clearInterval(intervalID); // Cancella l'intervallo corrente
@@ -57,6 +61,36 @@ function showPreviousCard() {
 	  showCard(currentIndex);
 	}
 
+function showShirt(index) {
+	shirt.forEach(maglia => {
+		maglia.style.transform = `translateX(-${index * 200}%)`;
+	});
+}
+
+function showNextTShirt() {
+	  if (window.innerWidth >= 768 && currentShirt === 7) {
+		  currentShirt = 0;
+	  } else if (currentShirt === 9) {
+		  currentShirt = 0;
+	  } else {
+		  currentShirt = (currentShirt + 1) % shirt.length;
+	  }
+	  showShirt(currentShirt);
+	}
+
+function showPreviousTShirt() {
+	  if (window.innerWidth >= 768 && currentShirt === 0) {
+		  currentShirt = 7;
+	  } else if (window.innerWidth < 768 && currentShirt === 0) {
+		  currentShirt = 9;  
+	  } else {
+		  currentShirt = (currentShirt - 1 + shirt.length) % shirt.length;
+	  }
+	  showShirt(currentShirt);
+	}
+
 intervalID = setInterval(next, 3500); // Imposta l'intervallo iniziale
 
 showCard(currentIndex);
+
+showShirt(currentShirt);

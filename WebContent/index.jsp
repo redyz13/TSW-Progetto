@@ -83,7 +83,9 @@
 		  <h1 class="cat-Title"><a href="${pageContext.request.contextPath}/Catalogo">I nostri prodotti</a></h1>
 		  <div class="magliette">
 		    <%
+		      int si = 0;
 		      if (magliette != null && magliette.size() != 0) {
+		    	si = 1;
 		        DecimalFormat df = new DecimalFormat("#.##");
 		        df.setRoundingMode(RoundingMode.FLOOR);
 				
@@ -98,7 +100,7 @@
 			          if (prezzo.matches("[0-9]+"))
 			            prezzo += ".00";
 		    %>
-		    	<div class="elemento">
+		    	<div class="elemento" id="<%=i %>">
 			    	<table class="dettagli">
 						<caption hidden>Catalogo</caption>
 						<tr hidden>
@@ -153,6 +155,7 @@
 			    		</tr>
 			    	</table>
 		    	</div>
+		    	
 		    <%
 		      // Parentesi del for e dell'if
 		          } } } else {
@@ -168,49 +171,20 @@
 			    style="width:25%;height:25%">
 			</lord-icon>
 		    <% } %>
+		 </div>		 
+		 <% if (si > 0) { %>		
+		 <div class="button-container">
+			<button class="button-cat" onclick="showPreviousTShirt()"><img src="${pageContext.request.contextPath}/images/system/arrow-left.png" alt="Precedente"></button>
+			<button class="button-cat" onclick="showNextTShirt()"><img src="${pageContext.request.contextPath}/images/system/arrow-right.png" alt="Successivo"></button>
 		 </div>
-		
+		 <br>
+		 <div class="cento">
+		 	<a href="${pageContext.request.contextPath}/Catalogo" class="vis">Visualizza tutti...</a>
+		 </div>
+		 <br><br>
+		<% } %>
 		<script src="${pageContext.request.contextPath}/js/home.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha384-UG8ao2jwOWB7/oDdObZc6ItJmwUkR/PfMyt9Qs5AwX7PsnYn1CRKCTWyncPTWvaS" crossorigin="anonymous"></script>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				for(let ii = 1; ii < 5; ii ++ ){
-					let searchInput = document.getElementById("img-"+i);
-					searchInput.addEventListener("click", function () {
-						let searchQuery = searchInput.value;
-						let divRisultati = document.getElementById("risultati");
-						if(searchQuery !== "" && searchQuery !== " ") {
-							$(divRisultati).css("display", "block")
-							$.ajax ({
-								url: '${pageContext.request.contextPath}/SearchBar',
-								type: 'POST',
-								data: {search: searchQuery},
-								success: function (data) {
-									divRisultati.innerHTML = " "
-									let jsonarray = eval(data);
-									console.log(jsonarray);
-									if(data.length > 0) {
-										 for (let i = 0; i < jsonarray.length; i++) {
-											  let obj = jsonarray[i];
-											  divRisultati.innerHTML += '<td>' +'<a href="DescrizioneMaglietta?id='+ obj.ID + '">' + '<img class ="search-img" src="' + obj.grafica + '" alt="'+ obj.nome +'">' +'</a>' +'</td>';
-										 }
-									}
-									else {
-										 divRisultati.innerHTML = '<p class="nessun-articolo">'+ 'Nessun risultato trovato'+ '</p>';
-									}
-								},
-								error: function() {
-									console.log("errore");
-								}
-							})
-						}
-						else {
-							$(divRisultati).css("display", "none")
-						}
-					})
-				}
-			})
-		</script>
+		
 		<%@ include file="pages/footer.jsp"%>
 	</body>
 

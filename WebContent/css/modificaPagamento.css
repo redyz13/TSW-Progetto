@@ -4,7 +4,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
-    z-index: 200;
+    z-index: 999999999;
     border: 1px solid black;
     background-color: white;
     width: 500px;
