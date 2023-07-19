@@ -1,5 +1,6 @@
 package model.misura;
 
+import exception.GenericError;
 import model.acquisto.AcquistoBean;
 
 import javax.naming.Context;
@@ -25,7 +26,7 @@ public class MisuraDAO {
 
             ds = (DataSource) env.lookup("jdbc/whiTee");
         } catch (NamingException e) {
-            throw new RuntimeException(e);
+            throw new GenericError();
         }
     }
 
