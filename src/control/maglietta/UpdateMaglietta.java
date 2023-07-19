@@ -65,7 +65,7 @@ public class UpdateMaglietta extends HttpServlet {
             try (OutputStream outputStream = new FileOutputStream(PATH + nomeFile); InputStream inputStream = grafica.getInputStream()) {
                 inputStream.transferTo(outputStream);
             } catch (IOException e) {
-                throw new RuntimeException();
+                req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
             }
         }
 
@@ -88,7 +88,7 @@ public class UpdateMaglietta extends HttpServlet {
             magliettaDAO.doUpdate(maglietta);
             misuraDAO.doUpdate(misuraBean);
         } catch (SQLException e) {
-            throw new RuntimeException();
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         resp.sendRedirect("Catalogo");

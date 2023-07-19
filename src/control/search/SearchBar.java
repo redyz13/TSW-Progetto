@@ -1,10 +1,8 @@
 package control.search;
 
-import javax.imageio.stream.ImageInputStream;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.google.gson.Gson;
+import exception.GenericError;
+
 @WebServlet("/SearchBar")
 public class SearchBar extends HttpServlet {
     private static final String TABLE_NAME = "Maglietta";
@@ -31,7 +31,7 @@ public class SearchBar extends HttpServlet {
 
             ds = (DataSource) env.lookup("jdbc/whiTee");
         } catch (NamingException e) {
-            throw new RuntimeException(e);
+            throw new GenericError();
         }
     }
 
@@ -46,15 +46,15 @@ public class SearchBar extends HttpServlet {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             // Lista da far passare in json
-            List<Map<String, Object>> results = new ArrayList<Map<String, Object>>();
+            List<Map<String, Object>> results = new ArrayList<>();
             // Per prendere nomi delle colonne e oggetti delle colonne per ogni rigo della tabella
             ResultSetMetaData metaData = resultSet.getMetaData();
             int colonne = metaData.getColumnCount();
 
             // Per riempire la Lista
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 // Un oggetto Map per ogni valore delle colonne
-                Map<String, Object> oggetto =new HashMap<String, Object>();
+                Map<String, Object> oggetto = new HashMap<>();
                 for (int i = 1; i <= colonne; i++) {
                     String nomeColonna = metaData.getColumnName(i);
                     Object value = resultSet.getObject(i);
@@ -70,7 +70,7 @@ public class SearchBar extends HttpServlet {
             resp.getWriter().write(lista);
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
     }
 

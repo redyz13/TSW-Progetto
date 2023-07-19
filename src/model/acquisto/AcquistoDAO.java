@@ -1,5 +1,6 @@
 package model.acquisto;
 
+import exception.GenericError;
 import model.DAOInterface;
 
 import javax.naming.Context;
@@ -25,7 +26,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
 
             ds = (DataSource) env.lookup("jdbc/whiTee");
         } catch (NamingException e) {
-            throw new RuntimeException(e);
+            throw new GenericError();
         }
     }
 
@@ -35,7 +36,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE IDAcquisto = ?";
 
-        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, code);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -50,7 +51,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE IDOrdine = ?";
 
-        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, codeOrdini);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -64,7 +65,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
     }
 
     @Override
-    public Collection<AcquistoBean> doRetriveAll(String order) throws SQLException {
+    public Collection<AcquistoBean> doRetriveAll(String order) {
         return null;
     }
 
@@ -73,7 +74,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
         String query =  "INSERT INTO " + TABLE_NAME + " (IDOrdine, IDMaglietta, quantita, immagine, prezzoAq, ivaAq, taglia) "+
                         "VALUES(?, ?, ?, ?, ?, ?, ?)";
 
-        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setAcquistoStatement(acquistoBean, preparedStatement);
 
             preparedStatement.executeUpdate();
@@ -82,12 +83,12 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
     }
 
     @Override
-    public void doUpdate(AcquistoBean product) throws SQLException {
+    public void doUpdate(AcquistoBean product) {
 
     }
 
     @Override
-    public boolean doDelete(Integer code) throws SQLException {
+    public boolean doDelete(Integer code) {
         return false;
     }
 

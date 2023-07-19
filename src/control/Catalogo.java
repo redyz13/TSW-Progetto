@@ -20,7 +20,7 @@ public class Catalogo extends HttpServlet {
         try {
             req.setAttribute("magliette", magliettaDAO.doRetriveAll(req.getParameter("ordine")));
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         Integer tipoUtente = (Integer) req.getSession().getAttribute("tipoUtente");

@@ -44,7 +44,7 @@ public class Registrazione extends HttpServlet {
                 utenteDAO.doSave(utenteBean);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         resp.sendRedirect("pages/login.jsp");

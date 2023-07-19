@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
 
             resp.sendRedirect(redirectedPage);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
     }
 

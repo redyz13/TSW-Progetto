@@ -19,7 +19,7 @@ public class Home extends HttpServlet {
         try {
             req.setAttribute("magliette", magliettaDAO.doRetriveAll(req.getParameter("ordine")));
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);

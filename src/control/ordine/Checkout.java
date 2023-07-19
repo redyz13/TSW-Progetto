@@ -2,13 +2,12 @@ package control.ordine;
 import model.CarrelloModel;
 import model.acquisto.AcquistoBean;
 import model.acquisto.AcquistoDAO;
-import model.maglietta.MagliettaBean;
+import model.maglietta.MagliettaOrdine;
 import model.misura.MisuraDAO;
 import model.ordine.OrdineBean;
 import model.ordine.OrdineDAO;
 import model.utente.UtenteBean;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 @WebServlet("/Checkout")
 public class Checkout extends HttpServlet {
@@ -43,10 +41,10 @@ public class Checkout extends HttpServlet {
         try {
             ordineDAO.doSave(ordineBean);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
-        carrelloModel.getCarrello().forEach(p -> {
+        for (MagliettaOrdine p: carrelloModel.getCarrello()) {
             try {
                 AcquistoBean acquistoBean = new AcquistoBean();
                 acquistoBean.setIDOrdine(new OrdineDAO().getMaxID() - 1);
@@ -64,9 +62,9 @@ public class Checkout extends HttpServlet {
                 misuraDAO.doUpdateUtente(acquistoBean, p.getTaglia());
 
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
             }
-        });
+        }
 
         req.getSession().removeAttribute("carrello");
 
