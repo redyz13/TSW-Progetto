@@ -75,7 +75,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
         PreparedStatement preparedStatement = null;
         Collection<MagliettaBean> magliette = new ArrayList<>();
 
-        StringBuilder query = new StringBuilder("SELECT * FROM " + TABLE_NAME);
+        StringBuilder query = new StringBuilder("SELECT * FROM " + TABLE_NAME + " WHERE Tipo <> 'Personalizzata'");
 
         try {
             connection = ds.getConnection();
