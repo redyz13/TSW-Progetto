@@ -45,7 +45,7 @@ public class StoricoOrdini extends HttpServlet {
             requestDispatcher.forward(req,resp);
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
     }
 

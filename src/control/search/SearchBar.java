@@ -29,7 +29,7 @@ public class SearchBar extends HttpServlet {
 
             ds = (DataSource) env.lookup("jdbc/whiTee");
         } catch (NamingException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Asd");
         }
     }
 

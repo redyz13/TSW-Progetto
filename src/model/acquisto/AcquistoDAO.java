@@ -64,7 +64,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
     }
 
     @Override
-    public Collection<AcquistoBean> doRetriveAll(String order) throws SQLException {
+    public Collection<AcquistoBean> doRetriveAll(String order) {
         return null;
     }
 
@@ -82,12 +82,12 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
     }
 
     @Override
-    public void doUpdate(AcquistoBean product) throws SQLException {
+    public void doUpdate(AcquistoBean product) {
 
     }
 
     @Override
-    public boolean doDelete(Integer code) throws SQLException {
+    public boolean doDelete(Integer code) {
         return false;
     }
 
