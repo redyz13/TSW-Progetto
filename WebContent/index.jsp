@@ -4,8 +4,8 @@
 <%@ page import="model.maglietta.MagliettaBean" %>
 
 <% Collection<?> magliette = (Collection<?>) request.getAttribute("magliette");
-	if (magliette == null)
-		response.sendRedirect("./Catalogo");
+  if (magliette == null)
+    response.sendRedirect("./Home");
 %>
 
 <!DOCTYPE html>

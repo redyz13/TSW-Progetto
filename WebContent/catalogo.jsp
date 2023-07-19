@@ -5,7 +5,7 @@
 
 <% Collection<?> magliette = (Collection<?>) request.getAttribute("magliette");
   if (magliette == null)
-//    response.sendRedirect("./Catalogo");
+    response.sendRedirect("./Catalogo");
 %>
 
 <!DOCTYPE html>
