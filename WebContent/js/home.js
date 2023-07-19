@@ -1,6 +1,6 @@
-var n_img = document.querySelectorAll('.img-per-slider img').length;
-var corrente = 1;
-var intervalID;
+let n_img = document.querySelectorAll('.img-per-slider img').length;
+let corrente = 1;
+let intervalID;
 
 const slideContainer = document.querySelector('.slider-categories');
 const cards = document.querySelectorAll('.slide-category');
@@ -11,20 +11,20 @@ let currentIndex = 0;
 
 function next() {
 	clearInterval(intervalID); // Cancella l'intervallo corrente
-	var currentImg = document.getElementById('img-' + corrente);
+	let currentImg = document.getElementById('img-' + corrente);
 	currentImg.classList.remove('active');
 	corrente = (corrente % n_img) + 1;
-	var nextImg = document.getElementById('img-' + corrente);
+	let nextImg = document.getElementById('img-' + corrente);
 	nextImg.classList.add('active');
 	intervalID = setInterval(next, 3500); // Imposta un nuovo intervallo
 }
 
 function prec() {
 	clearInterval(intervalID); // Cancella l'intervallo corrente
-	var currentImg = document.getElementById('img-' + corrente);
+	let currentImg = document.getElementById('img-' + corrente);
 	currentImg.classList.remove('active');
 	corrente = ((corrente - 2 + n_img) % n_img) + 1;
-	var prevImg = document.getElementById('img-' + corrente);
+	let prevImg = document.getElementById('img-' + corrente);
 	prevImg.classList.add('active');
 	intervalID = setInterval(next, 3500); // Imposta un nuovo intervallo
 }
