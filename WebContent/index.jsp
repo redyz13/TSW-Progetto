@@ -22,8 +22,8 @@
 		<%@ include file="pages/header.jsp"%>
 		<div class="container">
 			<div class="slider-button-container">
-				<button class="left" onclick="prec()"><img class="negative" src="${pageContext.request.contextPath}/images/system/arrow-left.png" alt="Precedente"></button>
-				<button class="right" onclick="next()"><img class="negative" src="${pageContext.request.contextPath}/images/system/arrow-right.png" alt="Successivo"></button>
+				<button class="left" onclick="prec()"><img class="negative" src="${pageContext.request.contextPath}/images/system/prec.png" alt="Precedente"></button>
+				<button class="right" onclick="next()"><img class="negative" src="${pageContext.request.contextPath}/images/system/next.png" alt="Successivo"></button>
 			</div>
 	
 			<div class="slider">
