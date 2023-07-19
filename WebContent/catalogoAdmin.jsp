@@ -172,6 +172,7 @@
       <input type="submit" value="Carica">
     </fieldset>
   </form>
+  <script src="${pageContext.request.contextPath}/js/regexUpdateAggiuntaMaglietta.js"></script>
   <%@ include file="pages/footer.jsp" %>
 </body>
 

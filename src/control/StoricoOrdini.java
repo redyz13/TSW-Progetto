@@ -1,4 +1,4 @@
-package control.utente;
+package control;
 
 import model.acquisto.AcquistoBean;
 import model.acquisto.AcquistoDAO;
