@@ -26,6 +26,7 @@ public class StoricoOrdini extends HttpServlet {
 
         OrdineDAO ordineDAO = new OrdineDAO();
         AcquistoDAO acquistoDAO = new AcquistoDAO();
+
         try {
             Collection<OrdineBean> ordini = ordineDAO.doRetrieveByKey(utenteBean.getUsername());
 

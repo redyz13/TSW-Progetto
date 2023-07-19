@@ -55,12 +55,13 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
             preparedStatement.setInt(1, codeOrdini);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 AcquistoBean acquistoBean = new AcquistoBean();
                 setAcquisto(resultSet, acquistoBean);
                 acquisti.add(acquistoBean);
             }
         }
+
         return acquisti;
     }
 

@@ -48,20 +48,21 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
 
     public Collection<OrdineBean> doRetrieveByKey(String code) throws SQLException {
         Collection<OrdineBean> ordini = new ArrayList<>();
-        OrdineBean ordineBean = new OrdineBean();
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE username = ?";
 
-        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, code);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
+                OrdineBean ordineBean = new OrdineBean();
                 setOrders(resultSet, ordineBean);
                 ordini.add(ordineBean);
             }
         }
+
         return ordini;
     }
 

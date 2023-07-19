@@ -81,40 +81,67 @@
                 <td><%= ordineBean.getID() %></td>
                 <td>€ <%= ordineBean.getPrezzoTotale() %></td>
                 <td><%=ordineBean.getDataOrdine().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT))%></td>
-                <%
-                    for (AcquistoBean acquisto: acquisti) {
-                %>
                 <td>
-                    <button type="button" id="<%=ordineBean.getID()%>" class="button" onclick="slide(<%=acquisto.getIDAcquisto()%>, <%=ordineBean.getID()%>)">Mostra dettagli</button>
+                    <button type="button" id="<%=ordineBean.getID()%>" class="button" onclick="slide(<%=ordineBean.getID()%>, 'tr<%=ordineBean.getID()%>')">Mostra dettagli</button>
+                </td>
+
+
+            </tr>
+
+            <tr class="acquisti" id="tr<%=ordineBean.getID()%>">
+                <td>
+                    <table>
+                        <%
+                        for (AcquistoBean acquisto: acquisti) {
+                        %>
+                        <tr>
+                            <th>Grafica</th>
+                            <th>Quantità</th>
+                            <th>Taglia</th>
+                            <th>Prezzo</th>
+                            <th>IVA</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="<%= acquisto.getImmagine() %>" alt="<%= acquisto.getIDMaglietta() %>">
+                            </td>
+                            <td>
+                                <p><%=acquisto.getQuantita()%></p>
+                            </td>
+                            <td>
+                                <p><%=acquisto.getTaglia()%></p>
+                            </td>
+                            <td>
+                                <p><%=acquisto.getPrezzoAq()%></p>
+                            </td>
+                            <td>
+                                <p><%=acquisto.getIvaAq()%></p>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </table>
                 </td>
             </tr>
-            <tr>
-            <td>
-                <div class="acquisti-div" id="<%=acquisto.getIDAcquisto()%>">
-                    <img src="<%= acquisto.getImmagine() %>" alt="<%= acquisto.getIDMaglietta() %>">
-                </div>
-            </td>
-        </tr>
         </table>
-        <%} }%>
+        <% }%>
     </div>
 </div>
 <script>
     let toggle = false;
 </script>
 <script>
-    function slide(acquisto, ordine) {
+    function slide(ordine, acquisto) {
         toggle ^= true;
 
         let acq = document.getElementById(acquisto);
         let button = document.getElementById(ordine);
 
         if (toggle) {
-            acq.classList.remove("acquisti-div");
+            acq.classList.remove("acquisti");
             button.innerText = "Mostra meno";
         }
         else {
-            acq.classList.add("acquisti-div");
+            acq.classList.add("acquisti");
             button.innerText = "Mostra dettagli";
         }
     }
