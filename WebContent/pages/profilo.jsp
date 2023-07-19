@@ -76,6 +76,7 @@
                 <th>Prezzo Totale</th>
                 <th>Data Ordine</th>
                 <th></th>
+                <th></th>
             </tr>
             <tr>
                 <td><%= ordineBean.getID() %></td>
@@ -83,6 +84,11 @@
                 <td><%=ordineBean.getDataOrdine().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT))%></td>
                 <td>
                     <button type="button" id="<%=ordineBean.getID()%>" class="button" onclick="slide(<%=ordineBean.getID()%>, 'tr<%=ordineBean.getID()%>')">Mostra dettagli</button>
+                </td>
+                <td>
+                    <form method="POST" action="StampaFattura">
+                        <button type="submit" class="button">Stampa fattura</button>
+                    </form>
                 </td>
 
 

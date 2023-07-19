@@ -6,7 +6,6 @@ import model.utente.UtenteBean;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import javax.servlet.ServletException;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
 @WebServlet("/StampaFattura")
@@ -33,14 +31,18 @@ public class StampaFattura extends HttpServlet {
             Map<OrdineBean, Collection<AcquistoBean>> ordini = (Map<OrdineBean, Collection<AcquistoBean>>) req.getAttribute("ordini");
 
             PDPage page = document.getPage(0);
-            PDRectangle pageSize = page.getMediaBox();
 
-            PDPageContentStream contentStream = new PDPageContentStream(document, page);
-            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+            PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true);
+
+            contentStream.setFont(PDType1Font.HELVETICA, 8);
 
             contentStream.beginText();
-            
+            contentStream.newLineAtOffset(442.536f, 767.691f);
+            contentStream.showText(utenteBean.getNumCarta());
             contentStream.endText();
+
+            contentStream.close();
+            document.save(new File(PATH + "output.pdf"));
         }
     }
 
