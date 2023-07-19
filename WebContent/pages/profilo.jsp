@@ -13,9 +13,9 @@
     <title>Profilo utente</title>
 </head>
 <%
-    Map<Integer, Collection<AcquistoBean>> ordini = (Map<Integer, Collection<AcquistoBean>>) request.getAttribute("ordini");
-    if( ordini == null)
-        response.sendRedirect("/StoricoOrdini");
+    Map<?, ?> ordini = (Map<?, ?>) request.getAttribute("ordini");
+    if(ordini == null)
+        response.sendRedirect("StoricoOrdini");
 
     UtenteBean utenteBean = (UtenteBean) request.getSession().getAttribute("utente");
 
@@ -57,13 +57,16 @@
             <%
                 if (ordini != null) {
                     
-                    for (Integer chiave: ordini.keySet()) {
-                            Collection<AcquistoBean> acquisti = ordini.get(chiave);
+                    for (Object chiave: ordini.keySet()) {
+                        Integer key = (Integer) chiave;
+                        Collection<?> acquisti = (Collection<?>) ordini.get(chiave);
                     %>
                         <table>
                         <tr>
-                            <td><%=chiave%></td>
-                        <% for (AcquistoBean acquistoBean: acquisti) {%>
+                            <td><%=key%></td>
+                        <% for (Object acquisto: acquisti) {
+                                AcquistoBean acquistoBean =  (AcquistoBean) acquisto;
+                        %>
                             <td><img src="<%=acquistoBean.getImmagine()%>" alt="<%=acquistoBean.getIDMaglietta()%>"></td>
                         </tr>
                     </table>
