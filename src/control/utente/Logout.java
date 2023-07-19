@@ -12,7 +12,7 @@ public class Logout extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().invalidate();
-        resp.sendRedirect("catalogo.jsp");
+        resp.sendRedirect("index.jsp");
     }
 
     @Override
