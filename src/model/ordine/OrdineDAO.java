@@ -45,6 +45,25 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
         return ordineBean;
     }
 
+    public Collection<OrdineBean> doRetrieveByKey(String code) throws SQLException {
+        Collection<OrdineBean> ordini = new ArrayList<>();
+        OrdineBean ordineBean = new OrdineBean();
+
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE username = ?";
+
+        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, code);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()) {
+                setOrders(resultSet, ordineBean);
+                ordini.add(ordineBean);
+            }
+        }
+        return ordini;
+    }
+
     @Override
     public Collection<OrdineBean> doRetriveAll(String order) throws SQLException {
         Connection connection = null;
@@ -124,7 +143,7 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
     }
 
     private void setOrders(ResultSet resultSet, OrdineBean ordineBean) throws SQLException {
-        ordineBean.setID(resultSet.getString("ID"));
+        ordineBean.setID(resultSet.getInt("ID"));
         ordineBean.setUsername(resultSet.getString("username"));
         ordineBean.setPrezzoTotale(resultSet.getFloat("prezzoTotale"));
         ordineBean.setDataConsegna(resultSet.getDate("dataConsegna").toLocalDate());
@@ -139,11 +158,12 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
     private void setOrdineStatement(OrdineBean ordineBean, PreparedStatement preparedStatement) throws SQLException {
         preparedStatement.setString(1, ordineBean.getUsername());
         preparedStatement.setFloat(2, ordineBean.getPrezzoTotale());
-        preparedStatement.setDate(3, Date.valueOf(LocalDate.now().plusDays(10)));
+        preparedStatement.setDate(3, Date.valueOf(LocalDate.now().plusDays(15)));
         preparedStatement.setDate(4, Date.valueOf(LocalDate.now()));
         preparedStatement.setString(5, ordineBean.getNomeConsegna());
         preparedStatement.setString(6, ordineBean.getCognomeConsegna());
         preparedStatement.setString(7, ordineBean.getCap());
-        preparedStatement.setString(8, ordineBean.getCitta());
+        preparedStatement.setString(8, ordineBean.getVia());
+        preparedStatement.setString(9, ordineBean.getCitta());
     }
 }

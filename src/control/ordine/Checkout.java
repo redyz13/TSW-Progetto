@@ -2,11 +2,13 @@ package control.ordine;
 import model.CarrelloModel;
 import model.acquisto.AcquistoBean;
 import model.acquisto.AcquistoDAO;
+import model.maglietta.MagliettaBean;
 import model.misura.MisuraDAO;
 import model.ordine.OrdineBean;
 import model.ordine.OrdineDAO;
 import model.utente.UtenteBean;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @WebServlet("/Checkout")
 public class Checkout extends HttpServlet {
@@ -31,7 +34,7 @@ public class Checkout extends HttpServlet {
         ordineBean.setDataConsegna(dataConsegna);
         ordineBean.setDataOrdine(LocalDate.now());
         ordineBean.setNomeConsegna(req.getParameter("nome-spedizione"));
-        ordineBean.setCognomeConsegna(req.getParameter("ccognome-spedizione"));
+        ordineBean.setCognomeConsegna(req.getParameter("cognome-spedizione"));
         ordineBean.setCap(req.getParameter("cap-spedizione"));
         ordineBean.setVia(req.getParameter("via-spedizione"));
         ordineBean.setCitta(req.getParameter("citta-spedizione"));
@@ -52,15 +55,21 @@ public class Checkout extends HttpServlet {
                 acquistoBean.setImmagine(p.getMagliettaBean().getGrafica());
                 acquistoBean.setPrezzoAq(p.getMagliettaBean().getPrezzo());
                 acquistoBean.setIvaAq(p.getMagliettaBean().getIVA());
+                acquistoBean.setTaglia(p.getTaglia());
 
                 AcquistoDAO acquistoDAO = new AcquistoDAO();
                 acquistoDAO.doSave(acquistoBean);
 
                 MisuraDAO misuraDAO = new MisuraDAO();
                 misuraDAO.doUpdateUtente(acquistoBean, p.getTaglia());
+
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         });
+
+        req.getSession().removeAttribute("carrello");
+
+        resp.sendRedirect("pages/acquisto.jsp");
     }
 }

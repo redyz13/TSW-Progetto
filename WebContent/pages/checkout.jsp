@@ -64,10 +64,10 @@
 								UtenteBean utenteBean = (UtenteBean) request.getSession().getAttribute("utente");
 							%>
 							<label for="numCarta">Numero Carta</label> <input type="text"
-								id="numCarta" name="numCarta"
+								form="aggiungi-ordine" id="numCarta" name="numCarta"
 								value="<%=utenteBean.getNumCarta()%>" disabled><br>
 							<label for="dataScadenza">Data Scadenza</label> <input
-								type="date" id="dataScadenza" name="dataScadenza"
+								type="date" form="aggiungi-ordine" id="dataScadenza" name="dataScadenza"
 								value="<%=utenteBean.getDataScadenza()%>" disabled> <br>
 							<br>
 
@@ -81,19 +81,19 @@
 									class="close-button" onclick="closePopUp()">&times;</button></span>
 						</div>
 						<div class="pagamento-body">
-							<form action="ModificaPagamento" method="POST">
-								<label for="nomeCartaNuova">Nome</label> <input type="text"
-									id="nomeCartaNuova" name="nomeCartaNuova" required><br>
-								<label for="cognomeCartaNuova">Cognome</label> <input
-									type="text" id="cognomeCartaNuova" name="cognomeCartaNuova"
-									required><br> <label for="numCartaNuova">Numero
-									sulla carta </label> <input type="text" id="numCartaNuova"
-									name="numCartaNuova" required><br> <label
-									for="dataScadNuova">Data di scadenza</label> <input type="date"
-									id="dataScadNuova" name="dataScadNuova" required><br>
-								<label for="CVVNuovo">Codice sicurezza (CVV)</label> <input
-									type="text" id="CVVNuovo" name="CVVNuovo" required><br>
+							<form action="ModificaPagamento" method="POST" id="modifica-pagamento-form">
+								<label for="nomeCartaNuova">Nome</label>
+								<input type="text" id="nomeCartaNuova" name="nomeCartaNuova" required><br>
+								<label for="cognomeCartaNuova">Cognome</label>
+								<input type="text" id="cognomeCartaNuova" name="cognomeCartaNuova" required><br>
+								<label for="numCartaNuova">Numero sulla carta </label>
+								<input type="text" id="numCartaNuova" name="numCartaNuova" required><br>
+								<label for="dataScadNuova">Data di scadenza</label>
+								<input type="date" id="dataScadNuova" name="dataScadNuova" required><br>
+								<label for="CVVNuovo">Codice sicurezza (CVV)</label>
+								<input type="text" id="CVVNuovo" name="CVVNuovo" required><br>
 								<button type="submit">Aggiungi carta</button>
+								<div class="non-valido"></div>
 							</form>
 						</div>
 					</div>
@@ -103,17 +103,18 @@
 							<h3>Indirizzo di spedizione:</h3>
 						</div>
 						<div class="indirizzo-body">
-							<label for="nome-spedizione">Nome </label> <input type="text"
-								id="nome-spedizione" name="nome-spedizione"><br> <label
-								for="cognome-spedizione">Cognome</label> <input type="text"
-								id="cognome-spedizione" name="cognome-spedizione"><br>
-							<label for="via-spedizione">Via </label> <input type="text"
-								id="via-spedizione" name="via-spedizione"> <br> <label
-								for="cap-spedizione">CAP </label> <input type="text"
-								id="cap-spedizione" name="cap-spedizione"><br> <label
-								for="citta-spedizione">Citt&#225; </label> <input type="text"
-								id="citta-spedizione" name="citta-spedizione"><br>
+							<label for="nome-spedizione">Nome </label>
+							<input type="text" form="aggiungi-ordine" id="nome-spedizione" name="nome-spedizione" required><br>
+							<label for="cognome-spedizione">Cognome</label>
+							<input type="text" form="aggiungi-ordine" id="cognome-spedizione" name="cognome-spedizione" required><br>
+							<label for="via-spedizione">Via </label>
+							<input type="text" form="aggiungi-ordine" id="via-spedizione" name="via-spedizione" required> <br>
+							<label for="cap-spedizione">CAP </label>
+							<input type="text" form="aggiungi-ordine" id="cap-spedizione" name="cap-spedizione" required><br>
+							<label for="citta-spedizione">Citt&#225;</label>
+							<input type="text" form="aggiungi-ordine" id="citta-spedizione" name="citta-spedizione" required><br>
 						</div>
+						<div class="non-valida"></div>
 					</div>
 				</div>
 			</td>
@@ -175,15 +176,17 @@
 		</tr>
 	</table>
 	<div class="checkout">
-		<form action="Checkout" method="POST">
-			<input type="hidden" id="data-consegna" name="data-consegna"
-				value="<%=prima%>"> <input type="hidden" id="prezzo-totale"
-				name="prezzo-totale" value="<%=prezzoTot%>">
+		<form id="aggiungi-ordine" action="${pageContext.request.contextPath}/Checkout" method="POST">
+			<input type="hidden" id="data-consegna" name="data-consegna" value="<%=prima%>">
+			<input type="hidden" id="prezzo-totale" name="prezzo-totale" value="<%=prezzoTot%>">
 			<button type="submit" class="checkout-button">Acquista ora</button>
 		</form>
 	</div>
 
-	<%@ include file="footer.jsp"%>
 	<script src="${pageContext.request.contextPath}/js/metodoPagamento.js"></script>
+	<script src="${pageContext.request.contextPath}/js/regexCheckoutIndirizzo.js"></script>
+	<script src="${pageContext.request.contextPath}/js/regexCheckoutMetodoPagamento.js"></script>
+
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

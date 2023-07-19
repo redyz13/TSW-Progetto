@@ -1,4 +1,7 @@
 <%@ page import="model.utente.UtenteBean" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.Collection" %>
+<%@ page import="model.acquisto.AcquistoBean" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
@@ -10,7 +13,12 @@
     <title>Profilo utente</title>
 </head>
 <%
+    Map<Integer, Collection<AcquistoBean>> ordini = (Map<Integer, Collection<AcquistoBean>>) request.getAttribute("ordini");
+    if( ordini == null)
+        response.sendRedirect("/StoricoOrdini");
+
     UtenteBean utenteBean = (UtenteBean) request.getSession().getAttribute("utente");
+
 %>
 <body>
 <%@ include file="header.jsp" %>
@@ -43,6 +51,25 @@
 
             </form>
             <button class="pagamento-button" type="submit">Modifica metodo di pagamento</button>
+        </div>
+
+        <div class="ordini">
+            <%
+                if (ordini != null) {
+                    
+                    for (Integer chiave: ordini.keySet()) {
+                            Collection<AcquistoBean> acquisti = ordini.get(chiave);
+                    %>
+                        <table>
+                        <tr>
+                            <td><%=chiave%></td>
+                        <% for (AcquistoBean acquistoBean: acquisti) {%>
+                            <td><img src="<%=acquistoBean.getImmagine()%>" alt="<%=acquistoBean.getIDMaglietta()%>"></td>
+                        </tr>
+                    </table>
+                    <%}}
+            }
+            %>
         </div>
     </div>
 </div>

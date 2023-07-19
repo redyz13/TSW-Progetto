@@ -37,7 +37,6 @@
     			<div class="group">      
       				<input type="password" name="passwordReg" id="passwordReg" required>
       				<label for="passwordReg">Password</label>
-      				
     			</div>
     			<div class="group">      
       				<input type="text" name="nomeReg" id="nomeReg" required>
@@ -47,16 +46,18 @@
       				<input type="text" name="cognomeReg" id="cognomeReg" required>
       				<label for="cognomeReg">Cognome</label>
     			</div>
-    			<div class="group">      
+    			<div class="group" id="email">
       				<input type="text" name="emailReg" id="emailReg" required>
       				<label for="emailReg">Email</label>
+
     			</div>
     			<div class="group">      
       				<input type="date" name="dataNascitaReg" id="dataNascitaReg" required>
       				<label for="dataNascitaReg">Data di Nascita</label>
     			</div>
 		        <input type="hidden" name="tipo" value="user">
-		        <br><button type="submit">Registrati</button>
+		        <br> <button type="submit">Registrati</button><br><br>
+				<div class="non-valida"></div>
 			</form>
 	</div>
 </div>
@@ -73,5 +74,6 @@
 %>
 
 <%@ include file="footer.jsp" %>
+<script src="${pageContext.request.contextPath}/js/regexReg.js"></script>
 </body>
 </html>

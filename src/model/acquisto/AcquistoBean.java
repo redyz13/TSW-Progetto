@@ -2,7 +2,7 @@ package model.acquisto;
 
 public class AcquistoBean {
     int IDAcquisto, IDOrdine, IDMaglietta, quantita;
-    String immagine;
+    String immagine, taglia;
     float prezzoAq;
     int ivaAq;
 
@@ -12,6 +12,14 @@ public class AcquistoBean {
 
     public void setIDAcquisto(int IDAcquisto) {
         this.IDAcquisto = IDAcquisto;
+    }
+
+    public String getTaglia() {
+        return taglia;
+    }
+
+    public void setTaglia(String taglia) {
+        this.taglia = taglia;
     }
 
     public int getIDOrdine() {
