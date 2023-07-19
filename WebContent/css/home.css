@@ -189,6 +189,11 @@
 	color: white;
 }
 
+select {
+    justify-content: center;
+    text-align: center;
+}
+
 .button-container {
 	display: flex;
 	justify-content: center;
@@ -290,7 +295,7 @@
 }
 
 /* bottone acquisti*/
-.button {
+.button, .button2 {
   position: relative;
   margin: 0;
   padding: 0.5% 1%;
@@ -308,8 +313,16 @@
   font-family: inherit;
   z-index: 0;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
   width: 100%;
+}
+
+.button {
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.button2:hover {
+    color: #164ca7;
+    border-color: #164ca7;
 }
 
 .button span {
@@ -333,7 +346,7 @@
 }
 
 
-.button:hover {
+.button:hover{
   animation: rotate624 0.7s ease-in-out both;
 }
 

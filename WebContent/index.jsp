@@ -139,7 +139,7 @@
 										<lord-icon src="https://cdn.lordicon.com/dnoiydox.json" trigger="hover" colors="primary:#1663c7,secondary:#f24c00" stroke="85"></lord-icon>
 									</button>
 									<span class="taglie">
-									<label><select name="taglia" class="button" id="size" required>
+									<label><select name="taglia" class="button2" id="size" required>
 										  <option value="XS" selected>XS</option>
 										  <option value="S">S</option>
 										  <option value="M">M</option>

@@ -1,12 +1,134 @@
-.profilo {
-    display: grid;
-    grid-template-columns: auto;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+
+.profilo {
+    margin-top: 20px;
+}
+
+/* Intestazione */
 .utente-header {
-    border-bottom: 1px solid black;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.indirizzo-e-header {
+    display: flex;
+}
+
+/* Indirizzo */
+.indirizzo {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
     width: 50%;
 }
-.indirizzo {
-    display: grid;
-    grid-template-columns: auto;
+
+/* Metodo di pagamento */
+.metodo-di-pagamento {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.indirizzo-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.indirizzo-body {
+    margin-bottom: 10px;
+}
+
+.modifica-indirizzo {
+    margin-top: 10px;
+}
+
+.indirizzo-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.indirizzo-button:hover {
+    background-color: #45a049;
+}
+
+/*!* Metodo di pagamento *!*/
+/*.metodo-di-pagamento {*/
+/*    background-color: #f9f9f9;*/
+/*    padding: 20px;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+.pagamento-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pagamento-body {
+    margin-bottom: 10px;
+}
+
+.pagamento-body label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pagamento-body input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.pagamento-button {
+    margin-top: 10px;
+}
+
+.pagamento-button button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.pagamento-button button:hover {
+    background-color: #45a049;
+}
+
+/* Ordini */
+.ordini {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.ordini table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ordini table th,
+.ordini table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.ordini table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.ordini table td img {
+    max-width: 100px;
 }
