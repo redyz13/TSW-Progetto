@@ -18,10 +18,10 @@
     <h1 class="error-title">Errore <%= response.getStatus() %></h1>
     <img src="${pageContext.request.contextPath}/images/system/errorRobot.jpg" alt="Error Robot" width="250">
     <p class="error-message">Oops! Qualcosa &egrave andato storto</p>
+    <a href="${pageContext.request.contextPath}/index.jsp"> <button class="error-button">Torna alla Home</button></a>
     <%-- TODO rimuovere message e stack trace --%>
     <p><%= exception.getMessage() %></p>
     <p><%= sw.toString() %></p>
-    <a href="${pageContext.request.contextPath}/index.jsp"> <button class="error-button">Torna alla Home</button></a>
 </div>
 <%@ include file="footer.jsp"%>
 </body>
