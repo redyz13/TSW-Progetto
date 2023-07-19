@@ -42,7 +42,7 @@ public class DeleteMaglietta extends HttpServlet {
             }
         }
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("indexAdmin.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("catalogoAdmin.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

@@ -7,7 +7,7 @@
 <% Integer user = (Integer) request.getSession().getAttribute("tipoUtente"); %>
 
 <% if (user == null || !user.equals(Login.ADMIN)) {
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("catalogo.jsp");
 } else { %>
 <!DOCTYPE html>
 <html lang="it">

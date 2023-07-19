@@ -1,7 +1,7 @@
 <%@ page import="control.utente.Login" %>
 
 <% Integer tipoUtente = (Integer) request.getSession().getAttribute("tipoUtente"); %>
-<% String[] validPagesForSearchBar = { "index.jsp", "indexAdmin.jsp" }; %>
+<% String[] validPagesForSearchBar = { "catalogo.jsp", "catalogoAdmin.jsp", "index.jsp" }; %>
 
 <script type="text/javascript">
 	let contextPath = '<%= request.getContextPath() %>'
@@ -12,7 +12,7 @@
     <%-- TODO logo al posto della scritta --%>
 	<%-- <img id="logo" src="${pageContext.request.contextPath}/images/system/logo.png" alt="whiTee"> --%>
 	<a href="#" class = "whiTee a">whiTee</a>
-	<a href="${pageContext.request.contextPath}/Catalogo" class="a">Home</a>
+	<a href="${pageContext.request.contextPath}/index.jsp" class="a">Home</a>
 	<div class="nav-right">
 		<%
 			String currentPage = request.getRequestURI();

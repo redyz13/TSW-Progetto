@@ -16,9 +16,9 @@ public class Home extends HttpServlet {
         Integer tipoUtente = (Integer) req.getSession().getAttribute("tipoUtente");
 
         if (tipoUtente != null && tipoUtente.equals(Login.ADMIN))
-            req.getRequestDispatcher("indexAdmin.jsp").forward(req, resp);
+            req.getRequestDispatcher("catalogoAdmin.jsp").forward(req, resp);
         else
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher("catalogo.jsp").forward(req, resp);
     }
 
     @Override
