@@ -35,7 +35,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE IDAcquisto = ?";
 
-        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, code);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -50,7 +50,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
 
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE IDOrdine = ?";
 
-        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, codeOrdini);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -73,7 +73,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
         String query =  "INSERT INTO " + TABLE_NAME + " (IDOrdine, IDMaglietta, quantita, immagine, prezzoAq, ivaAq, taglia) "+
                         "VALUES(?, ?, ?, ?, ?, ?, ?)";
 
-        try(Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setAcquistoStatement(acquistoBean, preparedStatement);
 
             preparedStatement.executeUpdate();

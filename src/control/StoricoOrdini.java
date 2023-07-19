@@ -31,14 +31,13 @@ public class StoricoOrdini extends HttpServlet {
 
             Map<OrdineBean, Collection<AcquistoBean>> map = new HashMap<>();
 
-            ordini.forEach(o -> {
+            for (OrdineBean o : ordini) {
                 try {
                     map.put(o, acquistoDAO.doRetrieveByOrdine(o.getID()));
                 } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                    req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
                 }
-
-            });
+            }
 
             req.setAttribute("ordini", map);
 
