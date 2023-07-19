@@ -28,7 +28,7 @@ public class DeleteMaglietta extends HttpServlet {
 
         try {
             if (!magliettaDAO.doDelete(ID))
-                throw new RuntimeException();
+                req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         } catch (SQLException e) {
             req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }

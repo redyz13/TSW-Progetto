@@ -1,5 +1,6 @@
 package model;
 
+import exception.GenericError;
 import model.maglietta.MagliettaBean;
 import model.maglietta.MagliettaDAO;
 import model.maglietta.MagliettaOrdine;
@@ -38,7 +39,7 @@ public class CarrelloModel {
             MagliettaBean magliettaBean = magliettaDAO.doRetrieveByKey(ID);
             carrello.add(new MagliettaOrdine(magliettaBean, taglia));
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericError();
         }
     }
 
