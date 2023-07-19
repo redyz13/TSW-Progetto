@@ -7,12 +7,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/acquisto.css"
-    <title>Acquisto effettuato</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/acquisto.css">
+    <title>Acquisto effettuato!</title>
 </head>
 <body>
-        <div class=".container">
-            <button class="button"></button>
-        </div>
+	<%@ include file="./header.jsp"%>
+	<table>
+		<tr hidden>
+			<th>Robottino</th>
+			<th>Messaggio</th>
+		</tr>
+		<tr>
+			<td>
+				<img src="${pageContext.request.contextPath}/images/system/acquisto.png">
+			</td>
+			<td>
+				<p>Acqusto effettuato!</p>
+				<a href="${pageContext.request.contextPath}/Home">Torna alla Home Page</a>
+			</td>
+		</tr>
+	</table>
+	
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

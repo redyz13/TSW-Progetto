@@ -1,7 +1,5 @@
 <%@ page import="control.utente.Login" %>
 
-<%@ page errorPage = "errorpage.jsp" %>
-
 <% Integer tipoUtente = (Integer) request.getSession().getAttribute("tipoUtente"); %>
 <% String[] validPagesForSearchBar = { "catalogo.jsp", "catalogoAdmin.jsp", "index.jsp" }; %>
 
@@ -10,52 +8,60 @@
 </script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/system/favicon.ico" type="image/x-icon">
-	<nav class="stickynavbar">
-    <%-- TODO logo al posto della scritta --%>
-	<%-- <img id="logo" src="${pageContext.request.contextPath}/images/system/logo.png" alt="whiTee"> --%>
-	<a href="#" class = "whiTee a">whiTee</a>
-	<a href="${pageContext.request.contextPath}/index.jsp" class="a">Home</a>
-	<div class="nav-right">
-		<%
-			String currentPage = request.getRequestURI();
-			String pageName = currentPage.substring(currentPage.lastIndexOf("/") + 1);
-
-			for (String s : validPagesForSearchBar)
-				if (pageName.equals(s)) {
-		%>
-		<form class="searchForm">
-			<label><input placeholder="Cerca..." class="inputSearch" name="searchText" id="searchInput"
-						  type="text"></label>
-		</form>
-		<% } %>
-		<%-------------- Blocco utente non registrato ----------%>
-		<% if (tipoUtente == null) { %>
-		<a href="${pageContext.request.contextPath}/pages/login.jsp" id="login-icon" class="a">Login</a>
-		<% } %>
-		<%------------------------------------------------------%>
-
-		<%-------------- Blocco utente registrato ----------%>
-		<% if (tipoUtente != null && tipoUtente.equals(Login.REGISTRATO)) { %>
-		<a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon">Profilo</a>
-		<% } %>
-		<%--------------------------------------------------%>
-
-		<%-------------- Blocco admin ----------%>
-		<% if (tipoUtente != null && tipoUtente.equals(Login.ADMIN)) { %>
-		<a href="${pageContext.request.contextPath}/Logout" id="">Logout</a>
-		<% } %>
-		<%--------------------------------------%>
-
-		<!-- L'admin è l'unico a non vedere il carrello -->
-		<% if (tipoUtente == null || !tipoUtente.equals(Login.ADMIN)) { %>
-		<script src="https://cdn.lordicon.com/bhenfmcm.js"
-				integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K"
-				crossorigin="anonymous"></script>
-		<lord-icon src="https://cdn.lordicon.com/lpddubrl.json" trigger="hover"
-				   colors="primary:#e88c30,secondary:#30c9e8" stroke="85" class="cart"
-				   onclick="location.href = '${pageContext.request.contextPath}/pages/carrello.jsp';"></lord-icon>
-		<% } %>
-
+	
+	<div class="defNav">
+		<div class="logo-container">
+			<a href="${pageContext.request.contextPath}/index.jsp" class="a">
+				<img src="${pageContext.request.contextPath}/images/system/logo-small.png" class="logo" alt="whitee">
+			</a>
+		</div>
+		<div class="menu-container">
+		<button class="btn" onclick="window.location.href='${pageContext.request.contextPath}/Catalogo'; return false;">Catalogo</button>
+		<button class="btn" onclick="window.location.href='${pageContext.request.contextPath}/pages/personalizzata.jsp'; return false;">Personalizza</button>
+		<button class="btn" onclick="window.location.href='${pageContext.request.contextPath}/pages/about.jsp'; return false;">Chi siamo</button>
+		</div>
+		<div class="right-container">
+			
+			<%
+				String currentPage = request.getRequestURI();
+				String pageName = currentPage.substring(currentPage.lastIndexOf("/") + 1);
+	
+				for (String s : validPagesForSearchBar)
+					if (pageName.equals(s)) {
+			%>
+			<form class="searchForm">
+				<label><input placeholder="Cerca..." class="inputSearch" name="searchText" id="searchInput"
+							  type="text"></label>
+			</form>
+			<% } %>
+			<%-------------- Blocco utente non registrato ----------%>
+			<% if (tipoUtente == null) { %>
+			<a href="${pageContext.request.contextPath}/pages/login.jsp" id="login-icon" class="a"><img src="${pageContext.request.contextPath}/images/system/login.png" class="logo lo" alt="login"></a>
+			<% } %>
+			<%------------------------------------------------------%>
+	
+			<%-------------- Blocco utente registrato ----------%>
+			<% if (tipoUtente != null && tipoUtente.equals(Login.REGISTRATO)) { %>
+			<a href="${pageContext.request.contextPath}/pages/profilo.jsp" id="login-icon" class="a"><img src="${pageContext.request.contextPath}/images/system/profilo.png" class="logo lo" alt="profilo"></a>
+			<% } %>
+			<%--------------------------------------------------%>
+	
+			<%-------------- Blocco admin ----------%>
+			<% if (tipoUtente != null && tipoUtente.equals(Login.ADMIN)) { %>
+			<a href="${pageContext.request.contextPath}/Logout" id="login-icon" class="a"><img src="${pageContext.request.contextPath}/images/system/logout.png" class="logo lo" alt="Log Out"></a>
+			<% } %>
+			<%--------------------------------------%>
+	
+			<!-- L'admin è l'unico a non vedere il carrello -->
+			<% if (tipoUtente == null || !tipoUtente.equals(Login.ADMIN)) { %>
+			<script src="https://cdn.lordicon.com/bhenfmcm.js"
+					integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K"
+					crossorigin="anonymous"></script>
+			<lord-icon src="https://cdn.lordicon.com/lpddubrl.json" trigger="hover"
+					   colors="primary:#e88c30,secondary:#30c9e8" stroke="65" class="cart"
+					   onclick="location.href = '${pageContext.request.contextPath}/pages/carrello.jsp';"></lord-icon>
+			<% } %>
+		</div>
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<a href="#">About</a>
@@ -82,8 +88,6 @@
 			}
 		</script>
 	</div>
-
-	</nav>
 <div id="risultati">
 	<table>
 		<caption hidden>Risultati</caption>

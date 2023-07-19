@@ -1,25 +1,21 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+table {
+	border: none;
+	width: 100%;
+	align-items: center;
 }
 
-.container {
-    width: 100%;
-    height: 100vh;
-    background: #164ca7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+img {
+	object-fit: contain;
+	height: 70vh;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.button {
-    padding: 10px 60px;
-    background: #FFFFFF;
-    border: 0;
-    outline: none;
-    cursor: pointer;
-    font-size: 22px;
-    font-weight: 500;
-    border-radius: 30px;
+p {
+	font-size: 3em;
+}
+
+a {
+	text-decoration: none;
+	color: #0000ec;
 }
