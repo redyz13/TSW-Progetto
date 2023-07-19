@@ -29,5 +29,8 @@
     <orderEntry type="library" name="gson-2.8.6" level="project" />
     <orderEntry type="library" name="bhenfmcm" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="pdfbox-2.0.29" level="project" />
+    <orderEntry type="library" name="commons-logging-1.2" level="project" />
+    <orderEntry type="library" name="fontbox-2.0.29" level="project" />
   </component>
 </module>
