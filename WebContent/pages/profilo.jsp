@@ -62,14 +62,19 @@
                         Collection<?> acquisti = (Collection<?>) ordini.get(chiave);
                     %>
                         <table>
+                        <caption hidden>Ordini</caption>
+                        <tr hidden>
+                            <th>Key</th>
+                        </tr>
                         <tr>
                             <td><%=key%></td>
-                        <% for (Object acquisto: acquisti) {
-                                AcquistoBean acquistoBean =  (AcquistoBean) acquisto;
-                        %>
+                            <%
+                                for (Object acquisto: acquisti) {
+                                    AcquistoBean acquistoBean =  (AcquistoBean) acquisto;
+                            %>
                             <td><img src="<%=acquistoBean.getImmagine()%>" alt="<%=acquistoBean.getIDMaglietta()%>"></td>
                         </tr>
-                    </table>
+                        </table>
                     <%}}
             }
             %>

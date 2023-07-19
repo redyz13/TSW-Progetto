@@ -31,12 +31,12 @@ public class Login extends HttpServlet {
             switch (tipoUtente) {
                 case ADMIN:
                     req.getSession().setAttribute("tipoUtente", ADMIN);
-                    redirectedPage = "catalogoAdmin.jsp";
+                    redirectedPage = "index.jsp";
                     break;
                 case REGISTRATO:
                     req.getSession().setAttribute("tipoUtente", REGISTRATO);
 
-                    redirectedPage = "catalogo.jsp";
+                    redirectedPage = "index.jsp";
                     break;
                 default:
                     redirectedPage = "pages/login.jsp";
