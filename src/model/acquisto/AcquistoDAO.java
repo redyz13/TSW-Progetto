@@ -1,5 +1,6 @@
 package model.acquisto;
 
+import exception.GenericError;
 import model.DAOInterface;
 
 import javax.naming.Context;
@@ -25,7 +26,7 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
 
             ds = (DataSource) env.lookup("jdbc/whiTee");
         } catch (NamingException e) {
-            throw new RuntimeException(e);
+            throw new GenericError();
         }
     }
 

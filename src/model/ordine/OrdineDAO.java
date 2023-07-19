@@ -1,5 +1,6 @@
 package model.ordine;
 
+import exception.GenericError;
 import model.DAOInterface;
 
 import javax.naming.Context;
@@ -26,7 +27,7 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
 
             ds = (DataSource) env.lookup("jdbc/whiTee");
         } catch (NamingException e) {
-            throw new RuntimeException(e);
+            throw new GenericError();
         }
     }
 
@@ -114,12 +115,12 @@ public class OrdineDAO implements DAOInterface<OrdineBean, Integer> {
     }
 
     @Override
-    public void doUpdate(OrdineBean product) throws SQLException {
+    public void doUpdate(OrdineBean product) {
 
     }
 
     @Override
-    public boolean doDelete(Integer code) throws SQLException {
+    public boolean doDelete(Integer code) {
         return false;
     }
 

@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.google.gson.Gson;
+import exception.GenericError;
+
 @WebServlet("/SearchBar")
 public class SearchBar extends HttpServlet {
     private static final String TABLE_NAME = "Maglietta";
@@ -29,7 +31,7 @@ public class SearchBar extends HttpServlet {
 
             ds = (DataSource) env.lookup("jdbc/whiTee");
         } catch (NamingException e) {
-            throw new RuntimeException("Asd");
+            throw new GenericError();
         }
     }
 
