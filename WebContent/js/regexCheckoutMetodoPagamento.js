@@ -28,9 +28,9 @@ document.getElementById("modifica-pagamento-form").addEventListener('submit', fu
         valido.appendChild(br);
     }
 
-    let CVV = document.getElementById("numCartaNuova");
+    let CVV = document.getElementById("CVVNuovo");
     let CVVVal = CVV.value
-    const regCVV = /^\d{3, 4}$/;
+    const regCVV = /^\d{3,4}$/;
 
     if(!regCVV.test(CVVVal)) {
         event.preventDefault();
