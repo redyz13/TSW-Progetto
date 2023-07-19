@@ -1,4 +1,4 @@
-function openPopUp() {
+function openPopUp(){
     let box = document.getElementsByClassName("modifica-pagamento")[0];
     box.classList.add("activeModifica");
 
