@@ -30,7 +30,7 @@ document.getElementById("aggiungi-ordine").addEventListener('submit', function (
 
     let cap = document.getElementById("cap-spedizione");
     let capVal = cap.value
-    const regCap = /^[0-9]{5}$/
+    const regCap = /^\d{5}$/
 
     if(!regCap.test(capVal)) {
         event.preventDefault();

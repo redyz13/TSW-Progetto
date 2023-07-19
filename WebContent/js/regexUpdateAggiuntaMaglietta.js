@@ -17,7 +17,7 @@ document.getElementById("update").addEventListener('submit', function (event) {
 
     let iva = document.getElementById("iva");
     let ivaVal  = iva.value
-    const regIva = /^[0-9]{2}/;
+    const regIva = /^\d{2}/;
 
     if(!regIva.test(ivaVal)) {
         event.preventDefault();

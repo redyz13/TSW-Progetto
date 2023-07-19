@@ -30,7 +30,7 @@ document.getElementById("modifica-pagamento-form").addEventListener('submit', fu
 
     let CVV = document.getElementById("numCartaNuova");
     let CVVVal = CVV.value
-    const regCVV = /^[0-9]{3, 4}$/;
+    const regCVV = /^\d{3, 4}$/;
 
     if(!regCVV.test(CVVVal)) {
         event.preventDefault();
@@ -43,7 +43,7 @@ document.getElementById("modifica-pagamento-form").addEventListener('submit', fu
 
     let carta = document.getElementById("numCartaNuova");
     let cartaVal = carta.value
-    const regVia = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/
+    const regVia = /^(?:4\d{12}(?:\d{3})?|5[1-5]\d{14})$/
 
     if(!regVia.test(cartaVal)) {
         event.preventDefault();
