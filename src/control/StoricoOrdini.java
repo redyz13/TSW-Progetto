@@ -29,11 +29,11 @@ public class StoricoOrdini extends HttpServlet {
         try {
             Collection<OrdineBean> ordini = ordineDAO.doRetrieveByKey(utenteBean.getUsername());
 
-            Map<Integer, Collection<AcquistoBean>> map = new HashMap<>();
+            Map<OrdineBean, Collection<AcquistoBean>> map = new HashMap<>();
 
             ordini.forEach(o -> {
                 try {
-                    map.put(o.getID(), acquistoDAO.doRetrieveByOrdine(o.getID()));
+                    map.put(o, acquistoDAO.doRetrieveByOrdine(o.getID()));
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -48,6 +48,10 @@ public class StoricoOrdini extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 }

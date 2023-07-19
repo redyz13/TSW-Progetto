@@ -2,7 +2,17 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.Collection" %>
 <%@ page import="model.acquisto.AcquistoBean" %>
+<%@ page import="model.ordine.OrdineBean" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+
+
+<% UtenteBean utenteBean = (UtenteBean) request.getSession().getAttribute("utente"); %>
+
+<%
+    Map<?, ?> ordini = (Map<?, ?>) request.getAttribute("ordini");
+    if (ordini == null)
+        response.sendRedirect("../StoricoOrdini");
+%>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -12,14 +22,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profilo utente</title>
 </head>
-<%
-    Map<?, ?> ordini = (Map<?, ?>) request.getAttribute("ordini");
-    if(ordini == null)
-        response.sendRedirect("StoricoOrdini");
-
-    UtenteBean utenteBean = (UtenteBean) request.getSession().getAttribute("utente");
-
-%>
 <body>
 <%@ include file="header.jsp" %>
 <div class="profilo">
@@ -55,29 +57,26 @@
 
         <div class="ordini">
             <%
-                if (ordini != null) {
-                    
-                    for (Object chiave: ordini.keySet()) {
-                        Integer key = (Integer) chiave;
-                        Collection<?> acquisti = (Collection<?>) ordini.get(chiave);
-                    %>
-                        <table>
-                        <caption hidden>Ordini</caption>
-                        <tr hidden>
-                            <th>Key</th>
-                        </tr>
-                        <tr>
-                            <td><%=key%></td>
-                            <%
-                                for (Object acquisto: acquisti) {
-                                    AcquistoBean acquistoBean =  (AcquistoBean) acquisto;
-                            %>
-                            <td><img src="<%=acquistoBean.getImmagine()%>" alt="<%=acquistoBean.getIDMaglietta()%>"></td>
-                        </tr>
-                        </table>
-                    <%}}
-            }
+                if (ordini != null)
+                    for (Map.Entry<?, ?> entry : ordini.entrySet()) {
+                        OrdineBean ordineBean = (OrdineBean) entry.getKey();
+                        Collection<AcquistoBean> acquisti = (Collection<AcquistoBean>) entry.getValue();
+                        System.out.println(acquisti);
             %>
+            <table>
+            <caption hidden>Ordini</caption>
+            <tr hidden>
+                <th>Key</th>
+            </tr>
+            <tr>
+                <td><%= ordineBean.getID() %></td>
+                <%
+                    for (AcquistoBean acquisto: acquisti) {
+                %>
+                <td><img src="<%= acquisto.getImmagine() %>" alt="<%= acquisto.getIDMaglietta() %>"></td>
+            </tr>
+            </table>
+            <%} }%>
         </div>
     </div>
 </div>
