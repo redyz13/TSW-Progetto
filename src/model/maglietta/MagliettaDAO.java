@@ -28,6 +28,25 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
             throw new RuntimeException(e);
         }
     }
+    
+    public synchronized Collection<MagliettaBean> doRetrieveByTipo(String tipo) throws SQLException {
+        Collection<MagliettaBean> maglietteTipo = new ArrayList<>();
+
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE tipo = ?";
+
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, tipo);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                MagliettaBean magliettaBean = new MagliettaBean();
+                setMaglietta(resultSet, magliettaBean);
+                maglietteTipo.add(magliettaBean);
+            }
+
+        }
+        return maglietteTipo;
+    }
 
     // Restituisce un oggetto maglietta con delle caratteristiche (SQL SELECT)
     @Override
