@@ -50,6 +50,22 @@
 	filter: none;
 }
 
+.esci {
+	width: 5vh;
+	aspect-ratio: 1/1;
+	object-fit: contain;
+	margin-left: 1vh;
+	/* Usa il margine sinistro per aggiungere spazio tra il logo e il contenitore */
+	filter: grayscale(100%);
+	transition: 0.7s ease-in-out;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+}
+
+.esci:hover {
+	filter: none;
+}
+
 .whiTee {
   color: #4ed0da ;
 }
@@ -238,6 +254,34 @@ nav .nav-right {
     border: none;
     cursor: pointer;
     width: 20vh;
+}
+
+.dropdown.b {
+    float: right;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: auto;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 100;
+    margin-top: -1vh;
+    border-radius: 0% 0% 15% 15%;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2vh;
+    margin-top: -1vh;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown.b:hover .dropdown-content {
+    display: block;
 }
 
 @media screen and (max-height: 450px) {
