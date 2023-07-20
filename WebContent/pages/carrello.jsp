@@ -24,9 +24,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/carrello.css">
-  <%-- TODO cambiare il css --%>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
+  
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/carrello.css">
   <title>Carrello</title>
 </head>
 <body>
@@ -34,7 +34,7 @@
 <h1>Carrello</h1>
 <table id="prodotti">
   <caption hidden>Carrello</caption>
-  <tr id="element">
+  <tr id="element" hidden>
     <th>Nome</th>
     <th>Prezzo</th>
     <th>IVA</th>
@@ -44,8 +44,20 @@
     <th>Taglia</th>
     <th>Quantit&#224</th>
   </tr>
+  <tr>
+  	<td>Nome</td>
+  	<td>Prezzo</td>
+  	<td>Iva</td>
+  	<td>Colore</td>
+  	<td>Tipo</td>
+  	<td>Grafica</td>
+  	<td>Taglia</td>
+  	<td>Quantit&#224</td>
+  </tr>
   <%
+  	int si = 0;
     if (oggettiCarrello != null && oggettiCarrello.size() != 0) {
+      si = 1;
       DecimalFormat df = new DecimalFormat("#.##");
       df.setRoundingMode(RoundingMode.FLOOR);
 
@@ -62,15 +74,16 @@
     <td><%= magliettaOrdine.getMagliettaBean().getIVA() %> </td>
     <td><%= magliettaOrdine.getMagliettaBean().getColore() %> </td>
     <td><%= magliettaOrdine.getMagliettaBean().getTipo() %> </td>
-    <td><img src="../<%= magliettaOrdine.getMagliettaBean().getGrafica() %>" alt="<%= magliettaOrdine.getMagliettaBean().getNome() %>"></td>
+    <td><img src="../<%= magliettaOrdine.getMagliettaBean().getGrafica() %>" alt="<%= magliettaOrdine.getMagliettaBean().getNome() %>" class="img-cart"></td>
     <td><%= magliettaOrdine.getTaglia() %> </td>
     <td>
       <form class="addForm">
         <label>
-        <input type="number" name="quantita" min="0" max="100" value="<%= magliettaOrdine.getQuantita() %>">
+        <input type="number" name="quantita" min="0" max="100" value="<%= magliettaOrdine.getQuantita() %>" class="inputQuan">
         <input type="hidden" name="ID" value="<%= magliettaOrdine.getMagliettaBean().getID() %>">
         <input type="hidden" name="taglia" value="<%= magliettaOrdine.getTaglia() %>">
-        <br> <button type="submit">Aggiorna</button>
+        <br><br>
+        <button type="submit" class="button2">Aggiorna</button>
         </label>
       </form>
     </td>
@@ -78,26 +91,25 @@
       <form class="rmvForm">
         <input type="hidden" name="ID" value="<%= magliettaOrdine.getMagliettaBean().getID() %>">
         <input type="hidden" name="taglia" value="<%= magliettaOrdine.getTaglia() %>">
-        <button type="submit">Elimina</button>
+        <button type="submit" class="button22">Elimina</button>
       </form>
     </td>
   </tr>
   <%
       // Parentesi del for e dell'if
-  }%>
-  <div id="checkout">
-    <form action="${pageContext.request.contextPath}/CheckoutRedirect" method="POST">
-      <button type="submit">Checkout</button>
-    </form>
-  </div>
-  <%  } else {
+  } } else {
   %>
   <tr>
     <td colspan="7">Nessun prodotto nel carrello</td>
   </tr>
   <% } %>
 </table>
-
+<% if (si > 0) %>
+	<div id="checkout">
+    <form action="${pageContext.request.contextPath}/CheckoutRedirect" method="POST">
+      <button type="submit" class="button222">Checkout</button>
+    </form>
+  </div>
 <%@ include file="footer.jsp" %>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha384-UG8ao2jwOWB7/oDdObZc6ItJmwUkR/PfMyt9Qs5AwX7PsnYn1CRKCTWyncPTWvaS" crossorigin="anonymous"></script>
