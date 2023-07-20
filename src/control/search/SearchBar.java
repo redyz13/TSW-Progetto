@@ -39,7 +39,7 @@ public class SearchBar extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String search = req.getParameter("search");
 
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE Tipo <> 'Personalizzata' AND nome LIKE ?";
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE Tipo <> 'Personalizzata' AND Tipo <> 'Eliminata' AND nome LIKE ?";
         try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, "%" + search + "%");
 

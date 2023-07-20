@@ -18,11 +18,11 @@ import java.sql.SQLException;
 @WebServlet("/SaveMaglietta")
 @MultipartConfig
 public class SaveMaglietta extends HttpServlet {
-    private static final String PATH = System.getenv("WHITEE_ROOT") + File.separator + "images" +
-            File.separator + "grafiche" + File.separator;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final String PATH = req.getServletContext().getInitParameter("WHITEE_ROOT") + File.separator + "images" +
+                File.separator + "grafiche" + File.separator;
         String nome  = req.getParameter("nome");
         String colore = req.getParameter("colore");
         String tipo = req.getParameter("tipo");
