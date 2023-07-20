@@ -189,7 +189,6 @@
 			<button type="submit" class="checkout-button">Acquista ora</button>
 		</form>
 	</div>
-
 	<script src="${pageContext.request.contextPath}/js/metodoPagamento.js"></script>
 	<script src="${pageContext.request.contextPath}/js/regexCheckoutIndirizzo.js"></script>
 	<script src="${pageContext.request.contextPath}/js/regexCheckoutMetodoPagamento.js"></script>
