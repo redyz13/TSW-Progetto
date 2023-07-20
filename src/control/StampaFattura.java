@@ -90,7 +90,7 @@ public class StampaFattura extends HttpServlet {
 
         contentStream.beginText();
         contentStream.newLineAtOffset(405.1517f, 591.2341f);
-        contentStream.showText("€" + " " + ordine.getPrezzoTotale());
+        contentStream.showText(ordine.getPrezzoTotale() + " euro");
         contentStream.endText();
 
         float coord = 448.0316f;
@@ -107,12 +107,12 @@ public class StampaFattura extends HttpServlet {
 
             contentStream.beginText();
             contentStream.newLineAtOffset(344.4793f, coord);
-            contentStream.showText("€" + " " + a.getPrezzoAq());
+            contentStream.showText( a.getPrezzoAq() + " euro");
             contentStream.endText();
 
             contentStream.beginText();
             contentStream.newLineAtOffset(515.6068f, coord);
-            contentStream.showText("€" + " " + a.getPrezzoAq() * a.getQuantita());
+            contentStream.showText((a.getPrezzoAq() * a.getQuantita() + " euro"));
             contentStream.endText();
 
             coord -= 15;
@@ -124,8 +124,8 @@ public class StampaFattura extends HttpServlet {
         document.close();
 
         resp.setContentType("application/pdf");
-        resp.setHeader("Content-Disposition", "attachment; filename=output.pdf");
         resp.setCharacterEncoding("UTF-8");
+        resp.setHeader("Content-Disposition", "attachment; filename=output.pdf");
         resp.sendRedirect("pdf/output.pdf");
     }
 

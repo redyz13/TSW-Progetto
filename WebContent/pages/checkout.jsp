@@ -118,7 +118,7 @@
 							<input type="text" form="aggiungi-ordine" id="via-spedizione" name="via-spedizione" required> <br>
 							<label for="cap-spedizione">CAP </label>
 							<input type="text" form="aggiungi-ordine" id="cap-spedizione" name="cap-spedizione" required><br>
-							<label for="citta-spedizione">Citt&#225;</label>
+							<label for="citta-spedizione">Citt&agrave;</label>
 							<input type="text" form="aggiungi-ordine" id="citta-spedizione" name="citta-spedizione" required><br>
 						</div>
 						<div class="non-valida"></div>
