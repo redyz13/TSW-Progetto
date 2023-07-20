@@ -2,28 +2,12 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
 <footer>
   <a href="#">whiTee</a><br><br>
-  <table class="table">
-		<caption hidden>Footer</caption>
-		<tr hidden>
-			<th>mappa</th>
-			<th>social</th>
-		</tr>
-		<tr>
-			<td>
-				<p class="bianco">Dove puoi trovarci:</p>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48366.17756815939!2d14.727383022525306!3d40.7425317693149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bc5c7456b88bd%3A0x80bab96149d2993d!2sUniversit%C3%A0%20degli%20Studi%20di%20Salerno!5e0!3m2!1sit!2sit!4v1689832794295!5m2!1sit!2sit" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-				<br><p class="bianco">Via Giovanni Paolo II, 132</p>
-				<p class="bianco">84084 Fisciano SA</p>
-			</td>
-			<td style="text-align: center;">
-				<p class="bianco">I nostri social:</p><br><br><br>
-				<a href="http://www.facebook.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" class="small-social"></a>
-				<a href="http://www.twitter.com/"><img src="https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png" class="small-social"></a>
-				<a href="http://www.instagram.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" class="small-social"></a>
-				<br><br><br> <p class="bianco">Contattaci:</p>
-				<a href="tel:089961111">089961111</a>
-			</td>
-		</tr>
-	</table>
+  <p style="color: #181818">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis dui egestas, sollicitudin elit vitae, facilisis nisl. Donec efficitur vel ex eget mattis. Curabitur dignissim volutpat posuere. Nullam condimentum viverra nulla sed volutpat. Fusce ornare pellentesque mi vel hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut metus sit amet massa maximus interdum at ut nulla. Nullam sagittis vitae est at tempus. Donec sollicitudin leo eros, non eleifend ex tempor et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lectus diam, dictum vel felis eu, sodales consectetur dolor. Vestibulum et turpis luctus, fermentum nulla accumsan, porttitor ante. Vestibulum iaculis nibh sed sodales luctus. Sed sit amet metus elementum purus consequat viverra vel et nibh. Morbi facilisis dictum enim, eu porta urna dignissim sit amet. Nam maximus magna at dolor rutrum malesuada.
+
+    Nullam accumsan turpis non eros posuere pulvinar. Nulla faucibus lectus tortor, vel gravida metus imperdiet nec. Nulla facilisis, tortor ac sodales venenatis, dui nisl gravida massa, ut ultricies magna dui vitae nibh. Duis molestie nulla id porta accumsan. Nam dictum augue nec nisl egestas congue. Suspendisse a nunc libero. Nam molestie, diam ac condimentum mollis, eros ex maximus mi, eget bibendum leo leo nec ipsum.
+
+    Nunc quam nulla, vestibulum sit amet convallis at, interdum rhoncus leo. Cras rutrum fringilla neque quis volutpat. Vestibulum mattis porta blandit. Sed egestas cursus mauris, quis congue justo aliquam non. Aenean vel arcu tellus. Vivamus varius metus non velit aliquam dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis ac mauris varius, dignissim nunc nec, tincidunt tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tristique libero in commodo congue. Maecenas mattis nibh non risus cursus rhoncus.
+  </p>
 </footer>
 </div>
