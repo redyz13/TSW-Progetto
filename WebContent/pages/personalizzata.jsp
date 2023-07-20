@@ -8,10 +8,13 @@
         <title>Personalizza maglietta</title>
 	</head>
 	<body>
-	
 		<%@ include file="header.jsp"%>
+
+        <form method="POST" id="form" action="${pageContext.request.contextPath}/SaveCustom"></form>
+        <input form="form" type="hidden" id="imgData" name="imgData">
+
 		<script src="${pageContext.request.contextPath}/js/personalizzata.js"></script>
-        <div class="tshirt-div">
+        <div class="tshirt-div" id="tshirt">
             <img id="tshirt-backgroundpicture" src="${pageContext.request.contextPath}/images/system/tshirt-base.png" alt="T-shirt background"/>
             <img id="tshirt-new" src="${pageContext.request.contextPath}/images/system/void.png" alt="Nuova T-Shirt">
         </div>
@@ -25,16 +28,39 @@
         </select>
         <br><br>
         <label for="tshirt-color">Colore T-Shirt</label>
-        <select id="tshirt-color" onchange="changeColor()">
-            <option value="#BF40BF">Viola</option>
-            <option value="#fff">Bianco</option>
-            <option value="#000">Nero</option>
-            <option value="#f00">Rosso</option>
-            <option value="#008000">Verde</option>
-            <option value="#ff0">Giallo</option>
+        <select name="colore" form="form" id="tshirt-color" onchange="changeColor()">
+            <option value="Viola">Viola</option>
+            <option value="Bianco">Bianco</option>
+            <option value="Nero">Nero</option>
+            <option value="Rosso">Rosso</option>
+            <option value="Verde">Verde</option>
+            <option value="Giallo">Giallo</option>
         </select>
+        <br><br><label>Taglia:<select form="form" name="taglia" class="button" id="size" required>
+            <option value="XS" selected>XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select></label>
         <br><br>
         <label for="tshirt-custompicture">Carica la tua grafica:</label>
-        <input type="file" id="tshirt-custompicture" accept="image/*" onchange="addNew()">
+        <input type="file" id="tshirt-custompicture" accept="image/*" onchange="addNew()"><br><br>
+        <button onclick="saveTshirtImage()">Aggiungi al carrello</button>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.js" integrity="sha384-q0KsXOmCeCEoVzvj91Xfq+Z9A/MA9/K7PhfVXTTZHQiZ+snp/JlaXl08LNAT7mrM" crossorigin="anonymous"></script>
+        <script>
+              function saveTshirtImage() {
+                  // Utilizza html2canvas per catturare il contenuto del div con id "tshirt"
+                  html2canvas(document.getElementById("tshirt")).then(function (canvas) {
+                      // Converti il canvas in un'immagine PNG e inserisci i dati dell'immagine nel campo nascosto del modulo
+                      document.getElementById("imgData").value = canvas.toDataURL("image/png");
+
+                      // Invia il modulo per salvare l'immagine sul server
+                      document.getElementById("form").submit();
+                  });
+              }
+        </script>
+    <%@ include file="footer.jsp"%>
 	</body>
 </html>
