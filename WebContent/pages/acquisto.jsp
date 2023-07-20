@@ -13,13 +13,14 @@
 <body>
 	<%@ include file="./header.jsp"%>
 	<table>
+		<caption hidden>Tabella acquisto</caption>
 		<tr hidden>
 			<th>Robottino</th>
 			<th>Messaggio</th>
 		</tr>
 		<tr>
 			<td>
-				<img src="${pageContext.request.contextPath}/images/system/acquisto.png">
+				<img src="${pageContext.request.contextPath}/images/system/acquisto.png" alt="Acquisto">
 			</td>
 			<td>
 				<p>Acqusto effettuato!</p>
