@@ -74,8 +74,6 @@ public class SaveCustom extends HttpServlet {
                 int ID = magliettaDAO.getMaxID() - 1;
                 String taglia = req.getParameter("taglia");
 
-                System.out.println(taglia);
-                System.out.println(ID);
                 carrello.aggiungi(ID, taglia);
                 resp.sendRedirect("pages/carrello.jsp");
             } catch (SQLException e) {
