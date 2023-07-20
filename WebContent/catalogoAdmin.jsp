@@ -126,52 +126,54 @@
  </div>
  <br><br>
 
+
   <h1>Inserimento magliette</h1>
 
   <form action="SaveMaglietta" method="post" enctype="multipart/form-data">
-    <fieldset>
-      <legend>Compilare i seguenti campi</legend>
-      <label>Nome: <input type="text" name="nome" required autocomplete="off"></label> <br>
-      <label>Prezzo: <input type="text" inputmode="decimal" name="prezzo" required autocomplete="off"></label> <br>
-      <label>IVA: <input type="text" inputmode="numeric" name="IVA" required autocomplete="off"></label> <br>
+	  <fieldset>
+		  <legend>Compilare i seguenti campi</legend>
+		  <label>Nome: <input type="text" name="nome" required autocomplete="off"></label> <br>
+		  <label>Prezzo: <input type="text" inputmode="decimal" name="prezzo" required autocomplete="off"></label> <br>
+		  <label>IVA: <input type="text" inputmode="numeric" name="IVA" required autocomplete="off"></label> <br>
 
-      <label for="colore">Colore: </label>
-      <select name="colore" id="colore">
-        <option value="Blu">Blu</option>
-        <option value="Rosso">Rosso</option>
-        <option value="Giallo">Giallo</option>
-        <option value="Verde">Verde</option>
-        <option value="Viola">Viola</option>
-        <option value="Rosa">Rosa</option>
-        <option value="Azzurro">Azzurro</option>
-        <option value="Nero">Nero</option>
-        <option value="Bianco">Bianco</option>
-        <option value="Arancione">Arancione</option>
-      </select> <br>
+		  <label for="colore">Colore: </label>
+		  <select name="colore" id="colore">
+			  <option value="Blu">Blu</option>
+			  <option value="Rosso">Rosso</option>
+			  <option value="Giallo">Giallo</option>
+			  <option value="Verde">Verde</option>
+			  <option value="Viola">Viola</option>
+			  <option value="Rosa">Rosa</option>
+			  <option value="Azzurro">Azzurro</option>
+			  <option value="Nero">Nero</option>
+			  <option value="Bianco">Bianco</option>
+			  <option value="Arancione">Arancione</option>
+		  </select> <br>
 
-      <label for="tipo">Tipo:</label>
-      <select name="tipo" id="tipo">
-        <option value="Anime e Manga">Anime e Manga</option>
-        <option value="Film e Serie TV">Film e Serie TV</option>
-        <option value="Girl Power">GRLPWR: Girl Power</option>
-        <option value="Fumetti">Fumetti</option>
-      </select> <br>
-      <label for="taglia">Taglia:</label>
-      <select name="taglia" id="taglia">
-        <option value="XS">XS</option>
-        <option value="S">S</option>
-        <option value="M" selected>M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-       </select> <br>
-       <label>Quantit&agrave: <input type="number" min="1" max="100" name="quantita" required autocomplete="off"></label> <br>
+		  <label for="tipo">Tipo:</label>
+		  <select name="tipo" id="tipo">
+			  <option value="Anime e Manga">Anime e Manga</option>
+			  <option value="Film e Serie TV">Film e Serie TV</option>
+			  <option value="Girl Power">GRLPWR: Girl Power</option>
+			  <option value="Fumetti">Fumetti</option>
+		  </select> <br>
+		  <label for="taglia">Taglia:</label>
+		  <select name="taglia" id="taglia">
+			  <option value="XS">XS</option>
+			  <option value="S">S</option>
+			  <option value="M" selected>M</option>
+			  <option value="L">L</option>
+			  <option value="XL">XL</option>
+			  <option value="XXL">XXL</option>
+		  </select> <br>
+		  <label>Quantit&agrave: <input type="number" min="1" max="100" name="quantita" required autocomplete="off"></label> <br>
 
-      <label>Descrizione: <br> <textarea name="descrizione" required autocomplete="off"></textarea></label> <br> <br>
-      <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label> <br>
-      <input type="submit" value="Carica">
-    </fieldset>
+		  <label>Descrizione: <br> <textarea name="descrizione" required autocomplete="off"></textarea></label> <br> <br>
+		  <label>Grafica: <input type="file" name="grafica" accept="image/*" required></label> <br>
+		  <input type="submit" value="Carica">
+	  </fieldset>
   </form>
+
   <script src="${pageContext.request.contextPath}/js/regexUpdateAggiuntaMaglietta.js"></script>
   <%@ include file="pages/footer.jsp" %>
 </body>

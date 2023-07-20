@@ -43,36 +43,44 @@
 		
 		<div class="slider-categories">
 		 	<div class="slide-category" id="cat-1">
+				<a href="Tipo?tipo=Film e Serie Tv">
 			 	<div class="card">
 	    			<img src="${pageContext.request.contextPath}/images/system/tv-series.png" alt="Film e Serie TV" class="card-image">
 	    			<div class="card-text">
 	      				Film e Serie TV
 	    			</div>
 	  			</div>
+				</a>
 			</div>
 			<div class="slide-category" id="cat-2">
+				<a href="Tipo?tipo=Anime e Manga">
 			 	<div class="card">
 	    			<img src="${pageContext.request.contextPath}/images/system/manga.png" alt="Anime e Manga" class="card-image">
-	    			<div class="card-text">
+					<div class="card-text">
 	      				Anime e Manga
 	    			</div>
 	  			</div>
+				</a>
 			</div>
 			<div class="slide-category" id="cat-3">
+				<a href="Tipo?tipo=Fumetti">
 			 	<div class="card">
 	    			<img src="${pageContext.request.contextPath}/images/system/comic.png" alt="Fumetti" class="card-image">
 	    			<div class="card-text">
 	      				Fumetti
 	    			</div>
 	  			</div>
+				</a>
 			</div>
 			<div class="slide-category" id="cat-4">
+				<a href="Tipo?tipo=Girl Power">
 			 	<div class="card">
 	    			<img src="${pageContext.request.contextPath}/images/system/girl-power.png" alt="Cirl Power" class="card-image">
 	    			<div class="card-text">
 	      				Girl Power
 	    			</div>
 	  			</div>
+				</a>
 			</div>
 		  </div>
 		  

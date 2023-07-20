@@ -8,10 +8,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
     private static final String TABLE_NAME = "Maglietta";
@@ -67,6 +64,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
 
         return magliettaBean;
     }
+
 
      // Resituisce una collezione di magliette che soddisfano una condizione (SQL ORDER BY)
     @Override
