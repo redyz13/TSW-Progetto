@@ -96,8 +96,8 @@ public class AcquistoDAO implements DAOInterface<AcquistoBean, Integer> {
     private void setAcquisto(ResultSet resultSet, AcquistoBean acquistoBean) throws SQLException {
         acquistoBean.setIDAcquisto(resultSet.getInt("IDAcquisto"));
         acquistoBean.setIDOrdine(resultSet.getInt("IDOrdine"));
-        acquistoBean.setIDAcquisto(resultSet.getInt("IDMaglietta"));
-        acquistoBean.setIDAcquisto(resultSet.getInt("quantita"));
+        acquistoBean.setIDMaglietta(resultSet.getInt("IDMaglietta"));
+        acquistoBean.setQuantita(resultSet.getInt("quantita"));
         acquistoBean.setImmagine(resultSet.getString("immagine"));
         acquistoBean.setPrezzoAq(resultSet.getFloat("prezzoAq"));
         acquistoBean.setIvaAq(resultSet.getInt("ivaAq"));

@@ -15,6 +15,7 @@
     if (ordini == null)
         response.sendRedirect("../StoricoOrdini");
 %>
+<% request.getSession().setAttribute("ordini", ordini); %>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -88,6 +89,7 @@
                 <td>
                     <form method="POST" action="StampaFattura">
                         <button type="submit" class="button">Stampa fattura</button>
+                        <input type="hidden" name="IDOrdine" value="<%= ordineBean.getID() %>">
                     </form>
                 </td>
 
