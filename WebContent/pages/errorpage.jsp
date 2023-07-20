@@ -20,10 +20,7 @@
     <p class="error-message">Oops! Qualcosa &egrave andato storto</p>
     <a href="${pageContext.request.contextPath}/index.jsp"> <button class="error-button">Torna alla Home</button></a>
 </div>
-    <%-- TODO rimuovere message e stack trace --%>
-    <h1 class="error-title">Errore! <%= response.getStatus() %></h1>
-    <p><%= exception.getMessage() %></p>
-    <p><%= sw.toString() %></p>
+
 <%@ include file="footer.jsp"%>
 </body>
 </html>
