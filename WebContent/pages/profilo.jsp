@@ -43,7 +43,7 @@
                 <label for="citta-utente">Citta: </label>
                 <input type="text" name="citta-utente" id="citta-utente" value="<%=utenteBean.getCitta()%>" disabled>
                 <label for="cap-utente">Cap: </label>
-                <input type="text" name="cap-utente" id="cap-utente" value="<%=utenteBean.getCap()%>()" disabled>
+                <input type="text" name="cap-utente" id="cap-utente" value="<%=utenteBean.getCap()%>" disabled>
             </div>
             <div class="indirizzo-button">
                 <button class="indirizzo-button button" onclick="openPopUpIndirizzo()" type="submit">Modifica indirizzo</button>
@@ -94,17 +94,17 @@
                 <div class="pagamento-body">
                     <form action="ModificaPagamento" method="POST" id="modifica-pagamento-form">
                         <input type="hidden" name="modificaPagamento" value="profilo">
-                        <label for="nomeCartaNuova">Nome</label>
+                        <label for="nomeCartaNuova">Nome: </label>
                         <input type="text" id="nomeCartaNuova" name="nomeCartaNuova" required><br>
-                        <label for="cognomeCartaNuova">Cognome</label>
+                        <label for="cognomeCartaNuova">Cognome: </label>
                         <input type="text" id="cognomeCartaNuova" name="cognomeCartaNuova" required><br>
-                        <label for="numCartaNuova">Numero sulla carta </label>
+                        <label for="numCartaNuova">Numero sulla carta: </label>
                         <input type="text" id="numCartaNuova" name="numCartaNuova" required><br>
-                        <label for="dataScadNuova">Data di scadenza</label>
+                        <label for="dataScadNuova">Data di scadenza: </label>
                         <input type="date" id="dataScadNuova" name="dataScadNuova" required><br>
-                        <label for="CVVNuovo">Codice sicurezza (CVV)</label>
+                        <label for="CVVNuovo">Codice sicurezza (CVV): </label>
                         <input type="text" id="CVVNuovo" name="CVVNuovo" required><br>
-                        <button type="submit">Aggiungi carta</button>
+                        <button type="submit">Aggiungi carta: </button>
                         <div class="non-valido"></div>
                     </form>
                 </div>
@@ -146,6 +146,7 @@
             <tr class="acquisti" id="tr<%=ordineBean.getID()%>">
                 <td>
                     <table>
+                        <caption hidden>Tabella acquisti</caption>
                         <%
                         for (AcquistoBean acquisto: acquisti) {
                         %>
