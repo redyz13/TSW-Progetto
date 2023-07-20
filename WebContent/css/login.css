@@ -104,3 +104,55 @@ input:focus ~ label, input:valid ~ label {
 	font-size: 2vh;
 	color: #5264AE;
 }
+.button2 {
+  position: relative;
+  margin: 0 auto 0 0;
+  padding: 0.5% 1%;
+  outline: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  color: #000000;
+  font-family: inherit;
+  z-index: 0;
+  overflow: hidden;
+  width: 30%;
+}
+
+
+.button2:hover {
+    color: #164ca7;
+    border-color: #164ca7;
+}
+.button3 {
+  position: relative;
+  margin: 0 17% 0 auto;
+  padding: 0.5% 1%;
+  outline: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  color: #000000;
+  font-family: inherit;
+  z-index: 0;
+  overflow: hidden;
+  width: 30%;
+}
+
+
+.button3:hover {
+    color: #164ca7;
+    border-color: #164ca7;
+}
