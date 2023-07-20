@@ -41,7 +41,21 @@ public class UtenteDAO implements DAOInterface<UtenteBean, String> {
 
     @Override
     public Collection<UtenteBean> doRetriveAll(String order) throws SQLException {
-        return null;
+        Collection<UtenteBean> utenti = new ArrayList<>();
+
+        String query = "SELECT * FROM" + TABLE_NAME;
+
+        try (Connection connection=ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                UtenteBean utenteBean = new UtenteBean();
+                setUtente(resultSet, utenteBean);
+                utenti.add(utenteBean);
+            }
+        }
+
+        return utenti;
     }
 
     public UtenteBean doRetrieveByEmail(String email) throws SQLException {

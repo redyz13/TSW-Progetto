@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/system/favicon.ico" type="image/x-icon">
 	
-	<div class="defNav">
+	<div class="defNav" id="defNav">
 		<div class="logo-container">
 			<a href="${pageContext.request.contextPath}/index.jsp" class="a">
 				<img src="${pageContext.request.contextPath}/images/system/logo-small.png" class="logo" alt="whitee">

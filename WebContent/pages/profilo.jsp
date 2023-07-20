@@ -56,13 +56,13 @@
                 </div>
                 <div class="indirizzo-body">
                     <form action="ModificaIndirizzo" method="POST" id="modifica-indirizzo-form">
-                        <label for="viaNuova">Via</label>
+                        <label for="viaNuova">Via: </label>
                         <input type="text" id="viaNuova" name="viaNuova" required><br>
-                        <label for="cittaNuova">Città</label>
-                        <input type="text" id="cittaNuova" name="cittaNuova" required><br>
-                        <label for="capNuova">Cap</label>
+                        <label for="cittaNuova">Città: </label>
+                        <input type="text"  id="cittaNuova" name="cittaNuova" required><br>
+                        <label for="capNuova">Cap: </label>
                         <input type="text" id="capNuova" name="capNuova" required><br>
-                        <button type="submit">Aggiungi indirizzo</button>
+                        <button type="submit" class="button">Aggiungi indirizzo</button>
                         <div class="non-valido"></div>
                     </form>
                 </div>
@@ -74,14 +74,14 @@
         <div class="metodo-di-pagamento">
             <div class="pagamento-header">Metodo di Pagamento</div>
             <div class="pagamento-body-no-modifica">
-                <label for="nomeCarta">Nome Carta</label>
-                <input type="text" id="nomeCarta" name="nomeCarta" value="<%=utenteBean.getNomeCarta()%>" disabled><br>
-                <label for="cognomeCarta">Cognome Carta</label>
-                <input type="text" id="cognomeCarta" name="cognomeCarta" value="<%=utenteBean.getNomeCarta()%>" disabled><br>
-                <label for="numCarta">Numero Carta</label>
-                <input type="text" id="numCarta" name="numCarta" value="<%=utenteBean.getNumCarta()%>" disabled>
-                <label for="dataScadenza">Data Scadenza</label>
-                <input type="text" id="dataScadenza" name="dataScadenza" value="<%=utenteBean.getDataScadenza()%>" disabled>
+                <label for="nomeCarta">Nome Carta</label><br>
+                <input type="text" id="nomeCarta" name="nomeCarta" value="<%=utenteBean.getNomeCarta()%>" disabled><br><br>
+                <label for="cognomeCarta">Cognome Carta</label><br>
+                <input type="text" id="cognomeCarta" name="cognomeCarta" value="<%=utenteBean.getNomeCarta()%>" disabled><br><br>
+                <label for="numCarta">Numero Carta</label><br>
+                <input type="text" id="numCarta" name="numCarta" value="<%=utenteBean.getNumCarta()%>" disabled><br><br>
+                <label for="dataScadenza">Data Scadenza</label><br>
+                <input type="text" id="dataScadenza" name="dataScadenza" value="<%=utenteBean.getDataScadenza()%>" disabled><br><br>
             </div>
             <div class="pagamento-button">
                     <button class="pagamento-button button" type="submit" onclick="openPopUp()">Modifica metodo di pagamento</button>
@@ -104,7 +104,7 @@
                         <input type="date" id="dataScadNuova" name="dataScadNuova" required><br>
                         <label for="CVVNuovo">Codice sicurezza (CVV): </label>
                         <input type="text" id="CVVNuovo" name="CVVNuovo" required><br>
-                        <button type="submit">Aggiungi carta: </button>
+                        <button type="submit" class="button">Aggiungi carta </button>
                         <div class="non-valido"></div>
                     </form>
                 </div>
