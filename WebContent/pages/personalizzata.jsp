@@ -46,7 +46,7 @@
 		        </select></label>
 		        <br><br>
 		        <label for="tshirt-custompicture" class="Label">Carica la tua grafica:</label>
-		        <input type="file" id="tshirt-custompicture" accept="image/*" onchange="addNew()"><br><br><br><br><br>
+		        <input type="file" id="tshirt-custompicture" accept="image/*" onchange="addNew()"><br><br>
 		        <button class="btn-shine" onclick="saveTshirtImage()">
     						<span>Aggiungi al carrello</span>
 							<script src="https://cdn.lordicon.com/bhenfmcm.js" integrity="sha384-VY539ll5TIagHE4WlmKaJKJ4gKxfKtGxK0MgVqVuFG4RXvATOK4KWfapoPR/PE9K" crossorigin="anonymous"></script>
