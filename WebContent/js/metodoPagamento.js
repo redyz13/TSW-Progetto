@@ -4,8 +4,6 @@ function openPopUp() {
 
 	let overlay = document.getElementById("overlay")
 	overlay.classList.add("activeOverlay");
-
-	document.getElementById("defNav").style.backgroundColor = "transparent";
 }
 
 function closePopUp() {
@@ -14,6 +12,4 @@ function closePopUp() {
 
 	let overlay = document.getElementById("overlay");
 	overlay.classList.remove("activeOverlay");
-
-	document.getElementById("defNav").style.backgroundColor = "white";
 }
