@@ -27,7 +27,12 @@ body {
     margin-bottom: 20px;
     width: 50%;
 }
-
+.pagamento-body input, .indirizzo-body input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
 
 .modifica-indirizzo {
     margin-top: 10px;
@@ -48,12 +53,7 @@ body {
     margin-bottom: 5px;
 }
 
-.pagamento-body input, .indirizzo-body input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
+
 
 
 .button {

@@ -24,8 +24,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profilo utente</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profilo.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/modificaIndirizzo.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/modificaPagamento.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profilo.css">
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -44,14 +45,35 @@
                 <label for="cap-utente">Cap: </label>
                 <input type="text" name="cap-utente" id="cap-utente" value="<%=utenteBean.getCap()%>()" disabled>
             </div>
-            <div class="modifica-indirizzo">
-                <button class="indirizzo-button button" id="modifica-indirizzo" type="submit">Modifica indirizzo</button>
+            <div class="indirizzo-button">
+                <button class="indirizzo-button button" onclick="openPopUpIndirizzo()" type="submit">Modifica indirizzo</button>
+            </div>
+
+            <div class="modifica-indirizzo" id="modifica-indirizzo">
+                <div class="indirizzo-header">
+                    <span class="header-title">Modifica indirizzo</span>
+                    <span><button class="close-button" onclick="closePopUpIndirizzo()">&times;</button></span>
+                </div>
+                <div class="indirizzo-body">
+                    <form action="ModificaIndirizzo" method="POST" id="modifica-indirizzo-form">
+                        <label for="viaNuova">Via</label>
+                        <input type="text" id="viaNuova" name="viaNuova" required><br>
+                        <label for="cittaNuova">Città</label>
+                        <input type="text" id="cittaNuova" name="cittaNuova" required><br>
+                        <label for="capNuova">Cap</label>
+                        <input type="text" id="capNuova" name="capNuova" required><br>
+                        <button type="submit">Aggiungi indirizzo</button>
+                        <div class="non-valido"></div>
+                    </form>
+                </div>
             </div>
         </div>
+        <div id="overlayIndirizzo"></div>
+
 
         <div class="metodo-di-pagamento">
             <div class="pagamento-header">Metodo di Pagamento</div>
-            <div class="pagamento-body">
+            <div class="pagamento-body-no-modifica">
                 <label for="nomeCarta">Nome Carta</label>
                 <input type="text" id="nomeCarta" name="nomeCarta" value="<%=utenteBean.getNomeCarta()%>" disabled><br>
                 <label for="cognomeCarta">Cognome Carta</label>
@@ -160,6 +182,7 @@
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/js/metodoPagamento.js"></script>
+<script src="${pageContext.request.contextPath}/js/modificaIndirizzo.js"></script>
 <script>
     let toggle = false;
 </script>
