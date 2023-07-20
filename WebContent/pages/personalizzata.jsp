@@ -27,7 +27,7 @@
             <option value="${pageContext.request.contextPath}/images/system/logo.png">whiTee</option>
         </select>
         <br><br>
-        <label for="tshirt-color">Colore T-Shirt</label>
+        <label for="tshirt-color">Colore T-Shirt:</label>
         <select name="colore" form="form" id="tshirt-color" onchange="changeColor()">
             <option value="Viola">Viola</option>
             <option value="Bianco">Bianco</option>
