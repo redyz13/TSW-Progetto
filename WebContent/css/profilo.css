@@ -4,9 +4,12 @@ body {
     padding: 0;
 }
 
-
 .profilo {
     margin-top: 20px;
+}
+
+.indirizzo-e-header {
+    display: flex;
 }
 
 /* Intestazione */
@@ -17,16 +20,13 @@ body {
     margin-bottom: 20px;
 }
 
-.indirizzo-e-header {
-    display: flex;
-}
-
 .metodo-di-pagamento, .indirizzo {
     background-color: #f9f9f9;
     padding: 20px;
     margin-bottom: 20px;
     width: 50%;
 }
+
 .pagamento-body input, .indirizzo-body input {
     width: 100%;
     padding: 8px;
