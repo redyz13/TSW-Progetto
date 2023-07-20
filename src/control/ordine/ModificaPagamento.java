@@ -40,7 +40,14 @@ public class ModificaPagamento extends HttpServlet {
             req.getRequestDispatcher("/pages/errorpage.jsp").forward(req, resp);
         }
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("pages/checkout.jsp");
-        requestDispatcher.forward(req, resp);
+        if (req.getParameter("modificaPagamento").equals("profilo"))
+            resp.sendRedirect("StoricoOrdini");
+        else if (req.getParameter("modificaPagamento").equals("checkout"))
+            resp.sendRedirect("pages/checkout.jsp");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       doPost(req,resp);
     }
 }

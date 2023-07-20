@@ -63,6 +63,12 @@
 							<%
 								UtenteBean utenteBean = (UtenteBean) request.getSession().getAttribute("utente");
 							%>
+							<label for="nomeCarta">Nome Carta</label> <input type="text"
+								form="aggiungi-ordine" id="nomeCarta" name="nomeCarta"
+								value="<%=utenteBean.getNomeCarta()%>" disabled><br>
+							<label for="cognomeCarta">Cognome Carta</label> <input type="text"
+								form="aggiungi-ordine" id="cognomeCarta" name="cognomeCarta"
+								value="<%=utenteBean.getNomeCarta()%>" disabled><br>
 							<label for="numCarta">Numero Carta</label> <input type="text"
 								form="aggiungi-ordine" id="numCarta" name="numCarta"
 								value="<%=utenteBean.getNumCarta()%>" disabled><br>
@@ -81,7 +87,8 @@
 									class="close-button" onclick="closePopUp()">&times;</button></span>
 						</div>
 						<div class="pagamento-body">
-							<form action="ModificaPagamento" method="POST" id="modifica-pagamento-form">
+							<form action="${pageContext.request.contextPath}/ModificaPagamento" method="POST" id="modifica-pagamento-form">
+								<input type="hidden" name="modificaPagamento" value="checkout">
 								<label for="nomeCartaNuova">Nome</label>
 								<input type="text" id="nomeCartaNuova" name="nomeCartaNuova" required><br>
 								<label for="cognomeCartaNuova">Cognome</label>

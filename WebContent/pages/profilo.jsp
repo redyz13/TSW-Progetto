@@ -25,6 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profilo utente</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profilo.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/modificaPagamento.css">
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -51,16 +52,42 @@
         <div class="metodo-di-pagamento">
             <div class="pagamento-header">Metodo di Pagamento</div>
             <div class="pagamento-body">
+                <label for="nomeCarta">Nome Carta</label>
+                <input type="text" id="nomeCarta" name="nomeCarta" value="<%=utenteBean.getNomeCarta()%>" disabled><br>
+                <label for="cognomeCarta">Cognome Carta</label>
+                <input type="text" id="cognomeCarta" name="cognomeCarta" value="<%=utenteBean.getNomeCarta()%>" disabled><br>
                 <label for="numCarta">Numero Carta</label>
                 <input type="text" id="numCarta" name="numCarta" value="<%=utenteBean.getNumCarta()%>" disabled>
                 <label for="dataScadenza">Data Scadenza</label>
                 <input type="text" id="dataScadenza" name="dataScadenza" value="<%=utenteBean.getDataScadenza()%>" disabled>
             </div>
             <div class="pagamento-button">
-                <form action="ModificaPagamento">
-                </form>
-                <button class="pagamento-button button" type="submit">Modifica metodo di pagamento</button>
+                    <button class="pagamento-button button" type="submit" onclick="openPopUp()">Modifica metodo di pagamento</button>
             </div>
+            <div class="modifica-pagamento" id="modifica-pagamento">
+                <div class="pagamento-header">
+                    <span class="header-title">Modifica pagamento</span> <span><button
+                        class="close-button" onclick="closePopUp()">&times;</button></span>
+                </div>
+                <div class="pagamento-body">
+                    <form action="ModificaPagamento" method="POST" id="modifica-pagamento-form">
+                        <input type="hidden" name="modificaPagamento" value="profilo">
+                        <label for="nomeCartaNuova">Nome</label>
+                        <input type="text" id="nomeCartaNuova" name="nomeCartaNuova" required><br>
+                        <label for="cognomeCartaNuova">Cognome</label>
+                        <input type="text" id="cognomeCartaNuova" name="cognomeCartaNuova" required><br>
+                        <label for="numCartaNuova">Numero sulla carta </label>
+                        <input type="text" id="numCartaNuova" name="numCartaNuova" required><br>
+                        <label for="dataScadNuova">Data di scadenza</label>
+                        <input type="date" id="dataScadNuova" name="dataScadNuova" required><br>
+                        <label for="CVVNuovo">Codice sicurezza (CVV)</label>
+                        <input type="text" id="CVVNuovo" name="CVVNuovo" required><br>
+                        <button type="submit">Aggiungi carta</button>
+                        <div class="non-valido"></div>
+                    </form>
+                </div>
+            </div>
+            <div id="overlay"></div>
         </div>
     </div>
     <div class="ordini">
@@ -92,8 +119,6 @@
                         <input type="hidden" name="IDOrdine" value="<%= ordineBean.getID() %>">
                     </form>
                 </td>
-
-
             </tr>
 
             <tr class="acquisti" id="tr<%=ordineBean.getID()%>">
@@ -134,6 +159,7 @@
         <% }%>
     </div>
 </div>
+<script src="${pageContext.request.contextPath}/js/metodoPagamento.js"></script>
 <script>
     let toggle = false;
 </script>
