@@ -36,8 +36,6 @@
 			</div>
 
 		</div>
-		
-
 
 		<h1 class="cat-Title"><a href="${pageContext.request.contextPath}/Catalogo?ordine=tipo">Le nostre categorie</a></h1>
 		
