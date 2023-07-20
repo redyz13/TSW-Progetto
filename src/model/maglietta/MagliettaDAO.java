@@ -75,7 +75,7 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
         PreparedStatement preparedStatement = null;
         Collection<MagliettaBean> magliette = new ArrayList<>();
 
-        StringBuilder query = new StringBuilder("SELECT * FROM " + TABLE_NAME + " WHERE Tipo <> 'Personalizzata'");
+        StringBuilder query = new StringBuilder("SELECT * FROM " + TABLE_NAME + " WHERE Tipo <> 'Personalizzata' AND Tipo <> 'Eliminata'");
 
         try {
             connection = ds.getConnection();
@@ -139,6 +139,20 @@ public class MagliettaDAO implements DAOInterface<MagliettaBean, Integer> {
         int result;
 
         String query = "DELETE FROM " + TABLE_NAME + " WHERE ID = ?";
+
+        try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, code);
+
+            result = preparedStatement.executeUpdate();
+        }
+
+        return result != 0;
+    }
+
+    public boolean deleteMaglietta(Integer code) throws SQLException {
+        int result;
+
+        String query = "UPDATE " + TABLE_NAME + " SET Tipo = 'Eliminata' WHERE ID = ?";
 
         try (Connection connection = ds.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, code);

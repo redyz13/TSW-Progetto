@@ -20,11 +20,10 @@ import java.sql.SQLException;
 @WebServlet("/UpdateMaglietta")
 @MultipartConfig
 public class UpdateMaglietta extends HttpServlet {
-    private static final String PATH = System.getenv("WHITEE_ROOT") + File.separator + "images" +
-            File.separator + "grafiche" + File.separator;
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final String PATH = req.getServletContext().getInitParameter("WHITEE_ROOT") + File.separator + "images" +
+                File.separator + "grafiche" + File.separator;
         int ID = Integer.parseInt(req.getParameter("id"));
         String nome  = req.getParameter("nome");
         float prezzo = Float.parseFloat(req.getParameter("prezzo"));

@@ -23,12 +23,13 @@ import java.util.Map;
 
 @WebServlet("/StampaFattura")
 public class StampaFattura extends HttpServlet {
-    private static final String PATH = System.getenv("WHITEE_ROOT") + File.separator + "pdf" +
-            File.separator;
     private static final String fileName = "fattura.pdf";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final String PATH = req.getServletContext().getInitParameter("WHITEE_ROOT") + File.separator + "pdf" +
+                File.separator;
+
         PDDocument document = PDDocument.load(new File(PATH + fileName));
         UtenteBean utenteBean = (UtenteBean) req.getSession().getAttribute("utente");
         OrdineBean ordine = null;
@@ -124,6 +125,7 @@ public class StampaFattura extends HttpServlet {
 
         resp.setContentType("application/pdf");
         resp.setHeader("Content-Disposition", "attachment; filename=output.pdf");
+        resp.setCharacterEncoding("UTF-8");
         resp.sendRedirect("pdf/output.pdf");
     }
 
