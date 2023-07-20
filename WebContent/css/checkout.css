@@ -43,3 +43,9 @@ input[type="text"] {
     border-color: red;
 }
 
+
+.td {
+	display: flex;
+	justify-content: center;
+    text-align: center;
+}

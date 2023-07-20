@@ -151,21 +151,21 @@
 									prezzo += ".00";
 						%>
 						<tr class="prodotti-carrello" id="prodotti-carrello">
-							<td colspan="2"><%=magliettaOrdine.getMagliettaBean().getNome()%>
+							<td class="tdt"><%=magliettaOrdine.getMagliettaBean().getNome()%>
 							</td>
-							<td colspan="2">&euro;&nbsp;<%=prezzo%>
+							<td class="tdt">&euro;&nbsp;<%=prezzo%>
 							</td>
-							<td colspan="2"><%=magliettaOrdine.getMagliettaBean().getIVA()%>
+							<td class="tdt"><%=magliettaOrdine.getMagliettaBean().getIVA()%>
 							</td>
-							<td colspan="2"><%=magliettaOrdine.getMagliettaBean().getColore()%>
+							<td class="tdt"><%=magliettaOrdine.getMagliettaBean().getColore()%>
 							</td>
-							<td colspan="2"><%=magliettaOrdine.getMagliettaBean().getTipo()%>
+							<td class="tdt"><%=magliettaOrdine.getMagliettaBean().getTipo()%>
 							</td>
-							<td colspan="2"><img class="immagine-prodotto"
+							<td class="td"><img class="immagine-prodotto"
 								src="../<%=magliettaOrdine.getMagliettaBean().getGrafica()%>"
 								alt="<%=magliettaOrdine.getMagliettaBean().getNome()%>"></td>
-							<td colspan="2"><%=magliettaOrdine.getQuantita()%></td>
-							<td colspan="2"><%=magliettaOrdine.getPrezzoTotale()%></td>
+							<td class="tdt"><%=magliettaOrdine.getQuantita()%></td>
+							<td class="tdt"><%=magliettaOrdine.getPrezzoTotale()%></td>
 							<%
 								prezzoTot += magliettaOrdine.getPrezzoTotale();
 							%>

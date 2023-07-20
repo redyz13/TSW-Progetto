@@ -25,7 +25,7 @@
       				<input type="password" name="password" id="password" required>
       				<label for="password">Password</label>
     			</div>
-			    <br><button type="submit">Accedi</button>
+			    <br><button type="submit" class="button2">Accedi</button>
 			</form>
 			<form action="${pageContext.request.contextPath}/Registrazione" method="post" id="sform">
 			    <p id="head">Registrati</p>
@@ -56,7 +56,7 @@
       				<label for="dataNascitaReg">Data di Nascita</label>
     			</div>
 		        <input type="hidden" name="tipo" value="user">
-		        <br> <button type="submit">Registrati</button><br><br>
+		        <br> <button type="submit" class="button3">Registrati</button><br><br>
 				<div class="non-valida"></div>
 			</form>
 	</div>
