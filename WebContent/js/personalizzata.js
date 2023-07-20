@@ -1,18 +1,32 @@
-let vuota = document.getElementById("tshirt-new").src;
-
 function changeColor() {
-	document.getElementById("tshirt-backgroundpicture").style.backgroundColor = document.getElementById("tshirt-color").value;
+	let sfondo = document.getElementById("tshirt-backgroundpicture");
+	switch (document.getElementById("tshirt-color").value) {
+	case "Viola":
+		sfondo.style.backgroundColor = "#cb0efa";
+		break;
+	case "Bianco":
+		sfondo.style.backgroundColor = "#fff";
+		break;
+	case "Nero":
+		sfondo.style.backgroundColor = "#000";
+		break;
+	case "Rosso":
+		sfondo.style.backgroundColor = "#f90d0d";
+		break;
+	case "Verde":
+		sfondo.style.backgroundColor = "#38b810";
+		break;
+	default:
+		break;
+
+	}
 }
 
 function addImage() {
-	document.getElementById("tshirt-new").src = document.getElementById("tshirt-design").value;
+	document.getElementById("tshirt-new").src = document
+			.getElementById("tshirt-design").value;
 	document.getElementById("rmImage").style.display = 'block';
 
-}
-
-function rmImage() {
-	document.getElementById("tshirt-new").src = vuota;
-	document.getElementById("rmImage").style.display = 'none';
 }
 
 function addNew() {

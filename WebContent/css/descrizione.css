@@ -78,7 +78,7 @@
 }
 
 /* bottone acquisti*/
-button {
+.button {
   position: relative;
   margin: 0;
   padding: 1% 2%;
@@ -99,7 +99,7 @@ button {
   transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
-button span {
+.button span {
   color: #000000;
   font-size: 20px;
   font-weight: bold;
@@ -107,7 +107,7 @@ button span {
   animation: storm1261 0.7s ease-in-out both;
 }
 
-button lord-icon {
+.button lord-icon {
 	height: 40px;
 	width: 40px;
 	z-index: 20;
@@ -115,16 +115,16 @@ button lord-icon {
 	animation: filter 0.7s;
 }
 
-button:hover lord-icon {
+.button:hover lord-icon {
 	filter: none;	
 }
 
 
-button:hover {
+.button:hover {
   animation: rotate624 0.7s ease-in-out both;
 }
 
-button:hover span {
+.button:hover span {
   animation-delay: 0.06s;
   color: #164ca7;
 }
@@ -243,6 +243,18 @@ button:hover span {
     font-size: 2.4em ;
     font-weight: bold;
     padding-bottom: 1px;
+}
+
+
+select {
+	border: none;
+	background: #efefef;
+	border-radius: 5px;
+	height: 30px;
+}
+
+select:hover option:hover {
+	background: white;
 }
 
 
