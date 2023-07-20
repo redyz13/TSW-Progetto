@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifica Maglietta</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/modifica.css">
-    <%-- TODO cambiare il css --%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
     <script src="${pageContext.request.contextPath}/js/selezione.js"></script>
 </head>
