@@ -20,6 +20,6 @@
   </resource-ref>
   <context-param>
     <param-name>WHITEE_ROOT</param-name>
-    <param-value>C:\Users\Antonio\eclipse-workspace\TSW-Progetto\WebContent</param-value>
+    <param-value>D:\Workspace\TSW-Progetto\WebContent</param-value>
   </context-param>
 </web-app>
